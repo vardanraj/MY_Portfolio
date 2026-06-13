@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* Default Dark Preference Variables */
+  --bg-primary: #050508;
+  --bg-secondary: #0c0c10;
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --border-card: rgba(255, 255, 255, 0.06);
+  --bg-card: rgba(12, 12, 16, 0.7);
+
+  --gradient-angle: 135deg;
+  --cursor-x: 50%;
+  --cursor-y: 50%;
+
+  --glow-primary: rgba(97, 85, 245, 0.12);
+  --glow-secondary: rgba(203, 48, 224, 0.08);
+}
+
+:root[data-theme='light'], .light {
+  --bg-primary: #fdfaf2; /* Soft rich cream base */
+  --bg-secondary: #faf1e4; /* Warm linen-taupe base */
+  --text-main: #3a2e2b; /* Deep roast espresso brown */
+  --text-muted: #7d6b67; /* Soft cocoa-taupe */
+  --border-card: rgba(100, 80, 75, 0.12); /* Delicate warm border */
+  --bg-card: rgba(254, 252, 247, 0.85); /* Pure cream card */
+
+  --glow-primary: rgba(189, 92, 56, 0.06);
+  --glow-secondary: rgba(140, 37, 36, 0.04);
+
+  /* Soothing elegant terracotta, crimson, cinnamon and amber accents for Light Mode */
+  --accent-purple: #ba4a2a; /* Soft terracotta orange-red */
+  --accent-pink: #a02c2b;   /* Soothing crimson red */
+  --accent-orange: #bd5c38; /* Warm terracotta */
+  --accent-cyan: #7c5135;   /* Cinnamon amber */
+}
+
+:root[data-theme='dark'], .dark {
+  --bg-primary: #050508;
+  --bg-secondary: #0c0c10;
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --border-card: rgba(255, 255, 255, 0.06);
+  --bg-card: rgba(12, 12, 16, 0.7);
+
+  --glow-primary: rgba(97, 85, 245, 0.12);
+  --glow-secondary: rgba(203, 48, 224, 0.08);
+
+  /* Restore standard cybernetic colors if they are not overridden inline */
+  --accent-purple: #6155f5;
+  --accent-pink: #cb30e0;
+  --accent-orange: #ff8d28;
+  --accent-cyan: #00c8b3;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Auto Light Mode Adaptation Variables */
+    --bg-primary: #fdfaf2;
+    --bg-secondary: #faf1e4;
+    --text-main: #3a2e2b;
+    --text-muted: #7d6b67;
+    --border-card: rgba(100, 80, 75, 0.12);
+    --bg-card: rgba(254, 252, 247, 0.85);
+
+    --glow-primary: rgba(189, 92, 56, 0.06);
+    --glow-secondary: rgba(140, 37, 36, 0.04);
+
+    --accent-purple: #ba4a2a;
+    --accent-pink: #a02c2b;
+    --accent-orange: #bd5c38;
+    --accent-cyan: #7c5135;
+  }
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-text-main: var(--text-main);
+  --color-text-muted: var(--text-muted);
+  --color-border-card: var(--border-card);
+  --color-bg-card: var(--bg-card);
+
+  --color-accent-purple: var(--accent-purple, #6155f5);
+  --color-accent-pink: var(--accent-pink, #cb30e0);
+  --color-accent-orange: var(--accent-orange, #ff8d28);
+  --color-accent-cyan: var(--accent-cyan, #00c8b3);
+}
+
+/* Custom Base Utilities */
+@layer base {
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  /* GPU-Accelerated Dynamic Glow tracked on mouse pointers */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: 
+      radial-gradient(circle at var(--cursor-x) var(--cursor-y), var(--glow-primary) 0%, var(--glow-secondary) 32%, transparent 65%),
+      radial-gradient(circle at calc(100% - var(--cursor-x)) calc(100% - var(--cursor-y)), rgba(0, 200, 179, 0.05) 0%, transparent 50%),
+      var(--bg-primary);
+    pointer-events: none;
+    transition: background-color 0.4s ease;
+  }
+}
+
+/* Fluid typography clamp formulas to preserve perfect text-to-image ratios in laptops, tablets, and mobiles */
+.text-fluid-h1 {
+  font-size: clamp(2.2rem, 5.5vw + 1rem, 4.5rem);
+  line-height: 1.1;
+  font-family: var(--font-display);
+}
+
+.text-fluid-h2 {
+  font-size: clamp(1.8rem, 3.5vw + 0.8rem, 3.2rem);
+  line-height: 1.2;
+  font-family: var(--font-display);
+}
+
+.text-fluid-body {
+  font-size: clamp(0.95rem, 1vw + 0.5rem, 1.0625rem);
+  line-height: 1.6;
+}
+
+/* Flowing gradient texts matching Figma stoppages and angles */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.text-animate-gradient {
+  background: linear-gradient(90deg, #6155f5 0%, #00c8b3 50%, #6155f5 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientFlow 5s linear infinite;
+}
+
+.text-animate-gradient-secondary {
+  background: linear-gradient(90deg, #cb30e0 0%, #ff8d28 50%, #cb30e0 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientFlow 6s linear infinite;
+}
+
+/* Figma Vibrant Background Gradients & Metallic Glows */
+.figma-radial-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(97, 85, 245, 0.12) 0%, rgba(0, 200, 179, 0.08) 40%, transparent 70%);
+}
+
+.figma-grad-text {
+  background: linear-gradient(135deg, #6155f5 0%, #00c8b3 50%, #cb30e0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: gradientFlow 8s ease infinite;
+}
+
+.figma-grad-border {
+  position: relative;
+  border-radius: 1rem;
+  background: var(--bg-secondary) padding-box,
+              linear-gradient(135deg, rgba(97, 85, 245, 0.4), rgba(0, 200, 179, 0.4), rgba(203, 48, 224, 0.4)) border-box;
+  border: 1px solid transparent;
+}
+
+.figma-glass-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-card);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.figma-glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    320px circle at var(--cursor-x) var(--cursor-y),
+    rgba(0, 200, 179, 0.12) 0%,
+    rgba(91, 85, 245, 0.05) 45%,
+    transparent 80%
+  );
+  background-attachment: fixed;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 5;
+}
+
+.figma-glass-card:hover::before {
+  opacity: 1;
+}
+
+.figma-active-glow {
+  box-shadow: 0 0 25px -4px rgba(0, 200, 179, 0.3);
+}
+
+/* Scrollbar Design */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(120, 110, 200, 0.2);
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 110, 200, 0.4);
+}

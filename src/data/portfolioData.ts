@@ -1,0 +1,219 @@
+import { Project, Skill, TimelineEvent, GalleryItem } from '../types';
+import MyPhoto from '../images/MY_photo (2).png';
+
+export const personalInfo = {
+  name: 'Vardan Raj',
+  title: 'Network Engineer & Graphic Designer',
+  tagline: 'Designing robust Cisco network backbones and crafting premium vector brand systems.',
+  description: 'A dual-domain specialist bridging the visual elegance of graphic design with the hardcore architecture of secure network engineering. I build resilient network topologies and pixel-perfect brand ecosystems.',
+  email: 'darkraj7011@gmail.com',
+  github: 'https://github.com/VardanRaj',
+  linkedin: 'https://linkedin.com/in/VardanRaj',
+  location: 'Grater Noida, Uttar Pradesh',
+  resumeUrl: '#',
+  portraitUrl: MyPhoto,
+};
+
+export const skillsData: Skill[] = [
+  // Network Engineering
+  { name: 'Network Topology & Cisco Routing', category: 'Backend', level: 95, iconName: 'Network' },
+  { name: 'Firewall Zoning & Palo Alto Security', category: 'Backend', level: 90, iconName: 'Database' },
+  { name: 'DNS, IPv6, VPNs & SD-WAN', category: 'Backend', level: 94, iconName: 'Server' },
+  { name: 'Infrastructure Load-Balancing', category: 'Backend', level: 88, iconName: 'Zap' },
+
+  // Graphic Design
+  { name: 'Brand Identity & Bespoke Typography', category: 'Frontend', level: 96, iconName: 'Type' },
+  { name: 'Figma UI/UX Prototyping', category: 'Frontend', level: 80, iconName: 'Figma' },
+  { name: 'Vector Illustration & Posters', category: 'Frontend', level: 92, iconName: 'Figma' },
+  { name: 'Print Layouts & Package Design', category: 'Frontend', level: 90, iconName: 'Layers' },
+
+  // Creative Tools
+  { name: 'Adobe Creative Suite', category: 'Design & DevTools', level: 93, iconName: 'Figma' },
+  { name: 'Canva', category: 'Design & DevTools', level: 91, iconName: 'Zap' }
+];
+
+export const projectsData: Project[] = [
+  {
+    id: 'packet-analyser',
+    title: 'Packet Analyser',
+    description: 'An expert-grade telemetry and packet inspection interface engineered to intercept and map virtual network frames. It parses details from HTTP, TCP, and IP protocol packets in real-time.',
+    category: 'Network Engineering',
+    tags: ['Wireshark SDK', 'Packet Capture', 'TCP/IP Stack', 'DNS Inspect'],
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800',
+    link: 'https://github.com/VardanRaj/packet-analyser',
+    github: 'https://github.com/VardanRaj/packet-analyser',
+    details: [
+      'Captures and decodes active header information including protocol parameters, TTL flags, ports, and checksum indices.',
+      'Constructs dynamic throughput metrics and telemetry reports mapping package traffic frequencies.',
+      'Integrates multi-threaded asynchronous buffers to prevent frame truncation and queue losses during peak load spikes.'
+    ],
+    featured: true
+  }
+];
+
+const imageModules = (import.meta as any).glob('../images/*', { eager: true, import: 'default' }) as Record<string, string>;
+
+// Helper to extract clean filename
+function getCleanFileName(filepath: string): string {
+  const baseName = filepath.split('/').pop() || filepath;
+  // Remove extension
+  const cleanName = baseName.replace(/\.[^/.]+$/, "");
+  return cleanName.trim();
+}
+
+// Map files to rich metadata matching Vardan Raj's real graphic design works
+const mappings: Record<string, Partial<GalleryItem>> = {
+  'Save nature': {
+    title: 'Planet or Pollution?',
+    subtitle: 'SAVE Earth Campaign Poster',
+    description: 'An eco-conservation graphic design poster crafted for InAmigos Foundation. Features a structured layout of an Earth globe enclosed in glass, layered recycling cardboard arrows, and fresh green leaves, all set on a dark green textured backdrop.',
+    category: 'Poster Art',
+    tools: ['Adobe Illustrator', 'Photoshop', 'InDesign'],
+    specs: 'A1 Format / CMYK / 300 DPI Grid',
+    details: [
+      'Official campaign graphic designed for InAmigos Foundation to promote sustainable environment awareness.',
+      'Constructed a conceptual glass sphere representation containing realistic cardboard recycle arrows.',
+      'Curated contrasting bespoke classic serif and modern retro display typography lines.'
+    ]
+  },
+  'unnamed (1)': {
+    title: 'Champions of India',
+    subtitle: 'T20 Cricket Brand Campaign',
+    description: 'A dynamic sports poster celebrating the victory of the Indian cricket team under the Apollo brand. Features a massive portrait backdrop, active sports player action shots, and textured, metallic gold display typography.',
+    category: 'Poster Art',
+    tools: ['Photoshop', 'Lightroom', 'Custom Brushes'],
+    specs: 'Victory Banner / RGB 4K Format',
+    details: [
+      'Engineered an elegant victory poster highlighting key team sports poses.',
+      'Designed textured, copper-bronze display lettering with cracks to represent heavy historic gravity.',
+      'Symmetric positioning of jerseys, equipment, and badges to create a balanced cinematic flow.'
+    ]
+  },
+  'AGT GRID': {
+    title: 'ABES Got Talent Layout Grid',
+    subtitle: 'Campus Event Visual Framework',
+    description: 'A premium structural layout and spacing grid designed for the ABES Got Talent mainstage festival assets, establishing a standard aspect ratio and visual guidelines for promotional placements.',
+    category: 'Logo & Branding',
+    tools: ['Adobe Illustrator', 'Photoshop', 'Figma Grid'],
+    specs: 'Digital Cover Grid / 1200x500px Standard',
+    details: [
+      'Created strict modular pixel-snapping layout guides for digital assets.',
+      'Establishes unified alignment standards for text overlays and logos across multiple screen ratios.',
+      'Designed double-stroke neon yellow color accents with clean grid lines.'
+    ]
+  },
+  'Mundan': {
+    title: 'Mundan Ceremony Invitation',
+    subtitle: 'Traditional Floral Milestone Card',
+    description: 'A premium floral invitation card celebrating a child\'s milestone hair-cleansing ceremony. Detailing traditional Indian golden lanterns, decorative arch frames, and an elegant cream-pastel backdrop containing a sleepy child photo.',
+    category: 'Print Layouts',
+    tools: ['Adobe Illustrator', 'InDesign', 'Procreate'],
+    specs: '5" x 7" Printable Card / CMYK',
+    details: [
+      'Crafted custom golden vectors representing traditional Indian lanterns (diya style) casting diffuse light.',
+      'Structured a precise dome arch mask following Mughal and traditional Indian architecture rules.',
+      'Curated a warm color story of fresh teal-blue, rich gold, and pastel yellow for high-end aesthetic values.'
+    ]
+  },
+  'grid': {
+    title: 'Swiss Grid Typography Poster',
+    subtitle: 'System-Symmetric Poster Grid',
+    description: 'A design layout engineering study applying strict International Typographic Style guidelines to grid metrics, technical annotations, and balanced negative-space alignment structures.',
+    category: 'Technical Graphics',
+    tools: ['Figma Layouts', 'Adobe Illustrator', 'Vector Math'],
+    specs: 'Scale-Free SVG Source / Responsive Icons',
+    details: [
+      'Developed custom mathematical grid metrics governing margin, gutter, and modular ratios.',
+      'Applied strict typography scales using high-contrast tracking to emphasize textual hierarchy.',
+      'Constructed pixel-perfect geometric lines for timeless digital design fidelity.'
+    ]
+  },
+  'Shaheedi Hafta': {
+    title: 'Shaheedi Hafta Tribute',
+    subtitle: 'Commemorative Tribute Motion Graphic',
+    description: 'An elegant digital tribute video slide and motion graphic card honoring Shaheedi Hafta (20-27 December). Bathed in warm gold-sepia light, highlighting a detailed vector outline of historical structures.',
+    category: 'Vector Illustration',
+    tools: ['Adobe Illustrator', 'After Effects', 'Procreate'],
+    specs: 'Social Story Form / MP4 Vertical HD',
+    details: [
+      'A vector architectural animation of traditional historical structures under custom frames.',
+      'Polished text alignments and cinematic fades balancing emotional, historical poem lines.',
+      'Beautiful warm gold-sepia visual animations with deep corporate styling.'
+    ]
+  },
+  'मकर संक्रांति': {
+    title: 'Makar Sankranti Greeting',
+    subtitle: 'Festive Indian Crop Festival Graphic',
+    description: 'A colorful, vibrant graphic card celebrating the harvest festival Makar Sankranti. Adorned with beautiful vector kites, traditional sweets, sugarcane illustrations, and energetic traditional greetings.',
+    category: 'Logo & Branding',
+    tools: ['Procreate App', 'Adobe Illustrator', 'InDesign'],
+    specs: 'Square Greeting Card / RGB High Resolution',
+    details: [
+      'Designed beautiful custom vector kites representing the clear blue skies of the festival.',
+      'Curated a festive, high-contrast palette of marigold yellow, brilliant blue, and deep orange.',
+      'Styled bilingual display typography blending traditional Devanagari script with elegant English accents.'
+    ]
+  }
+};
+
+function formatDefaultTitle(filename: string): string {
+  if (filename.toLowerCase().startsWith('untitled')) {
+    return 'Creative Design Composition';
+  }
+  let formatted = filename.replace(/[_-]/g, ' ');
+  // Title case
+  return formatted.replace(/\b\w/g, c => c.toUpperCase());
+}
+
+export const galleryData: GalleryItem[] = Object.entries(imageModules)
+  .filter(([pathKey]) => {
+    const filename = getCleanFileName(pathKey).toLowerCase();
+    return !filename.includes('photo') && !filename.includes('portrait') && !filename.includes('avatar');
+  })
+  .map(([pathKey, imageUrl]) => {
+    const filename = getCleanFileName(pathKey);
+    const matched = mappings[filename] || {};
+
+    return {
+      id: filename.toLowerCase().replace(/[^a-z0-9_-]/g, '-'),
+      title: matched.title || formatDefaultTitle(filename),
+      subtitle: matched.subtitle || 'Uploaded Design Asset',
+      description: matched.description || `Custom graphic design project showing original creative design process for ${filename}.`,
+      category: (matched.category || 'Poster Art') as any,
+      image: imageUrl,
+      tools: matched.tools || ['Adobe Creative Suite', 'Figma'],
+      specs: matched.specs || 'RGB / Digital Asset',
+      details: matched.details || [
+        'Engineered with premium layout alignment and tailored pixel structures.',
+        'Curated high-contrast color scheme tailored to human readability standards.',
+        'Optimized asset resolution for rapid screen response and crystal clarity.'
+      ]
+    };
+  });
+
+export const experienceData: TimelineEvent[] = [
+  {
+    id: 'exp-1',
+    role: 'Lead Network Architect & Brand Designer',
+    company: 'Raj Systems & Studio',
+    period: '2024 - Present',
+    description: 'Directing hardware infrastructure rollouts and executing brand collateral designs for client organizations.',
+    points: [
+      'Authored secure subnet maps and zone separation layouts for medium enterprise clients.',
+      'Forged cohesive visual corporate systems aligning logos, typographic guides, and presentation slide packs.',
+      'Optimized existing networks to reduce signal failure rates on remote tunnels by 40%.'
+    ]
+  },
+  {
+    id: 'exp-2',
+    role: 'Network Analyst & Graphic Specialist',
+    company: 'Connectivity Media Group',
+    period: '2022 - 2024',
+    description: 'Audited enterprise local networks while concurrently generating vector promotional visuals and graphics.',
+    points: [
+      'Resolved physical routing and virtual gateway configuration incidents on critical networks.',
+      'Designed technical poster art and dynamic infographics simplifying complex subnet topologies for clients.',
+      'Ensured 99.9% uptime by configuring resilient hot-swappable hardware architectures.'
+    ]
+  }
+];
