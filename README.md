@@ -1,8 +1,5 @@
 # MY_Portfolio
 
-A personal developer portfolio built with **React**, featuring project showcases, design galleries, and adaptive theming.  
-Deployed on [Vercel](https://my-portfolio-fawn-ten-13.vercel.app).
-
 ---
 
 ## 🚀 Features
