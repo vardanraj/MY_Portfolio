@@ -1,20 +1,38 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# MY_Portfolio
 
-# Run and deploy your AI Studio app
+A personal developer portfolio built with **React**, featuring project showcases, design galleries, and adaptive theming.  
+Deployed on [Vercel](https://my-portfolio-fawn-ten-13.vercel.app).
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/dd0509d5-8863-4fc8-8fb2-e28884f7d9cf
+## 🚀 Features
+- **Hero Section** with gradients and theme toggle (light/dark mode).
+- **Projects Showcase**:
+  - Real networking project: **Packet Analyser** (captures HTTP, TCP, and IP packets).
+  - Placeholders for upcoming projects (“Coming Soon”).
+- **Design Gallery**:
+  - Grid layout with hover effects.
+  - Modal previews with smooth transitions.
+- **Adaptive Navigation Bar**:
+  - Title Case labels.
+  - Theme-aware font styling.
+- **Responsive UI** with animations and clean component structure.
 
-## Run Locally
+---
 
-**Prerequisites:**  Node.js
+## 🛠️ Tech Stack
+- **React + TypeScript**
+- **Vite** for fast builds
+- **CSS Modules** for styling
+- **AI Studio Integration** for deployment
+- **Vercel** for hosting
 
+---
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 📦 Installation
+
+Clone the repository:
+```bash
+git clone https://github.com/vardanraj/MY_Portfolio.git
+cd MY_Portfolio
+
