@@ -79,12 +79,12 @@ export default function App() {
         <footer className="py-8 border-t border-white/5 bg-zinc-950/40 text-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <span className="font-mono text-[10px] text-zinc-500 tracking-widest uppercase">
-              © 2026 Vardan Raj. Crafted with figma pixel precision.
+              © 2026 Vardan Raj. 
             </span>
             <div className="flex items-center gap-4 text-xs font-mono text-zinc-400">
               <span className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 bg-accent-cyan rounded-full animate-pulse" />
-                <span>OBSIDIAN_MATRIX_v1.0.2</span>
+                <span>BTech</span>
               </span>
             </div>
           </div>

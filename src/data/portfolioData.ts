@@ -29,7 +29,8 @@ export const skillsData: Skill[] = [
 
   // Creative Tools
   { name: 'Adobe Creative Suite', category: 'Design & DevTools', level: 93, iconName: 'Figma' },
-  { name: 'Canva', category: 'Design & DevTools', level: 91, iconName: 'Zap' }
+  { name: 'Canva', category: 'Design & DevTools', level: 91, iconName: 'Figma' },
+  { name: 'Figma', category: 'Design & DevTools', level: 60, iconName: 'Figma' },
 ];
 
 export const projectsData: Project[] = [
@@ -194,26 +195,25 @@ export const galleryData: GalleryItem[] = Object.entries(imageModules)
 export const experienceData: TimelineEvent[] = [
   {
     id: 'exp-1',
-    role: 'Lead Network Architect & Brand Designer',
-    company: 'Raj Systems & Studio',
-    period: '2024 - Present',
-    description: 'Directing hardware infrastructure rollouts and executing brand collateral designs for client organizations.',
+    role: 'Student: Computer Science and Engineering',
+    company: 'Abes Engineering Collage',
+    period: '2024 - 2028',
+    description: 'Blending Code and Creativity for Modern Web Experiences.',
     points: [
-      'Authored secure subnet maps and zone separation layouts for medium enterprise clients.',
-      'Forged cohesive visual corporate systems aligning logos, typographic guides, and presentation slide packs.',
-      'Optimized existing networks to reduce signal failure rates on remote tunnels by 40%.'
+      'The Learner: A self-driven student who translates curiosity into practical, self-taught skills.',
+      'The Doer: Bridging academic theory with hands-on projects to solve real-world problems.',
+      'The Collaborator: An adaptable team player who brings energy, structure, and quick thinking to every challenge.'
+     
     ]
   },
   {
     id: 'exp-2',
-    role: 'Network Analyst & Graphic Specialist',
-    company: 'Connectivity Media Group',
-    period: '2022 - 2024',
-    description: 'Audited enterprise local networks while concurrently generating vector promotional visuals and graphics.',
+    role: 'Graphic Designmer Intern',
+    company: 'In Amigos Foundaton',
+    period: 'April-May 2026',
+    description: 'Crafted impactful digital content and driving fundraising campaigns at InAmigos Foundation to support pan-India social welfare initiatives',
     points: [
-      'Resolved physical routing and virtual gateway configuration incidents on critical networks.',
-      'Designed technical poster art and dynamic infographics simplifying complex subnet topologies for clients.',
-      'Ensured 99.9% uptime by configuring resilient hot-swappable hardware architectures.'
+     ''
     ]
   }
 ];
