@@ -1,20 +1,45 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# 🌟 Vardan Raj — Portfolio
 
-# Run and deploy your AI Studio app
+Welcome to my personal developer portfolio!  
+This project showcases my journey in **Web Development, Networking Fundamentals, and UI/UX Design** — built with **React** and enhanced using **Google AI Studio**.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/dd0509d5-8863-4fc8-8fb2-e28884f7d9cf
+## 🚀 Features
+- 🎨 Clean UI with gradients and theme toggle (Light/Dark mode)
+- 🖼️ Design showcase with thumbnails & modal previews
+- ⚡ Responsive layout for all devices
+- 🔧 Modular React architecture for scalability
+- 🌐 Integrated personal details & project highlights
 
-## Run Locally
+---
 
-**Prerequisites:**  Node.js
+## 🛠️ Tech Stack
+- **Frontend:** React, JavaScript, CSS (Gradients, Theme Support)
+- **Design Tools:** Figma, Google AI Studio
+- **Version Control:** Git & GitHub
+- **Networking Fundamentals:** Routing, VLANs, Subnetting
 
+---
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 📂 Projects
+- **Packet Analyzer** — Networking project with routing & analysis
+- **Portfolio Website** — Adaptive UI/UX with theme toggle
+- **Design Showcase** — Packaging & creative design gallery
+
+---
+
+## 📸 Screenshots
+(Add screenshots of your Hero section, theme toggle, and design showcase here)
+
+---
+
+## 📦 Installation
+Clone the repo and run locally:
+
+```bash
+git clone https://github.com/vardanraj/MY_Portfolio.git
+cd MY_Portfolio
+npm install
+npm start
+
