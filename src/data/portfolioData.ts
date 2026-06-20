@@ -1,4 +1,4 @@
-import { Project, Skill, TimelineEvent, GalleryItem } from '../types';
+import { Project, Skill, TimelineEvent, GalleryItem, CertificateItem } from '../types';
 import MyPhoto from '../images/MY_photo (2).png';
 
 export const personalInfo = {
@@ -8,7 +8,7 @@ export const personalInfo = {
   description: 'A dual-domain specialist bridging the visual elegance of graphic design with the hardcore architecture of secure network engineering. I build resilient network topologies and pixel-perfect brand ecosystems.',
   email: 'darkraj7011@gmail.com',
   github: 'https://github.com/VardanRaj',
-  linkedin: 'https://linkedin.com/in/VardanRaj',
+  linkedin: 'https://www.linkedin.com/in/vardan-raj-042650317/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BIVnVBp8FRZ%2BLW2h8rxhDfw%3D%3D',
   location: 'Grater Noida, Uttar Pradesh',
   resumeUrl: '#',
   portraitUrl: MyPhoto,
@@ -53,6 +53,7 @@ export const projectsData: Project[] = [
 ];
 
 const imageModules = (import.meta as any).glob('../images/*', { eager: true, import: 'default' }) as Record<string, string>;
+const certificateModules = (import.meta as any).glob('../images/certificates/*', { eager: true, import: 'default' }) as Record<string, string>;
 
 // Helper to extract clean filename
 function getCleanFileName(filepath: string): string {
@@ -169,7 +170,19 @@ function formatDefaultTitle(filename: string): string {
 export const galleryData: GalleryItem[] = Object.entries(imageModules)
   .filter(([pathKey]) => {
     const filename = getCleanFileName(pathKey).toLowerCase();
-    return !filename.includes('photo') && !filename.includes('portrait') && !filename.includes('avatar');
+    const isExcluded = 
+      filename.includes('photo') || 
+      filename.includes('portrait') || 
+      filename.includes('avatar') ||
+      filename.includes('certificate') ||
+      filename.includes('certufucacte') ||
+      filename.includes('launched') ||
+      filename.includes('networking-basics') ||
+      filename.includes('screenshot') ||
+      filename.includes('150910') ||
+      filename.includes('150933') ||
+      filename.includes('1584');
+    return !isExcluded;
   })
   .map(([pathKey, imageUrl]) => {
     const filename = getCleanFileName(pathKey);
@@ -191,6 +204,91 @@ export const galleryData: GalleryItem[] = Object.entries(imageModules)
       ]
     };
   });
+
+const findCertFile = (partialName: string): string => {
+  const entry = Object.entries(certificateModules).find(([key]) => 
+    key.toLowerCase().includes(partialName.toLowerCase())
+  );
+  if (entry) return entry[1];
+  
+  const imgEntry = Object.entries(imageModules).find(([key]) => 
+    key.toLowerCase().includes(partialName.toLowerCase())
+  );
+  return imgEntry ? imgEntry[1] : '';
+};
+
+const findImageFile = (partialName: string): string => {
+  const entry = Object.entries(imageModules).find(([key]) => 
+    key.toLowerCase().includes(partialName.toLowerCase())
+  );
+  if (entry) return entry[1];
+  
+  const certEntry = Object.entries(certificateModules).find(([key]) => 
+    key.toLowerCase().includes(partialName.toLowerCase())
+  );
+  return certEntry ? certEntry[1] : '';
+};
+
+export const certificateData: CertificateItem[] = [
+  {
+    id: 'cisco-networking-basics',
+    title: 'Networking Basics',
+    issuer: 'Cisco Networking Academy',
+    year: '2026',
+    description: 'Core concepts of network communication including active packet decodes, IP routing topologies, system subnets, and security diagnostics.',
+    image: findCertFile('networking-basics.png') || 'custom:cisco',
+    pdfUrl: findCertFile('NetworkingBasicsUpdate20260322-31-x9tw4k.pdf'),
+    skills: ['IP Routing', 'Subnetting', 'Protocols', 'Network Security', 'Wireshark']
+  },
+  {
+    id: 'graphic-internship-certificate',
+    title: 'Graphic Design Internship Certificate',
+    issuer: 'InAmigos Foundation',
+    year: '2026',
+    description: 'Recognized for graphic design, campaign asset compositions, micro-illustrations, and responsive digital visual designs for corporate events.',
+    image: findCertFile('graphic internship certificate.jpg') || 'custom:inamigos',
+    skills: ['Graphic Design', 'Figma', 'Adobe Illustrator', 'Branding', 'Typography']
+  },
+  {
+    id: 'launched-certificate',
+    title: 'Launched Program Credential',
+    issuer: 'ABES Engineering College / Tech Accelerator',
+    year: '2026',
+    description: 'Certified in rapid prototyping, full-stack React systems assembly, styling guidelines enforcement, and responsive layout designs.',
+    image: findCertFile('launched certificate.jpg') || 'custom:launched',
+    skills: ['Full-Stack Web', 'Vite', 'React 18', 'System Design', 'Responsive UI']
+  },
+  {
+    id: 'deloitte-cybersecurity-simulation',
+    title: 'Technology Consulting & Cybersecurity Credentials',
+    issuer: 'Deloitte',
+    year: '2026',
+    description: 'Deloitte technology consulting credential verifying enterprise risk identification, active IAM design, firewall ACL topology zoning, and cloud defense analysis.',
+    image: findImageFile('150910') || 'custom:deloitte',
+    pdfUrl: findCertFile('Deloitte certufucacte Cyber.pdf'),
+    skills: ['Cyber Security', 'Consulting', 'Vulnerability Assessment', 'ACL Design', 'IAM Policies']
+  },
+  {
+    id: 'goldman-sachs-software-risk',
+    title: 'Software Engineering Job Simulation',
+    issuer: 'Goldman Sachs',
+    year: '2026',
+    description: 'Goldman Sachs software engineering simulation credential validating corporate password policies, auditing threat metrics, and implementing secure cryptography protocols.',
+    image: findImageFile('150933') || 'custom:goldman',
+    pdfUrl: findCertFile('Goldamnachs risk.pdf'),
+    skills: ['System Audits', 'Vulnerability Remediation', 'Cryptography', 'Password Policies', 'Backends']
+  },
+  {
+    id: 'tata-cybersecurity-sim',
+    title: 'Cybersecurity Analyst Virtual Experience',
+    issuer: 'Tata Group',
+    year: '2026',
+    description: 'Tata Group analyst simulation verifying network posture vulnerability screening, incident threat control protocols, and enterprise infrastructure log audits.',
+    image: findImageFile('Screenshot_20-6-2026_1584') || 'custom:tata',
+    pdfUrl: findCertFile('Tata Cyber.pdf'),
+    skills: ['Threat Analysis', 'Incident Response', 'Network Posture', 'Cyber Defense', 'Security Logs']
+  }
+];
 
 export const experienceData: TimelineEvent[] = [
   {

@@ -38,3 +38,15 @@ export interface TimelineEvent {
   description: string;
   points: string[];
 }
+
+export interface CertificateItem {
+  id: string;
+  title: string;
+  issuer: string;
+  year: string;
+  description: string;
+  image: string;
+  pdfUrl?: string;
+  skills: string[];
+}
+

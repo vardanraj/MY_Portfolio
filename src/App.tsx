@@ -6,6 +6,7 @@ import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Skills } from './pages/Skills';
 import { Projects } from './pages/Projects';
+import { Certificates } from './pages/Certificates';
 import { Contact } from './pages/Contact';
 
 function AnimatedRoutes() {
@@ -20,8 +21,8 @@ function AnimatedRoutes() {
       root.style.setProperty('--accent-purple', '#10b981');
       root.style.setProperty('--accent-cyan', '#14b8a6');
       root.style.setProperty('--accent-pink', '#059669');
-    } else if (path === '/projects') {
-      // Projects dynamically manages itself based on active subcategories within Projects.tsx
+    } else if (path === '/projects' || path === '/certificates') {
+      // Projects and Certificates dynamically manage themselves
     } else {
       // Home page: original hybrid/balanced colors
       root.style.removeProperty('--accent-purple');
@@ -41,6 +42,7 @@ function AnimatedRoutes() {
           <Route path="/about" element={<About />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/certificates" element={<Certificates />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </motion.div>
