@@ -264,7 +264,7 @@ export const certificateData: CertificateItem[] = [
     issuer: 'Deloitte',
     year: '2026',
     description: 'Deloitte technology consulting credential verifying enterprise risk identification, active IAM design, firewall ACL topology zoning, and cloud defense analysis.',
-    image: findImageFile('150910') || 'custom:deloitte',
+    image: findImageFile('150933') || 'custom:deloitte',
     pdfUrl: findCertFile('Deloitte certufucacte Cyber.pdf'),
     skills: ['Cyber Security', 'Consulting', 'Vulnerability Assessment', 'ACL Design', 'IAM Policies']
   },
@@ -274,7 +274,7 @@ export const certificateData: CertificateItem[] = [
     issuer: 'Goldman Sachs',
     year: '2026',
     description: 'Goldman Sachs software engineering simulation credential validating corporate password policies, auditing threat metrics, and implementing secure cryptography protocols.',
-    image: findImageFile('150933') || 'custom:goldman',
+    image: findImageFile('150910') || 'custom:goldman',
     pdfUrl: findCertFile('Goldamnachs risk.pdf'),
     skills: ['System Audits', 'Vulnerability Remediation', 'Cryptography', 'Password Policies', 'Backends']
   },

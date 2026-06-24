@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useScroll, useSpring } from 'motion/react';
 import { Navbar } from './components/Navbar';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
@@ -51,6 +51,13 @@ function AnimatedRoutes() {
 }
 
 export default function App() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 24,
+    restDelta: 0.001
+  });
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       const x = (e.clientX / window.innerWidth) * 100;
@@ -69,6 +76,12 @@ export default function App() {
   return (
     <Router>
       <div className="min-h-screen bg-bg-primary text-text-main flex flex-col relative transition-colors duration-300">
+        {/* Elite Scroll Progress Indicator */}
+        <motion.div
+          className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-purple via-accent-cyan to-accent-pink origin-left z-[9999] shadow-[0_2px_12px_rgba(var(--accent-purple-rgb),0.4)]"
+          style={{ scaleX }}
+        />
+
         {/* Dynamic Nav Header */}
         <Navbar />
         

@@ -58,6 +58,19 @@ export const Hero: React.FC = () => {
           {/* LEFT SIDE: HIGH IMPACT LIQUID TYPOGRAPHY */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             
+            {/* Elegant Hero Logo Emblem */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="relative w-12 h-12 flex items-center justify-center mb-6"
+            >
+              <div className="absolute inset-0 bg-gradient-to-tr from-accent-purple via-accent-cyan to-accent-pink rounded-xl opacity-75 blur-sm" />
+              <div className="absolute inset-[1px] bg-bg-primary rounded-xl flex items-center justify-center border border-white/10 shadow-inner">
+                <span className="font-display font-black text-sm text-text-main tracking-tighter">VR</span>
+              </div>
+            </motion.div>
+            
             {/* Real-time Status node Tag */}
             <motion.div
               initial={{ opacity: 0, y: -10 }}
@@ -144,55 +157,11 @@ export const Hero: React.FC = () => {
                   loading="eager"
                 />
 
-                {/* OVERLAID DYNAMIC SYS-STATUS & TOPOLOGY CONSTELLATON OVERLAY */}
-                <div className="absolute inset-0 p-4 sm:p-6 pointer-events-none z-10 flex flex-col justify-between">
-                  {/* Decorative Engineering Grid HUD */}
-                  <div className="flex justify-between items-start">
-                    <div className="flex items-center gap-2 p-2 bg-black/40 backdrop-blur rounded-lg border border-white/5 text-[9px] font-mono text-accent-cyan tracking-wider uppercase">
-                      <Radio className="w-3.5 h-3.5 animate-pulse" />
-                      <span>CONN_SYS_OK</span>
-                    </div>
-                    <div className="flex items-center gap-2 p-2 bg-black/40 backdrop-blur rounded-lg border border-white/5 text-[9px] font-mono text-accent-pink tracking-wider">
-                      <Activity className="w-3.5 h-3.5" />
-                      <span>R_GRID: CMYK_300</span>
-                    </div>
-                  </div>
-
-                  {/* Aesthetic Vector anchor nodes lines floating */}
-                  <svg className="absolute inset-0 w-full h-full opacity-60 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-                    {/* Node Link 1 */}
-                    <line x1="20%" y1="20%" x2="55%" y2="25%" stroke="rgba(0, 200, 179, 0.4)" strokeWidth="1" strokeDasharray="4 4" />
-                    {/* Node Link 2 */}
-                    <line x1="55%" y1="25%" x2="80%" y2="50%" stroke="rgba(127, 86, 217, 0.4)" strokeWidth="1" />
-                    {/* Node Link 3 */}
-                    <line x1="20%" y1="60%" x2="55%" y2="25%" stroke="rgba(203, 48, 224, 0.4)" strokeWidth="1" />
-                    {/* Node Link 4 */}
-                    <line x1="20%" y1="60%" x2="50%" y2="80%" stroke="rgba(0, 200, 179, 0.4)" strokeWidth="1.5" strokeDasharray="2 2" />
-
-                    {/* Nodes Indicators */}
-                    <circle cx="20%" cy="20%" r="4" fill="#00c8b3" className="animate-ping" />
-                    <circle cx="20%" cy="20%" r="2" fill="#00c8b3" />
-                    
-                    <circle cx="55%" cy="25%" r="3" fill="#6155f5" />
-                    <circle cx="80%" cy="50%" r="5" fill="#cb30e0" />
-                    
-                    <circle cx="20%" cy="60%" r="4" fill="#ff8d28" />
-                    
-                    <circle cx="50%" cy="80%" r="3" fill="#00c8b3" />
-                  </svg>
-
-                  {/* Overlaid glass footer tag overlay */}
-                  <div className="p-4 bg-black/70 backdrop-blur-md rounded-2xl border border-white/10 flex items-center justify-between shadow-2xl relative z-20">
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 bg-gradient-to-r from-accent-purple/20 to-accent-pink/20 rounded-xl border border-accent-pink/20">
-                        <Cpu className="w-4 h-4 text-accent-pink" />
-                      </div>
-                      <div>
-                        <h4 className="font-display font-bold text-xs text-white uppercase tracking-wider">Vardan Raj</h4>
-                        <p className="font-mono text-[9px] text-gray-400 mt-0.5 tracking-wide">CCNA | INFRASTRUCTURE PORTFOLIO</p>
-                      </div>
-                    </div>
-                    <span className="w-2.5 h-2.5 rounded-full bg-accent-cyan animate-pulse shadow-[0_0_10px_#00c8b3]" />
+                {/* OVERLAID DYNAMIC NAME ONLY */}
+                <div className="absolute inset-0 p-4 sm:p-6 pointer-events-none z-10 flex flex-col justify-end">
+                  {/* Clean, elegant name label */}
+                  <div className="p-3 bg-black/75 backdrop-blur-md rounded-2xl border border-white/10 flex items-center justify-center shadow-2xl relative z-20 w-fit mx-auto">
+                    <h4 className="font-display font-bold text-sm text-white uppercase tracking-widest px-4 select-none">Vardan Raj</h4>
                   </div>
                 </div>
 

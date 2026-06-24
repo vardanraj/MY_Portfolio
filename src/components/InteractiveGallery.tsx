@@ -162,14 +162,14 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           
           {/* Subcategory buttons */}
-          <div className="flex flex-wrap items-center gap-1.5 bg-[#faf6f2] dark:bg-bg-card/40 p-1 rounded-2xl border border-border-card/60 backdrop-blur-md">
+          <div className="flex flex-wrap items-center gap-1.5 bg-slate-100/80 dark:bg-bg-card/40 p-1 rounded-2xl border border-border-card/60 backdrop-blur-md">
             {subCategories.map((sub) => (
               <button
                 key={sub}
                 onClick={() => setActiveSubFilter(sub)}
                 className={`px-3 py-1.5 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all duration-300 cursor-pointer focus:outline-none ${
                   activeSubFilter === sub
-                    ? 'bg-gradient-to-r from-[#ba4a2a]/15 to-[#8d6e63]/15 dark:from-amber-500/20 dark:to-amber-600/10 border border-[#ba4a2a]/40 dark:border-amber-500/50 text-[#ba4a2a] dark:text-amber-400 font-bold shadow-sm'
+                    ? 'bg-gradient-to-r from-slate-500/15 to-blue-500/15 dark:from-slate-400/20 dark:to-slate-500/10 border border-slate-400/40 dark:border-slate-500/50 text-slate-800 dark:text-slate-200 font-bold shadow-sm'
                     : 'border border-transparent text-text-muted hover:text-text-main hover:bg-bg-secondary/40'
                 }`}
                 style={{
@@ -182,12 +182,12 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
           </div>
           
           {/* Layout Mode Selector (Coverflow vs. Slideshow) */}
-          <div className="flex items-center gap-1 bg-[#faf6f2] dark:bg-bg-card/40 p-1 rounded-2xl border border-border-card/60 backdrop-blur-md self-center md:self-auto">
+          <div className="flex items-center gap-1 bg-slate-100/80 dark:bg-bg-card/40 p-1 rounded-2xl border border-border-card/60 backdrop-blur-md self-center md:self-auto">
             <button
               onClick={() => setViewMode('coverflow')}
               className={`px-3 py-1.5 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all duration-300 cursor-pointer focus:outline-none flex items-center gap-1.5 ${
                 viewMode === 'coverflow'
-                  ? 'bg-gradient-to-r from-[#ba4a2a]/10 to-[#8d6e63]/10 dark:from-amber-550/15 dark:to-transparent border border-[#ba4a2a]/30 dark:border-amber-500/40 text-text-main font-semibold shadow-sm'
+                  ? 'bg-gradient-to-r from-slate-500/10 to-blue-500/10 dark:from-slate-400/15 dark:to-transparent border border-slate-400/30 dark:border-slate-500/40 text-text-main font-semibold shadow-sm'
                   : 'border border-transparent text-text-muted hover:text-text-main hover:bg-bg-secondary/40'
               }`}
             >
@@ -199,7 +199,7 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
               onClick={() => setViewMode('slideshow')}
               className={`px-3 py-1.5 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all duration-300 cursor-pointer focus:outline-none flex items-center gap-1.5 ${
                 viewMode === 'slideshow'
-                  ? 'bg-gradient-to-r from-[#ba4a2a]/10 to-[#8d6e63]/10 dark:from-amber-550/15 dark:to-transparent border border-[#ba4a2a]/30 dark:border-amber-500/40 text-text-main font-semibold shadow-sm'
+                  ? 'bg-gradient-to-r from-slate-500/10 to-blue-500/10 dark:from-slate-400/15 dark:to-transparent border border-slate-400/30 dark:border-slate-500/40 text-text-main font-semibold shadow-sm'
                   : 'border border-transparent text-text-muted hover:text-text-main hover:bg-bg-secondary/40'
               }`}
             >
@@ -261,22 +261,26 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
                         if (isCenter) setLightboxItem(item);
                         else setActiveIndex(idx);
                       }}
-                      className={`absolute w-64 sm:w-72 aspect-[4/3] rounded-2xl overflow-hidden border backdrop-blur transition-all duration-500 cursor-pointer flex flex-col justify-between ${
+                      className={`absolute w-64 sm:w-72 aspect-[4/3] rounded-2xl overflow-hidden border backdrop-blur cursor-pointer flex flex-col justify-between ${
                         isCenter 
-                          ? 'border-amber-500/70 bg-[#faf6f2] dark:bg-bg-card shadow-[0_15px_30px_rgba(212,175,55,0.2)] dark:shadow-[0_15px_35px_rgba(212,175,55,0.15)] ring-1 ring-amber-500/20' 
-                          : 'border-border-card/60 bg-[#faf6f2]/70 dark:bg-bg-card/75 shadow-lg'
+                          ? 'border-slate-400/50 bg-slate-50 dark:bg-bg-card shadow-[0_15px_30px_rgba(148,163,184,0.18)] dark:shadow-[0_15px_35px_rgba(15,23,42,0.45)] ring-1 ring-slate-400/20' 
+                          : 'border-border-card/60 bg-slate-100/70 dark:bg-bg-card/75 shadow-lg'
                       }`}
                       style={{
-                        zIndex,
-                        opacity,
                         transformStyle: 'preserve-3d',
-                        transform: `translateX(${translateX}px) rotateY(${rotateY}deg) scale(${scale})`,
-                        filter: blur,
-                        boxShadow: isCenter ? '0 20px 45px -12px rgba(0, 0, 0, 0.4)' : '0 10px 20px -8px rgba(0, 0, 0, 0.15)',
                         pointerEvents: Math.abs(offset) > 2 ? 'none' : 'auto'
                       }}
+                      animate={{
+                        x: translateX,
+                        rotateY: rotateY,
+                        scale: scale,
+                        opacity: opacity,
+                        zIndex: zIndex,
+                        filter: blur,
+                        boxShadow: isCenter ? '0 20px 45px -12px rgba(0, 0, 0, 0.4)' : '0 10px 20px -8px rgba(0, 0, 0, 0.15)',
+                      }}
                       whileHover={isCenter ? { scale: 1.07 } : {}}
-                      transition={{ type: 'spring', stiffness: 260, damping: 26 }}
+                      transition={{ type: 'spring', stiffness: 220, damping: 24, mass: 0.8 }}
                       id={`coverflow-card-${item.id}`}
                     >
                       <div className="relative w-full h-full overflow-hidden bg-bg-primary/20 flex items-center justify-center p-2">
@@ -405,7 +409,7 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
 
                 {/* Tiny Autoplay Status Indicator overlay */}
                 <div className="absolute bottom-3 right-4 px-2 py-1 rounded-lg bg-black/60 border border-white/10 text-white backdrop-blur text-[8px] font-mono tracking-widest uppercase flex items-center gap-1.5 z-10">
-                  <span className={`w-1.5 h-1.5 rounded-full ${isPlaying ? 'bg-emerald-500 animate-pulse' : 'bg-amber-500'}`} />
+                  <span className={`w-1.5 h-1.5 rounded-full ${isPlaying ? 'bg-blue-400 animate-pulse' : 'bg-slate-400'}`} />
                   <span>{isPlaying ? 'Autoplay' : 'Paused'}</span>
                 </div>
               </div>
@@ -428,7 +432,7 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
               aria-label={isPlaying ? "Pause Automatic Slideshow" : "Play Automatic Slideshow"}
               title={isPlaying ? "Pause Autoplay" : "Resume Autoplay"}
             >
-              {isPlaying ? <Pause className="w-4 h-4 text-amber-600 dark:text-amber-550 animate-pulse" /> : <Play className="w-4 h-4 text-emerald-600 dark:text-emerald-450" />}
+              {isPlaying ? <Pause className="w-4 h-4 text-blue-500 dark:text-blue-400 animate-pulse" /> : <Play className="w-4 h-4 text-slate-500 dark:text-slate-400" />}
             </button>
 
             <span className="font-mono text-[10px] text-text-muted bg-bg-card/55 px-2.5 py-1 rounded-lg border border-border-card/60 select-none">

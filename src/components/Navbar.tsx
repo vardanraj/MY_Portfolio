@@ -86,6 +86,16 @@ export const Navbar: React.FC = () => {
                   alt="Vardan Raj Logo"
                   className="w-full h-full object-contain relative z-10"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) {
+                      const fallback = document.createElement('div');
+                      fallback.className = "text-text-main font-black font-display text-xs tracking-tight leading-none relative z-10 select-none flex items-center justify-center w-full h-full bg-gradient-to-tr from-accent-purple/15 to-accent-pink/15 rounded-lg";
+                      fallback.innerText = "VR";
+                      parent.appendChild(fallback);
+                    }
+                  }}
                 />
               </div>
             </div>

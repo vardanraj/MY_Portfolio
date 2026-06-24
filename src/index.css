@@ -2,25 +2,35 @@
 @import "tailwindcss";
 
 :root {
-  /* Default Dark Preference Variables */
-  --bg-primary: #050508;
-  --bg-secondary: #0c0c10;
-  --text-main: #f3f4f6;
-  --text-muted: #9ca3af;
-  --border-card: rgba(255, 255, 255, 0.06);
-  --bg-card: rgba(12, 12, 16, 0.7);
+  /* Default Dark Preference Variables - Sophisticated Cool-Matte Deep Purple Ebony */
+  --bg-primary: #09080e;
+  --bg-secondary: #100f17;
+  --text-main: #e6e5f3;
+  --text-muted: #83809c;
+  --border-card: rgba(124, 108, 246, 0.12);
+  --bg-card: rgba(16, 15, 23, 0.8);
 
   --gradient-angle: 135deg;
   --cursor-x: 50%;
   --cursor-y: 50%;
 
-  --glow-primary: rgba(97, 85, 245, 0.12);
-  --glow-secondary: rgba(203, 48, 224, 0.08);
+  --glow-primary: rgba(108, 92, 231, 0.05);
+  --glow-secondary: rgba(156, 141, 246, 0.03);
+
+  --accent-purple: #6c5ce7;
+  --accent-pink: #3f2f8a;
+  --accent-orange: #9c8df6;
+  --accent-cyan: #b2a8fc;
+
+  --accent-purple-rgb: 108, 92, 231;
+  --accent-pink-rgb: 63, 47, 138;
+  --accent-orange-rgb: 156, 141, 246;
+  --accent-cyan-rgb: 178, 168, 252;
 }
 
 :root[data-theme='light'], .light {
-  --bg-primary: #fdfaf2; /* Soft rich cream base */
-  --bg-secondary: #faf1e4; /* Warm linen-taupe base */
+  --bg-primary: #fdfaf2; /* Soft rich cream base (off-yellow) */
+  --bg-secondary: #faf1e4; /* Warm linen-taupe base (skin-toned) */
   --text-main: #3a2e2b; /* Deep roast espresso brown */
   --text-muted: #7d6b67; /* Soft cocoa-taupe */
   --border-card: rgba(100, 80, 75, 0.12); /* Delicate warm border */
@@ -34,24 +44,34 @@
   --accent-pink: #a02c2b;   /* Soothing crimson red */
   --accent-orange: #bd5c38; /* Warm terracotta */
   --accent-cyan: #7c5135;   /* Cinnamon amber */
+
+  --accent-purple-rgb: 186, 74, 42;
+  --accent-pink-rgb: 160, 44, 43;
+  --accent-orange-rgb: 189, 92, 56;
+  --accent-cyan-rgb: 124, 81, 53;
 }
 
 :root[data-theme='dark'], .dark {
-  --bg-primary: #050508;
-  --bg-secondary: #0c0c10;
-  --text-main: #f3f4f6;
-  --text-muted: #9ca3af;
-  --border-card: rgba(255, 255, 255, 0.06);
-  --bg-card: rgba(12, 12, 16, 0.7);
+  --bg-primary: #09080e; /* Deep, luxury cool slate-purple ebony */
+  --bg-secondary: #100f17; /* Muted cool violet secondary */
+  --text-main: #e6e5f3; /* Soft cool-matte lavender white (premium and easy on the eyes) */
+  --text-muted: #83809c; /* Timeless cool slate purple gray */
+  --border-card: rgba(124, 108, 246, 0.12); /* Delicate metallic violet card outline */
+  --bg-card: rgba(16, 15, 23, 0.8); /* Rich premium cool violet card background */
 
-  --glow-primary: rgba(97, 85, 245, 0.12);
-  --glow-secondary: rgba(203, 48, 224, 0.08);
+  --glow-primary: rgba(108, 92, 231, 0.05); /* Subtle ambient purple/violet mist */
+  --glow-secondary: rgba(156, 141, 246, 0.03); /* Polished steel-purple accent mist */
 
-  /* Restore standard cybernetic colors if they are not overridden inline */
-  --accent-purple: #6155f5;
-  --accent-pink: #cb30e0;
-  --accent-orange: #ff8d28;
-  --accent-cyan: #00c8b3;
+  /* Old-school, sophisticated metallic cool sienna, lavender, indigo, and steel purple accents */
+  --accent-purple: #6c5ce7; /* Sophisticated Slate Purple */
+  --accent-pink: #3f2f8a;   /* Deep Matte Royal Indigo/Purple */
+  --accent-orange: #9c8df6; /* Classic Ice-Muted Lavender */
+  --accent-cyan: #b2a8fc;   /* Pewter/Titanium Metallic Violet */
+
+  --accent-purple-rgb: 108, 92, 231;
+  --accent-pink-rgb: 63, 47, 138;
+  --accent-orange-rgb: 156, 141, 246;
+  --accent-cyan-rgb: 178, 168, 252;
 }
 
 @media (prefers-color-scheme: light) {
@@ -71,6 +91,11 @@
     --accent-pink: #a02c2b;
     --accent-orange: #bd5c38;
     --accent-cyan: #7c5135;
+
+    --accent-purple-rgb: 186, 74, 42;
+    --accent-pink-rgb: 160, 44, 43;
+    --accent-orange-rgb: 189, 92, 56;
+    --accent-cyan-rgb: 124, 81, 53;
   }
 }
 
@@ -149,7 +174,7 @@
 }
 
 .text-animate-gradient {
-  background: linear-gradient(90deg, #6155f5 0%, #00c8b3 50%, #6155f5 100%);
+  background: linear-gradient(90deg, var(--accent-purple) 0%, var(--accent-orange) 50%, var(--accent-purple) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -158,7 +183,7 @@
 }
 
 .text-animate-gradient-secondary {
-  background: linear-gradient(90deg, #cb30e0 0%, #ff8d28 50%, #cb30e0 100%);
+  background: linear-gradient(90deg, var(--accent-pink) 0%, var(--accent-cyan) 50%, var(--accent-pink) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -168,11 +193,11 @@
 
 /* Figma Vibrant Background Gradients & Metallic Glows */
 .figma-radial-glow {
-  background: radial-gradient(circle at 50% 50%, rgba(97, 85, 245, 0.12) 0%, rgba(0, 200, 179, 0.08) 40%, transparent 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(var(--accent-purple-rgb), 0.08) 0%, rgba(var(--accent-orange-rgb), 0.04) 40%, transparent 70%);
 }
 
 .figma-grad-text {
-  background: linear-gradient(135deg, #6155f5 0%, #00c8b3 50%, #cb30e0 100%);
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-purple) 50%, var(--accent-cyan) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -184,7 +209,7 @@
   position: relative;
   border-radius: 1rem;
   background: var(--bg-secondary) padding-box,
-              linear-gradient(135deg, rgba(97, 85, 245, 0.4), rgba(0, 200, 179, 0.4), rgba(203, 48, 224, 0.4)) border-box;
+              linear-gradient(135deg, rgba(var(--accent-orange-rgb), 0.2), rgba(var(--accent-purple-rgb), 0.2), rgba(var(--accent-cyan-rgb), 0.2)) border-box;
   border: 1px solid transparent;
 }
 
@@ -205,8 +230,8 @@
   inset: 0;
   background: radial-gradient(
     320px circle at var(--cursor-x) var(--cursor-y),
-    rgba(0, 200, 179, 0.12) 0%,
-    rgba(91, 85, 245, 0.05) 45%,
+    rgba(var(--accent-orange-rgb), 0.08) 0%,
+    rgba(var(--accent-purple-rgb), 0.03) 45%,
     transparent 80%
   );
   background-attachment: fixed;
@@ -221,7 +246,7 @@
 }
 
 .figma-active-glow {
-  box-shadow: 0 0 25px -4px rgba(0, 200, 179, 0.3);
+  box-shadow: 0 0 25px -4px rgba(var(--accent-orange-rgb), 0.3);
 }
 
 /* Scrollbar Design */
@@ -232,10 +257,10 @@
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(120, 110, 200, 0.2);
+  background: rgba(var(--accent-purple-rgb), 0.15);
   border-radius: 4px;
   transition: background-color 0.3s;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(120, 110, 200, 0.4);
+  background: rgba(var(--accent-purple-rgb), 0.3);
 }
