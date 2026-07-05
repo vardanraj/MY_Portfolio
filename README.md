@@ -1,20 +1,32 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
-
-# Run and deploy your AI Studio app
-
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/dd0509d5-8863-4fc8-8fb2-e28884f7d9cf
-
-## Run Locally
-
-**Prerequisites:**  Node.js
+# 🌐 My Portfolio Website
 
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+
+A modern, responsive developer portfolio built with **React.js**, styled in **Claymorphism + Minimalism**, and powered by **Vite** for blazing‑fast builds.
+
+---
+
+## ✨ Highlights
+- 🎨 **Claymorphic UI**: Soft 3D cards, rounded edges, pastel gradients
+- 🌓 **Theme Toggle**: Auto‑detects system theme (light/dark)
+- 🚀 **Dynamic Hero Section**: Gradient text + claymorphic buttons
+- 📂 **Projects Library**: Interactive cards with modal previews
+- 📜 **Certificates & Gallery**: Claymorphic showcase with hover effects
+- 📱 **Responsive Design**: Works seamlessly across devices
+
+---
+
+## 🛠️ Tech Stack
+- **React.js** – Component architecture
+- **Vite** – Fast dev + build
+- **Swiper.js** – Smooth sliders
+- **CSS Modules** – Scoped styling
+- **GitHub Pages / Vercel / Netlify** – Deployment options
+
+---
+src/
+├── components/   # Navbar, Hero, Projects, Footer
+├── assets/       # Images, icons
+├── styles/       # CSS Modules
+└── App.jsx       # Main entry
+## 📂 Structure
