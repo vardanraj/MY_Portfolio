@@ -162,15 +162,15 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           
           {/* Subcategory buttons */}
-          <div className="flex flex-wrap items-center gap-1.5 bg-slate-100/80 dark:bg-bg-card/40 p-1 rounded-2xl border border-border-card/60 backdrop-blur-md">
+          <div className="flex flex-wrap items-center gap-1.5 bg-bg-card/30 p-1 rounded-2xl border border-border-card/60 backdrop-blur-md">
             {subCategories.map((sub) => (
               <button
                 key={sub}
                 onClick={() => setActiveSubFilter(sub)}
-                className={`px-3 py-1.5 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all duration-300 cursor-pointer focus:outline-none ${
+                className={`px-3 py-1.5 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all duration-300 cursor-pointer focus:outline-none clay-btn ${
                   activeSubFilter === sub
-                    ? 'bg-gradient-to-r from-slate-500/15 to-blue-500/15 dark:from-slate-400/20 dark:to-slate-500/10 border border-slate-400/40 dark:border-slate-500/50 text-slate-800 dark:text-slate-200 font-bold shadow-sm'
-                    : 'border border-transparent text-text-muted hover:text-text-main hover:bg-bg-secondary/40'
+                    ? 'bg-bg-card border-border-card text-text-main font-bold'
+                    : 'border border-transparent text-text-muted hover:text-text-main'
                 }`}
                 style={{
                   borderColor: activeSubFilter === sub ? 'var(--accent-primary)' : undefined,
@@ -182,13 +182,13 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
           </div>
           
           {/* Layout Mode Selector (Coverflow vs. Slideshow) */}
-          <div className="flex items-center gap-1 bg-slate-100/80 dark:bg-bg-card/40 p-1 rounded-2xl border border-border-card/60 backdrop-blur-md self-center md:self-auto">
+          <div className="flex items-center gap-1 bg-bg-card/30 p-1 rounded-2xl border border-border-card/60 backdrop-blur-md self-center md:self-auto">
             <button
               onClick={() => setViewMode('coverflow')}
-              className={`px-3 py-1.5 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all duration-300 cursor-pointer focus:outline-none flex items-center gap-1.5 ${
+              className={`px-3 py-1.5 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all duration-300 cursor-pointer focus:outline-none flex items-center gap-1.5 clay-btn ${
                 viewMode === 'coverflow'
-                  ? 'bg-gradient-to-r from-slate-500/10 to-blue-500/10 dark:from-slate-400/15 dark:to-transparent border border-slate-400/30 dark:border-slate-500/40 text-text-main font-semibold shadow-sm'
-                  : 'border border-transparent text-text-muted hover:text-text-main hover:bg-bg-secondary/40'
+                  ? 'bg-bg-card border-border-card text-text-main font-semibold'
+                  : 'border border-transparent text-text-muted hover:text-text-main'
               }`}
             >
               <Layers className="w-3.5 h-3.5" />
@@ -197,10 +197,10 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
             
             <button
               onClick={() => setViewMode('slideshow')}
-              className={`px-3 py-1.5 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all duration-300 cursor-pointer focus:outline-none flex items-center gap-1.5 ${
+              className={`px-3 py-1.5 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all duration-300 cursor-pointer focus:outline-none flex items-center gap-1.5 clay-btn ${
                 viewMode === 'slideshow'
-                  ? 'bg-gradient-to-r from-slate-500/10 to-blue-500/10 dark:from-slate-400/15 dark:to-transparent border border-slate-400/30 dark:border-slate-500/40 text-text-main font-semibold shadow-sm'
-                  : 'border border-transparent text-text-muted hover:text-text-main hover:bg-bg-secondary/40'
+                  ? 'bg-bg-card border-border-card text-text-main font-semibold'
+                  : 'border border-transparent text-text-muted hover:text-text-main'
               }`}
             >
               <SlidersHorizontal className="w-3.5 h-3.5" />
@@ -261,10 +261,10 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
                         if (isCenter) setLightboxItem(item);
                         else setActiveIndex(idx);
                       }}
-                      className={`absolute w-64 sm:w-72 aspect-[4/3] rounded-2xl overflow-hidden border backdrop-blur cursor-pointer flex flex-col justify-between ${
+                      className={`absolute w-64 sm:w-72 aspect-[4/3] rounded-3xl overflow-hidden border cursor-pointer flex flex-col justify-between figma-glass-card ${
                         isCenter 
-                          ? 'border-slate-400/50 bg-slate-50 dark:bg-bg-card shadow-[0_15px_30px_rgba(148,163,184,0.18)] dark:shadow-[0_15px_35px_rgba(15,23,42,0.45)] ring-1 ring-slate-400/20' 
-                          : 'border-border-card/60 bg-slate-100/70 dark:bg-bg-card/75 shadow-lg'
+                          ? 'bg-bg-card/95 ring-1 ring-accent-cyan/25' 
+                          : 'bg-bg-card/60'
                       }`}
                       style={{
                         transformStyle: 'preserve-3d',
@@ -344,7 +344,7 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
             >
               
               {/* Outer Slideshow Box preserving original Aspect Ratio (Guarantees zero warping/stretching) */}
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] rounded-3xl border border-border-card/80 bg-bg-card/65 dark:bg-bg-card/25 backdrop-blur shadow-xl overflow-hidden flex items-center justify-center p-3 sm:p-5 group">
+              <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] rounded-3xl border border-border-card bg-bg-card/90 figma-glass-card overflow-hidden flex items-center justify-center p-3 sm:p-5 group">
                 
                 {/* Active Slider Card with Animators */}
                 <AnimatePresence mode="wait">
@@ -475,7 +475,7 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full max-w-xl bg-bg-card/75 backdrop-blur-md border border-border-card rounded-2xl p-5 sm:p-6 mt-8 shadow-md text-left flex flex-col sm:flex-row items-center justify-between gap-5 relative overflow-hidden"
+              className="w-full max-w-xl bg-bg-card/90 border border-border-card rounded-3xl p-5 sm:p-6 mt-8 figma-glass-card text-left flex flex-col sm:flex-row items-center justify-between gap-5 relative overflow-hidden"
               id={`meta-panel-${type}`}
             >
               <div className="flex-grow w-full text-left">

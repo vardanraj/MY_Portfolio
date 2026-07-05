@@ -2,42 +2,49 @@
 @import "tailwindcss";
 
 :root {
-  /* Default Dark Preference Variables - Sophisticated Cool-Matte Deep Purple Ebony */
-  --bg-primary: #09080e;
-  --bg-secondary: #100f17;
-  --text-main: #e6e5f3;
-  --text-muted: #83809c;
-  --border-card: rgba(124, 108, 246, 0.12);
-  --bg-card: rgba(16, 15, 23, 0.8);
+  /* Default Dark Preference Variables - Sophisticated Greenish & Orangish Slate Ebony */
+  --bg-primary: #09090e;
+  --bg-secondary: #0f1211;
+  --text-main: #e6f3ed;
+  --text-muted: #809c8d;
+  --border-card: rgba(16, 185, 129, 0.08);
+  --bg-card: rgba(15, 18, 17, 0.8);
 
   --gradient-angle: 135deg;
   --cursor-x: 50%;
   --cursor-y: 50%;
 
-  --glow-primary: rgba(108, 92, 231, 0.05);
-  --glow-secondary: rgba(156, 141, 246, 0.03);
+  --glow-primary: rgba(16, 185, 129, 0.04);
+  --glow-secondary: rgba(245, 158, 11, 0.03);
 
-  --accent-purple: #6c5ce7;
-  --accent-pink: #3f2f8a;
-  --accent-orange: #9c8df6;
-  --accent-cyan: #b2a8fc;
+  /* Default Dark Mode Green & Orange Accents */
+  --accent-purple: #10b981; /* Greenish/Emerald */
+  --accent-pink: #059669;   /* Forest Green */
+  --accent-orange: #f59e0b; /* Warm Amber */
+  --accent-cyan: #f97316;   /* Orangish/Vibrant */
 
-  --accent-purple-rgb: 108, 92, 231;
-  --accent-pink-rgb: 63, 47, 138;
-  --accent-orange-rgb: 156, 141, 246;
-  --accent-cyan-rgb: 178, 168, 252;
+  --accent-purple-rgb: 16, 185, 129;
+  --accent-pink-rgb: 5, 150, 105;
+  --accent-orange-rgb: 245, 158, 11;
+  --accent-cyan-rgb: 249, 115, 22;
+
+  /* Claymorphism Defaults (Dark Mode) */
+  --clay-shadow-out: 0 12px 24px -10px rgba(0, 0, 0, 0.5), 0 24px 48px -18px rgba(0, 0, 0, 0.6);
+  --clay-shadow-in: inset 3px 3px 6px rgba(255, 255, 255, 0.06), inset -3px -3px 6px rgba(0, 0, 0, 0.35);
+  --clay-border: 1px solid rgba(255, 255, 255, 0.06);
+  --clay-radius: 1.75rem;
 }
 
 :root[data-theme='light'], .light {
-  --bg-primary: #fdfaf2; /* Soft rich cream base (off-yellow) */
-  --bg-secondary: #faf1e4; /* Warm linen-taupe base (skin-toned) */
+  --bg-primary: #fdfaf2; /* Soft rich cream base */
+  --bg-secondary: #faf1e4; /* Warm linen-taupe base */
   --text-main: #3a2e2b; /* Deep roast espresso brown */
   --text-muted: #7d6b67; /* Soft cocoa-taupe */
-  --border-card: rgba(100, 80, 75, 0.12); /* Delicate warm border */
-  --bg-card: rgba(254, 252, 247, 0.85); /* Pure cream card */
+  --border-card: rgba(100, 80, 75, 0.1);
+  --bg-card: rgba(254, 252, 247, 0.9);
 
-  --glow-primary: rgba(189, 92, 56, 0.06);
-  --glow-secondary: rgba(140, 37, 36, 0.04);
+  --glow-primary: rgba(189, 92, 56, 0.05);
+  --glow-secondary: rgba(140, 37, 36, 0.03);
 
   /* Soothing elegant terracotta, crimson, cinnamon and amber accents for Light Mode */
   --accent-purple: #ba4a2a; /* Soft terracotta orange-red */
@@ -49,29 +56,39 @@
   --accent-pink-rgb: 160, 44, 43;
   --accent-orange-rgb: 189, 92, 56;
   --accent-cyan-rgb: 124, 81, 53;
+
+  /* Claymorphism Light Mode */
+  --clay-shadow-out: 0 10px 24px -10px rgba(100, 80, 75, 0.08), 0 20px 48px -18px rgba(100, 80, 75, 0.12);
+  --clay-shadow-in: inset 3px 3px 6px rgba(255, 255, 255, 0.95), inset -3px -3px 6px rgba(100, 80, 75, 0.06);
+  --clay-border: 1px solid rgba(100, 80, 75, 0.08);
 }
 
 :root[data-theme='dark'], .dark {
-  --bg-primary: #09080e; /* Deep, luxury cool slate-purple ebony */
-  --bg-secondary: #100f17; /* Muted cool violet secondary */
-  --text-main: #e6e5f3; /* Soft cool-matte lavender white (premium and easy on the eyes) */
-  --text-muted: #83809c; /* Timeless cool slate purple gray */
-  --border-card: rgba(124, 108, 246, 0.12); /* Delicate metallic violet card outline */
-  --bg-card: rgba(16, 15, 23, 0.8); /* Rich premium cool violet card background */
+  --bg-primary: #09090e; /* Deep, luxury cool slate-green/orange ebony */
+  --bg-secondary: #0f1211; /* Muted cool dark secondary */
+  --text-main: #e6f3ed; /* Soft cool-matte lavender white */
+  --text-muted: #809c8d; /* Timeless cool slate purple gray */
+  --border-card: rgba(16, 185, 129, 0.08);
+  --bg-card: rgba(15, 18, 17, 0.8);
 
-  --glow-primary: rgba(108, 92, 231, 0.05); /* Subtle ambient purple/violet mist */
-  --glow-secondary: rgba(156, 141, 246, 0.03); /* Polished steel-purple accent mist */
+  --glow-primary: rgba(16, 185, 129, 0.04);
+  --glow-secondary: rgba(245, 158, 11, 0.03);
 
-  /* Old-school, sophisticated metallic cool sienna, lavender, indigo, and steel purple accents */
-  --accent-purple: #6c5ce7; /* Sophisticated Slate Purple */
-  --accent-pink: #3f2f8a;   /* Deep Matte Royal Indigo/Purple */
-  --accent-orange: #9c8df6; /* Classic Ice-Muted Lavender */
-  --accent-cyan: #b2a8fc;   /* Pewter/Titanium Metallic Violet */
+  /* Dark mode greenish and orangish accents */
+  --accent-purple: #10b981; /* Emerald Green */
+  --accent-pink: #059669;   /* Forest Green */
+  --accent-orange: #f59e0b; /* Warm Amber */
+  --accent-cyan: #f97316;   /* Vibrant Orange */
 
-  --accent-purple-rgb: 108, 92, 231;
-  --accent-pink-rgb: 63, 47, 138;
-  --accent-orange-rgb: 156, 141, 246;
-  --accent-cyan-rgb: 178, 168, 252;
+  --accent-purple-rgb: 16, 185, 129;
+  --accent-pink-rgb: 5, 150, 105;
+  --accent-orange-rgb: 245, 158, 11;
+  --accent-cyan-rgb: 249, 115, 22;
+
+  /* Claymorphism Dark Mode */
+  --clay-shadow-out: 0 12px 24px -10px rgba(0, 0, 0, 0.5), 0 24px 48px -18px rgba(0, 0, 0, 0.6);
+  --clay-shadow-in: inset 3px 3px 6px rgba(255, 255, 255, 0.06), inset -3px -3px 6px rgba(0, 0, 0, 0.35);
+  --clay-border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 @media (prefers-color-scheme: light) {
@@ -81,11 +98,11 @@
     --bg-secondary: #faf1e4;
     --text-main: #3a2e2b;
     --text-muted: #7d6b67;
-    --border-card: rgba(100, 80, 75, 0.12);
-    --bg-card: rgba(254, 252, 247, 0.85);
+    --border-card: rgba(100, 80, 75, 0.1);
+    --bg-card: rgba(254, 252, 247, 0.9);
 
-    --glow-primary: rgba(189, 92, 56, 0.06);
-    --glow-secondary: rgba(140, 37, 36, 0.04);
+    --glow-primary: rgba(189, 92, 56, 0.05);
+    --glow-secondary: rgba(140, 37, 36, 0.03);
 
     --accent-purple: #ba4a2a;
     --accent-pink: #a02c2b;
@@ -96,6 +113,11 @@
     --accent-pink-rgb: 160, 44, 43;
     --accent-orange-rgb: 189, 92, 56;
     --accent-cyan-rgb: 124, 81, 53;
+
+    /* Claymorphism Light Mode */
+    --clay-shadow-out: 0 10px 24px -10px rgba(100, 80, 75, 0.08), 0 20px 48px -18px rgba(100, 80, 75, 0.12);
+    --clay-shadow-in: inset 3px 3px 6px rgba(255, 255, 255, 0.95), inset -3px -3px 6px rgba(100, 80, 75, 0.06);
+    --clay-border: 1px solid rgba(100, 80, 75, 0.08);
   }
 }
 
@@ -217,11 +239,40 @@
   position: relative;
   overflow: hidden;
   background: var(--bg-card);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--clay-border);
+  border-radius: var(--clay-radius);
   color: var(--text-main);
-  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--clay-shadow-out), var(--clay-shadow-in);
+  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.clay-btn {
+  border: var(--clay-border);
+  border-radius: 1.25rem;
+  font-weight: 600;
+  box-shadow: var(--clay-shadow-out), var(--clay-shadow-in);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.clay-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.15), var(--clay-shadow-in);
+}
+
+.clay-btn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.1), var(--clay-shadow-in);
+}
+
+.clay-badge {
+  border: var(--clay-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03), inset 1px 1px 2px rgba(255, 255, 255, 0.4);
 }
 
 .figma-glass-card::before {

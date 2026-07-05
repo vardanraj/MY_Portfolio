@@ -15,13 +15,13 @@ export const Home: React.FC = () => {
       <Hero />
 
       {/* STATS HIGHLIGHTS BENTO SECTION */}
-      <section id="highlights" className="py-12 border-t border-white/5 mt-8">
+      <section id="highlights" className="py-12 border-t border-border-card mt-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           
           {/* STAT 1: Enterprise subnets */}
           <motion.div
             whileHover={{ y: -5 }}
-            className="figma-glass-card p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between h-48"
+            className="figma-glass-card p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between h-48 shadow-sm"
           >
             <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
               <Network className="w-32 h-32 text-accent-purple" />
@@ -31,15 +31,15 @@ export const Home: React.FC = () => {
               <span>Connectivity Scope</span>
             </div>
             <div>
-              <div className="text-4xl font-black font-display text-white mb-1 tracking-tight">99.99% <span className="text-sm text-accent-purple font-normal">Uptime</span></div>
-              <p className="text-xs text-gray-400">Deploying highly resilient failsafe network architectures.</p>
+              <div className="text-4xl font-black font-display text-text-main mb-1 tracking-tight">99.99% <span className="text-sm text-accent-purple font-normal">Uptime</span></div>
+              <p className="text-xs text-text-muted">Deploying highly resilient failsafe network architectures.</p>
             </div>
           </motion.div>
 
           {/* STAT 2: Brand assets */}
           <motion.div
             whileHover={{ y: -5 }}
-            className="figma-glass-card p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between h-48"
+            className="figma-glass-card p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between h-48 shadow-sm"
           >
             <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
               <Palette className="w-32 h-32 text-accent-cyan" />
@@ -49,15 +49,15 @@ export const Home: React.FC = () => {
               <span>Creative Quality</span>
             </div>
             <div>
-              <div className="text-4xl font-black font-display text-white mb-1 tracking-tight">100% <span className="text-sm text-accent-cyan font-normal">Fidelity</span></div>
-              <p className="text-xs text-gray-400">Bespoke Vector graphics, typography clamps, & layouts.</p>
+              <div className="text-4xl font-black font-display text-text-main mb-1 tracking-tight">100% <span className="text-sm text-accent-cyan font-normal">Fidelity</span></div>
+              <p className="text-xs text-text-muted">Bespoke Vector graphics, typography clamps, & layouts.</p>
             </div>
           </motion.div>
 
           {/* STAT 3: Network Security */}
           <motion.div
             whileHover={{ y: -5 }}
-            className="figma-glass-card p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between h-48 sm:col-span-2 lg:col-span-1"
+            className="figma-glass-card p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between h-48 sm:col-span-2 lg:col-span-1 shadow-sm"
           >
             <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
               <Shield className="w-32 h-32 text-accent-pink" />
@@ -67,8 +67,8 @@ export const Home: React.FC = () => {
               <span>Security Perimeter</span>
             </div>
             <div>
-              <div className="text-4xl font-black font-display text-white mb-1 tracking-tight">Zero <span className="text-sm text-accent-pink font-normal">Breach</span></div>
-              <p className="text-xs text-gray-400">Strict zone segments, DMZ configs, and policy audits.</p>
+              <div className="text-4xl font-black font-display text-text-main mb-1 tracking-tight">Zero <span className="text-sm text-accent-pink font-normal">Breach</span></div>
+              <p className="text-xs text-text-muted">Strict zone segments, DMZ configs, and policy audits.</p>
             </div>
           </motion.div>
 
@@ -76,15 +76,15 @@ export const Home: React.FC = () => {
       </section>
 
       {/* CURATED FEATURED PROJECTS DISPLAY */}
-      <section id="featured-projects" className="py-16 border-t border-white/5 mt-12">
+      <section id="featured-projects" className="py-16 border-t border-border-card mt-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
             <span className="font-mono text-xs text-accent-cyan tracking-widest uppercase">Select Portfolios</span>
-            <h2 className="text-fluid-h2 font-bold text-white mt-2">Core Assignments</h2>
+            <h2 className="text-fluid-h2 font-bold text-text-main mt-2">Core Assignments</h2>
           </div>
           <Link
             to="/projects"
-            className="inline-flex items-center gap-2 text-xs font-mono text-gray-400 hover:text-white transition-colors group"
+            className="inline-flex items-center gap-2 text-xs font-mono text-text-muted hover:text-text-main transition-colors group"
           >
             <span>inspect all works</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

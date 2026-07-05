@@ -1,55 +1,20 @@
-# 🌐 Vardan's Portfolio
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-A modern, responsive developer portfolio built with **React**, enhanced using **Google AI Studio**, and deployed with adaptive theming.  
-This portfolio showcases authentic projects, certificates, and design work with interactive galleries.
+# Run and deploy your AI Studio app
 
----
+This contains everything you need to run your app locally.
 
-## ✨ Features
+View your app in AI Studio: https://ai.studio/apps/dd0509d5-8863-4fc8-8fb2-e28884f7d9cf
 
-- 🎨 **Hero Section** with gradients and theme toggle (light/dark mode).
-- 📂 **Projects Showcase**:
-  - Real networking project: **Packet Analyser**.
-  - Graphic design projects displayed in a clean gallery.
-- 🖼️ **Design Gallery**:
-  - Hover effects, modal previews, and smooth transitions.
-- 🎞️ **Certificates Section**:
-  - Real certificates (Deloitte, Goldman Sachs, Tata Group).
-  - Combined **3D Coverflow + Slideshow effect**.
-  - Each certificate includes title, description, and **View PDF** option.
-- 🌓 **Theme Adaptation**:
-  - Cream + brown + red palette for light mode.
-  - Gradient accents for dark mode.
-- 📱 **Responsive Design**:
-  - Fully optimized for desktop, tablet, and mobile.
+## Run Locally
 
----
-
-## 🛠 Tech Stack
-
-- **React + Vite** — Frontend framework and build tool.
-- **CSS Modules** — Scoped styling with responsive layouts.
-- **Swiper.js** — Interactive Coverflow + Slideshow effects.
-- **Google AI Studio** — Assisted in generating and refining components.
-- **Vercel** — Deployment and hosting.
-
----
-
-## 🚀 Project structure 
-
-src/
- ├── components/
- │    ├── Navbar.jsx
- │    ├── Hero.jsx
- │    ├── Projects.jsx
- │    ├── Gallery.jsx
- │    ├── Certificates.jsx
- │    └── Footer.jsx
- ├── images/
- │    ├── certificates/   # Deloitte, Goldman Sachs, Tata Group
- │    ├── designs/        # Graphic design projects
- │    └── profile.png     # Personal photo
- ├── App.jsx
- └── index.css
+**Prerequisites:**  Node.js
 
 
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`

@@ -56,11 +56,14 @@ export const Skills: React.FC = () => {
           <button
             key={cat}
             onClick={() => setFilter(cat)}
-            className={`px-5 py-2.5 text-xs font-mono rounded-xl border transition-all duration-300 focus:outline-none cursor-pointer ${
+            className={`px-5 py-2.5 text-xs font-mono rounded-2xl border transition-all duration-300 focus:outline-none cursor-pointer clay-btn ${
               filter === cat
-                ? 'bg-bg-card border-accent-cyan/50 text-text-main shadow-sm'
-                : 'border-border-card bg-bg-card/40 text-text-muted hover:text-text-main hover:border-border-card/80'
+                ? 'bg-bg-card text-text-main font-bold shadow-sm'
+                : 'border-border-card bg-bg-card/40 text-text-muted hover:text-text-main'
             }`}
+            style={{
+              borderColor: filter === cat ? 'var(--accent-purple)' : undefined
+            }}
           >
             {cat}
           </button>

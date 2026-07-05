@@ -252,14 +252,13 @@ export const Projects: React.FC = () => {
           <button
             key={category}
             onClick={() => setActiveCategory(category)}
-            className={`px-5 py-2.5 text-xs font-mono rounded-xl border transition-all duration-300 cursor-pointer focus:outline-none ${
+            className={`px-5 py-2.5 text-xs font-mono rounded-2xl border transition-all duration-300 cursor-pointer focus:outline-none clay-btn ${
               activeCategory === category
-                ? 'bg-bg-card border-accent-cyan/50 text-text-main shadow-sm font-bold'
+                ? 'bg-bg-card text-text-main font-bold'
                 : 'border-border-card bg-bg-card/40 text-text-muted hover:text-text-main'
             }`}
             style={{ 
               borderColor: activeCategory === category ? 'var(--accent-primary)' : undefined,
-              boxShadow: activeCategory === category ? '0 0 12px -3px var(--accent-primary)' : undefined
             }}
           >
             {category}
@@ -309,21 +308,17 @@ export const Projects: React.FC = () => {
                   />
                 ))}
 
-              
-
-              {/* Card 3: Zero-Trust Secure Subnets (Coming Soon) */}
-              <div className="group relative figma-glass-card rounded-2xl overflow-hidden border border-border-card flex flex-col justify-between h-full bg-bg-card/45">
+              {/* Card 2: Zero-Trust Secure Subnets (Coming Soon) */}
+              <div className="group relative figma-glass-card rounded-3xl overflow-hidden border border-border-card flex flex-col justify-between h-full bg-bg-card/90 shadow-lg hover:shadow-xl transition-all duration-500">
                 <div>
-                  <div className="relative aspect-[16/10] overflow-hidden bg-black/40 border-b border-border-card flex flex-col justify-center p-6 font-mono select-none">
-                    <div className="space-y-1.5 text-emerald-400/60 text-[10px] leading-tight">
-                      <span className="text-text-muted/40">// TELEMETRY PIPELINE</span>
-                      <span className="flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse shrink-0" />
-                        <span>ZERO_TRUST_DMZ_ACTIVE</span>
-                      </span>
+                  {/* Claymorphic visual header with soft pastel gradient */}
+                  <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-accent-purple/15 to-accent-cyan/15 border-b border-border-card flex flex-col justify-center items-center p-6 select-none">
+                    {/* Floating 3D clay badge */}
+                    <div className="w-16 h-16 rounded-2xl bg-bg-secondary/80 border border-border-card shadow-inner flex items-center justify-center text-accent-purple mb-2 relative">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-accent-purple via-accent-cyan to-accent-pink rounded-2xl opacity-10 blur-xs" />
+                      <Server className="w-6 h-6" />
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-bg-secondary via-transparent to-transparent opacity-95 pointer-events-none" />
-                    <span className="absolute top-4 right-4 px-2.5 py-1 rounded-md text-[9px] font-mono tracking-wider bg-black/60 border border-white/5 text-amber-500 uppercase">
+                    <span className="px-2.5 py-1 rounded-md text-[9px] font-mono tracking-wider bg-bg-secondary border border-border-card text-accent-purple uppercase font-bold clay-badge">
                       coming soon
                     </span>
                   </div>
@@ -333,13 +328,13 @@ export const Projects: React.FC = () => {
                     <h3 className="text-lg sm:text-xl font-bold font-display text-text-main mb-3">
                       Secure Subnet Segmentations
                     </h3>
-                    <p className="text-xs text-text-muted mb-6 leading-relaxed leading-relaxed font-sans">
+                    <p className="text-xs text-text-muted mb-6 leading-relaxed font-sans">
                       Review of security zone partition configurations enclosing development servers and public DMZ routers using granular route access lists.
                     </p>
                     
                     <div className="flex flex-wrap gap-1.5">
                       {['Palo Alto', 'DMZ Security', 'ACL Routing', 'Telemetry'].map((t) => (
-                        <span key={t} className="px-2 py-0.5 text-[9px] font-mono bg-bg-secondary border border-border-card text-text-muted rounded">
+                        <span key={t} className="px-2.5 py-0.5 text-[10px] font-mono bg-bg-secondary border border-border-card text-text-muted rounded-md font-medium clay-badge">
                           {t}
                         </span>
                       ))}
@@ -347,10 +342,58 @@ export const Projects: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="px-6 pb-6 pt-4 sm:px-8 border-t border-border-card flex items-center justify-between bg-bg-secondary/20 font-mono text-[10px]">
-                  <span className="inline-flex items-center gap-1 text-text-muted">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500/80" />
-                    <span>Layout Rendering Phase</span>
+                <div className="px-6 pb-6 pt-4 sm:px-8 border-t border-border-card flex items-center justify-between bg-bg-secondary/15 font-mono text-[10px]">
+                  <span className="inline-flex items-center gap-1.5 text-text-muted font-medium">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-purple opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-purple"></span>
+                    </span>
+                    <span>Configuration Phase</span>
+                  </span>
+                </div>
+              </div>
+
+              {/* Card 3: OSPF Routing Topology Mesh (Coming Soon) */}
+              <div className="group relative figma-glass-card rounded-3xl overflow-hidden border border-border-card flex flex-col justify-between h-full bg-bg-card/90 shadow-lg hover:shadow-xl transition-all duration-500">
+                <div>
+                  {/* Claymorphic visual header with soft pastel gradient */}
+                  <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-accent-pink/15 to-accent-orange/15 border-b border-border-card flex flex-col justify-center items-center p-6 select-none">
+                    {/* Floating 3D clay badge */}
+                    <div className="w-16 h-16 rounded-2xl bg-bg-secondary/80 border border-border-card shadow-inner flex items-center justify-center text-accent-orange mb-2 relative">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-accent-pink via-accent-orange to-accent-cyan rounded-2xl opacity-10 blur-xs" />
+                      <Folder className="w-6 h-6" />
+                    </div>
+                    <span className="px-2.5 py-1 rounded-md text-[9px] font-mono tracking-wider bg-bg-secondary border border-border-card text-accent-orange uppercase font-bold clay-badge">
+                      coming soon
+                    </span>
+                  </div>
+
+                  <div className="p-6 sm:p-8">
+                    <span className="font-mono text-[10px] text-accent-cyan uppercase tracking-wider mb-2 block">// Core Routing Architecture</span>
+                    <h3 className="text-lg sm:text-xl font-bold font-display text-text-main mb-3">
+                      OSPF Multi-Area Topology Mesh
+                    </h3>
+                    <p className="text-xs text-text-muted mb-6 leading-relaxed font-sans">
+                      A modular autonomous system layout featuring area designators, virtual links, and md5 message-digest route authentication filters.
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-1.5">
+                      {['Cisco IOS', 'OSPFv3', 'Virtual Links', 'MD5 Auth'].map((t) => (
+                        <span key={t} className="px-2.5 py-0.5 text-[10px] font-mono bg-bg-secondary border border-border-card text-text-muted rounded-md font-medium clay-badge">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="px-6 pb-6 pt-4 sm:px-8 border-t border-border-card flex items-center justify-between bg-bg-secondary/15 font-mono text-[10px]">
+                  <span className="inline-flex items-center gap-1.5 text-text-muted font-medium">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-orange opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-orange"></span>
+                    </span>
+                    <span>Architecture Design Phase</span>
                   </span>
                 </div>
               </div>

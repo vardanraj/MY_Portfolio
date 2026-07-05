@@ -111,7 +111,7 @@ export const Navbar: React.FC = () => {
           </Link>
 
           {/* DESKTOP DESIGNS */}
-          <nav id="desktop-nav" className="hidden md:flex items-center gap-1.5 bg-bg-card/75 p-1.5 rounded-full border border-border-card backdrop-blur-sm shadow-sm">
+          <nav id="desktop-nav" className="hidden md:flex items-center gap-1.5 bg-bg-card/90 p-1.5 rounded-full border border-border-card figma-glass-card">
             {NAV_ITEMS.map((item) => {
               const isActive = location.pathname === item.path;
               return (
@@ -127,7 +127,7 @@ export const Navbar: React.FC = () => {
                     <motion.div
                       layoutId="activeTabIndicator"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                      className="absolute inset-0 bg-gradient-to-r from-[var(--accent-primary,var(--color-accent-purple))]/15 to-[var(--accent-secondary,var(--color-accent-cyan))]/15 border border-[var(--accent-primary,var(--color-accent-cyan))]/30 rounded-full"
+                      className="absolute inset-0 bg-bg-secondary/80 border border-border-card rounded-full shadow-inner"
                       style={{ originY: '0px' }}
                     />
                   )}
@@ -141,7 +141,7 @@ export const Navbar: React.FC = () => {
           <div className="hidden md:flex items-center gap-4">
             <button
               onClick={toggleTheme}
-              className="p-2 text-text-muted hover:text-text-main rounded-lg bg-bg-secondary border border-border-card hover:bg-bg-card focus:outline-none transition-all duration-300 mr-2 group/theme relative"
+              className="p-2 text-text-muted hover:text-text-main rounded-xl bg-bg-secondary border border-border-card hover:bg-bg-card focus:outline-none transition-all duration-300 mr-2 group/theme relative clay-btn"
               aria-label="Toggle color theme"
             >
               <div className="relative w-4 h-4 flex items-center justify-center font-medium">
@@ -170,7 +170,7 @@ export const Navbar: React.FC = () => {
             </a>
             <Link
               to="/contact"
-              className="px-4 py-2 border border-border-card hover:border-[var(--accent-primary,var(--color-accent-cyan))]/50 text-xs font-display text-text-main tracking-wider rounded-lg bg-bg-card hover:bg-[var(--accent-primary,var(--color-accent-cyan))]/10 transition-all duration-300 shadow-sm font-medium"
+              className="px-4 py-2 border border-border-card text-xs font-display text-text-main tracking-wider rounded-xl bg-bg-card hover:bg-bg-secondary transition-all duration-300 font-bold clay-btn"
             >
               Let's Talk
             </Link>
@@ -180,7 +180,7 @@ export const Navbar: React.FC = () => {
           <div className="flex md:hidden items-center gap-3">
             <button
               onClick={toggleTheme}
-              className="p-2 text-text-muted hover:text-text-main rounded-lg bg-bg-secondary border border-border-card focus:outline-none transition-all duration-300"
+              className="p-2 text-text-muted hover:text-text-main rounded-xl bg-bg-secondary border border-border-card focus:outline-none transition-all duration-300 clay-btn"
               aria-label="Toggle color theme"
             >
               {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-accent-purple" />}
@@ -188,7 +188,7 @@ export const Navbar: React.FC = () => {
             <button
               id="mobile-menu-toggle"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-text-muted hover:text-text-main p-2 rounded-lg bg-bg-secondary border border-border-card focus:outline-none"
+              className="text-text-muted hover:text-text-main p-2 rounded-xl bg-bg-secondary border border-border-card focus:outline-none clay-btn"
               aria-label="Toggle menu"
             >
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

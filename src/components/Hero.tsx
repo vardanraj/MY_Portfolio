@@ -63,7 +63,7 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="relative w-12 h-12 flex items-center justify-center mb-6"
+              className="relative w-12 h-12 flex items-center justify-center mb-6 clay-badge"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-accent-purple via-accent-cyan to-accent-pink rounded-xl opacity-75 blur-sm" />
               <div className="absolute inset-[1px] bg-bg-primary rounded-xl flex items-center justify-center border border-white/10 shadow-inner">
@@ -76,7 +76,7 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-bg-secondary/80 backdrop-blur border border-border-card rounded-full text-[10px] sm:text-xs text-text-muted font-mono tracking-wider mb-6 shadow-sm"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-bg-secondary/80 backdrop-blur border border-border-card rounded-full text-[10px] sm:text-xs text-text-muted font-mono tracking-wider mb-6 clay-badge shadow-sm"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-cyan opacity-75"></span>
@@ -118,7 +118,7 @@ export const Hero: React.FC = () => {
             >
               <Link
                 to="/projects"
-                className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-accent-purple via-accent-cyan to-accent-pink text-white font-display text-xs font-bold uppercase tracking-widest rounded-xl hover:shadow-[0_0_30px_rgba(97,85,245,0.4)] hover:brightness-110 active:scale-98 transition-all duration-300 flex items-center justify-center gap-2 group"
+                className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-accent-purple via-accent-cyan to-accent-pink text-white font-display text-xs font-bold uppercase tracking-widest rounded-2xl clay-btn flex items-center justify-center gap-2 group cursor-pointer"
               >
                 <span>Browse Work</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -126,7 +126,7 @@ export const Hero: React.FC = () => {
 
               <Link
                 to="/contact"
-                className="w-full sm:w-auto px-8 py-4 bg-bg-card border border-border-card text-text-main hover:border-accent-cyan/50 font-display text-xs font-bold uppercase tracking-widest rounded-xl hover:bg-bg-secondary active:scale-98 transition-all duration-300 flex items-center justify-center gap-2 shadow-sm"
+                className="w-full sm:w-auto px-8 py-4 bg-bg-card border border-border-card text-text-main hover:border-accent-cyan/50 font-display text-xs font-bold uppercase tracking-widest rounded-2xl clay-btn flex items-center justify-center gap-2 shadow-sm cursor-pointer"
               >
                 <span>Get in touch</span>
               </Link>
