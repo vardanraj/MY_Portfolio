@@ -2,31 +2,31 @@
 @import "tailwindcss";
 
 :root {
-  /* Default Dark Preference Variables - Sophisticated Greenish & Orangish Slate Ebony */
-  --bg-primary: #09090e;
-  --bg-secondary: #0f1211;
-  --text-main: #e6f3ed;
-  --text-muted: #809c8d;
-  --border-card: rgba(16, 185, 129, 0.08);
-  --bg-card: rgba(15, 18, 17, 0.8);
+  /* Default Dark Preference Variables - Sophisticated Cool-Matte Deep Purple Ebony */
+  --bg-primary: #09080e;
+  --bg-secondary: #100f17;
+  --text-main: #e6e5f3;
+  --text-muted: #83809c;
+  --border-card: rgba(124, 108, 246, 0.12);
+  --bg-card: rgba(16, 15, 23, 0.8);
 
   --gradient-angle: 135deg;
   --cursor-x: 50%;
   --cursor-y: 50%;
 
-  --glow-primary: rgba(16, 185, 129, 0.04);
-  --glow-secondary: rgba(245, 158, 11, 0.03);
+  --glow-primary: rgba(108, 92, 231, 0.05);
+  --glow-secondary: rgba(156, 141, 246, 0.03);
 
-  /* Default Dark Mode Green & Orange Accents */
-  --accent-purple: #10b981; /* Greenish/Emerald */
-  --accent-pink: #059669;   /* Forest Green */
-  --accent-orange: #f59e0b; /* Warm Amber */
-  --accent-cyan: #f97316;   /* Orangish/Vibrant */
+  /* Sophisticated Slate Purple, Deep Matte Indigo, Muted Lavender, and Titanium Violet */
+  --accent-purple: #6c5ce7;
+  --accent-pink: #3f2f8a;
+  --accent-orange: #9c8df6;
+  --accent-cyan: #b2a8fc;
 
-  --accent-purple-rgb: 16, 185, 129;
-  --accent-pink-rgb: 5, 150, 105;
-  --accent-orange-rgb: 245, 158, 11;
-  --accent-cyan-rgb: 249, 115, 22;
+  --accent-purple-rgb: 108, 92, 231;
+  --accent-pink-rgb: 63, 47, 138;
+  --accent-orange-rgb: 156, 141, 246;
+  --accent-cyan-rgb: 178, 168, 252;
 
   /* Claymorphism Defaults (Dark Mode) */
   --clay-shadow-out: 0 12px 24px -10px rgba(0, 0, 0, 0.5), 0 24px 48px -18px rgba(0, 0, 0, 0.6);
@@ -64,26 +64,26 @@
 }
 
 :root[data-theme='dark'], .dark {
-  --bg-primary: #09090e; /* Deep, luxury cool slate-green/orange ebony */
-  --bg-secondary: #0f1211; /* Muted cool dark secondary */
-  --text-main: #e6f3ed; /* Soft cool-matte lavender white */
-  --text-muted: #809c8d; /* Timeless cool slate purple gray */
-  --border-card: rgba(16, 185, 129, 0.08);
-  --bg-card: rgba(15, 18, 17, 0.8);
+  --bg-primary: #09080e; /* Deep, luxury cool slate-purple ebony */
+  --bg-secondary: #100f17; /* Muted cool violet secondary */
+  --text-main: #e6e5f3; /* Soft cool-matte lavender white */
+  --text-muted: #83809c; /* Timeless cool slate purple gray */
+  --border-card: rgba(124, 108, 246, 0.12); /* Delicate metallic violet card outline */
+  --bg-card: rgba(16, 15, 23, 0.8); /* Rich premium cool violet card background */
 
-  --glow-primary: rgba(16, 185, 129, 0.04);
-  --glow-secondary: rgba(245, 158, 11, 0.03);
+  --glow-primary: rgba(108, 92, 231, 0.05); /* Subtle ambient purple/violet mist */
+  --glow-secondary: rgba(156, 141, 246, 0.03); /* Polished steel-purple accent mist */
 
-  /* Dark mode greenish and orangish accents */
-  --accent-purple: #10b981; /* Emerald Green */
-  --accent-pink: #059669;   /* Forest Green */
-  --accent-orange: #f59e0b; /* Warm Amber */
-  --accent-cyan: #f97316;   /* Vibrant Orange */
+  /* Sophisticated Slate Purple, Deep Matte Indigo, Muted Lavender, and Titanium Violet */
+  --accent-purple: #6c5ce7;
+  --accent-pink: #3f2f8a;
+  --accent-orange: #9c8df6;
+  --accent-cyan: #b2a8fc;
 
-  --accent-purple-rgb: 16, 185, 129;
-  --accent-pink-rgb: 5, 150, 105;
-  --accent-orange-rgb: 245, 158, 11;
-  --accent-cyan-rgb: 249, 115, 22;
+  --accent-purple-rgb: 108, 92, 231;
+  --accent-pink-rgb: 63, 47, 138;
+  --accent-orange-rgb: 156, 141, 246;
+  --accent-cyan-rgb: 178, 168, 252;
 
   /* Claymorphism Dark Mode */
   --clay-shadow-out: 0 12px 24px -10px rgba(0, 0, 0, 0.5), 0 24px 48px -18px rgba(0, 0, 0, 0.6);

@@ -14,21 +14,84 @@ function AnimatedRoutes() {
 
   useEffect(() => {
     const root = document.documentElement;
-    const path = location.pathname.toLowerCase();
 
-    if (path === '/about' || path === '/skills' || path === '/contact') {
-      // Apply greenish gradients for technical/networking pages
-      root.style.setProperty('--accent-purple', '#10b981');
-      root.style.setProperty('--accent-cyan', '#14b8a6');
-      root.style.setProperty('--accent-pink', '#059669');
-    } else if (path === '/projects' || path === '/certificates') {
-      // Projects and Certificates dynamically manage themselves
-    } else {
-      // Home page: original hybrid/balanced colors
-      root.style.removeProperty('--accent-purple');
-      root.style.removeProperty('--accent-cyan');
-      root.style.removeProperty('--accent-pink');
-    }
+    const updateThemeColors = () => {
+      const isDark = root.classList.contains('dark') || root.getAttribute('data-theme') === 'dark';
+      const path = location.pathname.toLowerCase();
+
+      if (!isDark) {
+        // Light mode: Always clean up inline overrides so that stylesheet defaults (warm terracotta, crimson, cinnamon) apply everywhere
+        root.style.removeProperty('--accent-purple');
+        root.style.removeProperty('--accent-cyan');
+        root.style.removeProperty('--accent-pink');
+        root.style.removeProperty('--border-card');
+        root.style.removeProperty('--bg-card');
+        return;
+      }
+
+      // Dark Mode Page-Specific Gradient Accents (Greenish vs Orangish)
+      if (path === '/about') {
+        // Greenish/Emerald gradient
+        root.style.setProperty('--accent-purple', '#10b981'); // Emerald Green
+        root.style.setProperty('--accent-cyan', '#14b8a6');   // Teal/Cyan
+        root.style.setProperty('--accent-pink', '#059669');   // Forest Green
+        root.style.setProperty('--border-card', 'rgba(16, 185, 129, 0.08)');
+        root.style.setProperty('--bg-card', 'rgba(15, 18, 17, 0.8)');
+      } else if (path === '/skills') {
+        // Orangish/Amber gradient
+        root.style.setProperty('--accent-purple', '#f59e0b'); // Warm Amber
+        root.style.setProperty('--accent-cyan', '#f97316');   // Vibrant Orange
+        root.style.setProperty('--accent-pink', '#ea580c');   // Rust/Orange
+        root.style.setProperty('--border-card', 'rgba(245, 158, 11, 0.08)');
+        root.style.setProperty('--bg-card', 'rgba(18, 16, 15, 0.8)');
+      } else if (path === '/projects') {
+        // Greenish gradient for projects
+        root.style.setProperty('--accent-purple', '#10b981'); // Emerald Green
+        root.style.setProperty('--accent-cyan', '#14b8a6');   // Teal/Cyan
+        root.style.setProperty('--accent-pink', '#059669');   // Forest Green
+        root.style.setProperty('--border-card', 'rgba(16, 185, 129, 0.08)');
+        root.style.setProperty('--bg-card', 'rgba(15, 18, 17, 0.8)');
+      } else if (path === '/certificates') {
+        // Orangish/Amber gradient for certificates
+        root.style.setProperty('--accent-purple', '#f59e0b'); // Warm Amber
+        root.style.setProperty('--accent-cyan', '#f97316');   // Vibrant Orange
+        root.style.setProperty('--accent-pink', '#ea580c');   // Rust/Orange
+        root.style.setProperty('--border-card', 'rgba(245, 158, 11, 0.08)');
+        root.style.setProperty('--bg-card', 'rgba(18, 16, 15, 0.8)');
+      } else if (path === '/contact') {
+        // Orangish gradient for contact
+        root.style.setProperty('--accent-purple', '#f59e0b'); // Warm Amber
+        root.style.setProperty('--accent-cyan', '#f97316');   // Vibrant Orange
+        root.style.setProperty('--accent-pink', '#ea580c');   // Rust/Orange
+        root.style.setProperty('--border-card', 'rgba(245, 158, 11, 0.08)');
+        root.style.setProperty('--bg-card', 'rgba(18, 16, 15, 0.8)');
+      } else {
+        // Home page: Restore full default purple theme
+        root.style.removeProperty('--accent-purple');
+        root.style.removeProperty('--accent-cyan');
+        root.style.removeProperty('--accent-pink');
+        root.style.removeProperty('--border-card');
+        root.style.removeProperty('--bg-card');
+      }
+    };
+
+    // Initial update
+    updateThemeColors();
+
+    // Setup MutationObserver to listen for theme toggles
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class' || mutation.attributeName === 'data-theme') {
+          updateThemeColors();
+        }
+      });
+    });
+
+    observer.observe(root, { attributes: true });
+
+    return () => {
+      observer.disconnect();
+    };
   }, [location.pathname]);
 
   return (
