@@ -1,4 +1,4 @@
-# Developer Portfolio[cite: 1]
+# MY Portfolio
 
 A premium React developer portfolio featuring responsive fluid typography, Figma-inspired neon gradients, and elegant route transitions.[cite: 1]
 
