@@ -1,6 +1,6 @@
 # MY Portfolio
 
-A premium React developer portfolio featuring responsive fluid typography, Figma-inspired neon gradients, and elegant route transitions.
+
 
 ## 🚀 Features
 *   **Dynamic Theme Switching:** Light and dark mode support with page-specific gradient accents.
