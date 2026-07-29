@@ -155,6 +155,32 @@ const mappings: Record<string, Partial<GalleryItem>> = {
       'Curated a festive, high-contrast palette of marigold yellow, brilliant blue, and deep orange.',
       'Styled bilingual display typography blending traditional Devanagari script with elegant English accents.'
     ]
+  },
+  'Creative & Tourism': {
+    title: 'Creative & Tourism Campaign',
+    subtitle: 'Brand & Event Promotional Poster',
+    description: 'A vibrant graphic poster designed for creative & tourism recruitment and promotions, combining rich typography with structured promotional layout grids.',
+    category: 'Poster Art',
+    tools: ['Adobe Illustrator', 'Photoshop', 'InDesign'],
+    specs: 'Poster Banner / High-Res RGB',
+    details: [
+      'Engineered structured layout grids for recruitment and event promotions.',
+      'Harmonized vibrant color contrasts suited for digital and print displays.',
+      'Selected high-impact typography for clear visual hierarchy.'
+    ]
+  },
+  'Creative & Tourism Recruitment grid': {
+    title: 'Creative & Tourism Layout Grid',
+    subtitle: 'Modular Poster Grid & Guidelines',
+    description: 'A technical layout grid and composition guide for Creative & Tourism campaign assets, establishing alignment anchors and typographic proportions.',
+    category: 'Technical Graphics',
+    tools: ['Figma Grid', 'Adobe Illustrator', 'Vector Math'],
+    specs: 'Modular Layout Grid / Vector Source',
+    details: [
+      'Defined modular alignment structures and margin ratios.',
+      'Ensures consistent branding across diverse marketing media sizes.',
+      'Structured clear spatial hierarchy for headline and body elements.'
+    ]
   }
 };
 
