@@ -4,6 +4,13 @@ import AgtGridImg from '../images/agt-grid.webp';
 import CreativeTourismImg from '../images/creative-tourism.webp';
 import BrandArtworkImg from '../images/brand-artwork.webp';
 
+import CertNetworkingBasics from '../images/certificates/networking-basics.webp';
+import CertGraphicInternship from '../images/certificates/graphic-internship-certificate.webp';
+import CertLaunchedProgram from '../images/certificates/launched-certificate.webp';
+import CertDeloitte from '../images/deloitte-cert-thumb.webp';
+import CertGoldmanSachs from '../images/goldman-sachs-cert-thumb.webp';
+import CertTata from '../images/tata-cert-thumb.webp';
+
 export const personalInfo = {
   name: 'Vardan Raj',
   title: 'Network Engineer & Graphic Designer',
@@ -332,7 +339,7 @@ export const certificateData: CertificateItem[] = [
     issuer: 'Cisco Networking Academy',
     year: '2026',
     description: 'Core concepts of network communication including active packet decodes, IP routing topologies, system subnets, and security diagnostics.',
-    image: findCertFile('networking-basics') || 'custom:cisco',
+    image: findCertFile('networking-basics') || CertNetworkingBasics,
     pdfUrl: '/certificates/cisco-networking-basics.pdf',
     skills: ['IP Routing', 'Subnetting', 'Protocols', 'Network Security', 'Wireshark']
   },
@@ -342,7 +349,7 @@ export const certificateData: CertificateItem[] = [
     issuer: 'InAmigos Foundation',
     year: '2026',
     description: 'Recognized for graphic design, campaign asset compositions, micro-illustrations, and responsive digital visual designs for corporate events.',
-    image: findCertFile('graphic-internship-certificate') || 'custom:inamigos',
+    image: findCertFile('graphic-internship-certificate') || CertGraphicInternship,
     skills: ['Graphic Design', 'Figma', 'Adobe Illustrator', 'Branding', 'Typography']
   },
   {
@@ -351,7 +358,7 @@ export const certificateData: CertificateItem[] = [
     issuer: 'ABES Engineering College / Tech Accelerator',
     year: '2026',
     description: 'Certified in rapid prototyping, full-stack React systems assembly, styling guidelines enforcement, and responsive layout designs.',
-    image: findCertFile('launched-certificate') || 'custom:launched',
+    image: findCertFile('launched-certificate') || CertLaunchedProgram,
     skills: ['Full-Stack Web', 'Vite', 'React 18', 'System Design', 'Responsive UI']
   },
   {
@@ -360,7 +367,7 @@ export const certificateData: CertificateItem[] = [
     issuer: 'Deloitte',
     year: '2026',
     description: 'Deloitte technology consulting credential verifying enterprise risk identification, active IAM design, firewall ACL topology zoning, and cloud defense analysis.',
-    image: findImageFile('deloitte-cert-thumb') || 'custom:deloitte',
+    image: findImageFile('deloitte-cert-thumb') || CertDeloitte,
     pdfUrl: '/certificates/deloitte-cyber.pdf',
     skills: ['Cyber Security', 'Consulting', 'Vulnerability Assessment', 'ACL Design', 'IAM Policies']
   },
@@ -370,7 +377,7 @@ export const certificateData: CertificateItem[] = [
     issuer: 'Goldman Sachs',
     year: '2026',
     description: 'Goldman Sachs software engineering simulation credential validating corporate password policies, auditing threat metrics, and implementing secure cryptography protocols.',
-    image: findImageFile('goldman-sachs-cert-thumb') || 'custom:goldman',
+    image: findImageFile('goldman-sachs-cert-thumb') || CertGoldmanSachs,
     pdfUrl: '/certificates/goldman-sachs-risk.pdf',
     skills: ['System Audits', 'Vulnerability Remediation', 'Cryptography', 'Password Policies', 'Backends']
   },
@@ -380,7 +387,7 @@ export const certificateData: CertificateItem[] = [
     issuer: 'Tata Group',
     year: '2026',
     description: 'Tata Group analyst simulation verifying network posture vulnerability screening, incident threat control protocols, and enterprise infrastructure log audits.',
-    image: findImageFile('tata-cert-thumb') || 'custom:tata',
+    image: findImageFile('tata-cert-thumb') || CertTata,
     pdfUrl: '/certificates/tata-cyber.pdf',
     skills: ['Threat Analysis', 'Incident Response', 'Network Posture', 'Cyber Defense', 'Security Logs']
   }

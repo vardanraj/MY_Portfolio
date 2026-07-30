@@ -157,10 +157,9 @@ export const Home: React.FC = () => {
             {/* Visual simulation header for Packet Analyser */}
             <div className="relative aspect-[16/10] overflow-hidden bg-zinc-950 border-b border-border-card">
               <img
-                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800"
+                src={projectsData[0].image}
                 alt="Packet Analyser Cover"
                 className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-700 opacity-70"
-                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-bg-secondary via-transparent to-transparent opacity-95" />
               

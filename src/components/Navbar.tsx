@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Github, Linkedin, Mail, Sun, Moon } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
+import MyPhoto from '../images/my-photo.webp';
 
 const NAV_ITEMS = [
   { path: '/', label: 'Home' },
@@ -82,10 +83,10 @@ export const Navbar: React.FC = () => {
               {/* Inner card with crisp outline holding figma image */}
               <div className="absolute inset-[1px] bg-bg-primary rounded-xl flex items-center justify-center border border-white/10 shadow-inner p-1">
                 <img 
-                  src="https://www.figma.com/api/mcp/asset/aefc998b-5f93-4313-8ed6-ee2366b45521"
+                  src={MyPhoto}
                   alt="Vardan Raj Logo"
-                  className="w-full h-full object-contain relative z-10"
-                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover rounded-lg relative z-10"
+                  loading="eager"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     const parent = e.currentTarget.parentElement;

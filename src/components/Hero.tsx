@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowRight, Network, Server, Shield, Activity, Radio, Cpu, Layers } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
-
-const PORTRAIT_IMAGE = 'https://www.figma.com/api/mcp/asset/45d6593d-3aa4-4607-9e8b-5de3058b5e8e';
-const GRID_BG = 'https://www.figma.com/api/mcp/asset/a0454b3e-2ab5-476f-9e18-95607491adbb';
+import GridImg from '../images/grid.webp';
 
 export const Hero: React.FC = () => {
   return (
@@ -17,10 +15,9 @@ export const Hero: React.FC = () => {
       <div className="absolute inset-0 -z-20 pointer-events-none overflow-hidden select-none">
         {/* Subtle base watermark grid */}
         <img 
-          src={GRID_BG} 
+          src={GridImg} 
           alt="" 
           className="absolute top-0 left-0 w-full h-full object-cover opacity-[0.06] dark:opacity-[0.08] mix-blend-overlay scale-102"
-          referrerPolicy="no-referrer"
         />
         
         {/* Layered glowing blobs executing floating translation loops */}
