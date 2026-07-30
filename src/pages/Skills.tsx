@@ -56,9 +56,9 @@ export const Skills: React.FC = () => {
           <button
             key={cat}
             onClick={() => setFilter(cat)}
-            className={`px-5 py-2.5 text-xs font-mono rounded-2xl border transition-all duration-300 focus:outline-none cursor-pointer clay-btn ${
+            className={`px-4 py-2 text-xs font-mono rounded-xl border transition-all duration-200 focus:outline-none cursor-pointer clay-btn ${
               filter === cat
-                ? 'bg-bg-card text-text-main font-bold shadow-sm'
+                ? 'bg-bg-card text-text-main font-bold shadow-xs'
                 : 'border-border-card bg-bg-card/40 text-text-muted hover:text-text-main'
             }`}
             style={{
@@ -85,8 +85,8 @@ export const Skills: React.FC = () => {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.35 }}
-              whileHover={{ y: -4 }}
-              className="figma-glass-card p-6 rounded-2xl relative overflow-hidden group flex flex-col justify-between"
+              whileHover={{ y: -3 }}
+              className="figma-glass-card p-6 rounded-xl relative overflow-hidden group flex flex-col justify-between"
             >
               {/* Card visual elements */}
               <div className="flex items-center justify-between mb-6">

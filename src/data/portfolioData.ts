@@ -1,5 +1,8 @@
 import { Project, Skill, TimelineEvent, GalleryItem, CertificateItem } from '../types';
-import MyPhoto from '../images/MY_photo (2).png';
+import MyPhoto from '../images/my-photo.webp';
+import AgtGridImg from '../images/agt-grid.webp';
+import CreativeTourismImg from '../images/creative-tourism.webp';
+import BrandArtworkImg from '../images/brand-artwork.webp';
 
 export const personalInfo = {
   name: 'Vardan Raj',
@@ -9,8 +12,8 @@ export const personalInfo = {
   email: 'darkraj7011@gmail.com',
   github: 'https://github.com/VardanRaj',
   linkedin: 'https://www.linkedin.com/in/vardan-raj-042650317/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BIVnVBp8FRZ%2BLW2h8rxhDfw%3D%3D',
-  location: 'Grater Noida, Uttar Pradesh',
-  resumeUrl: '#',
+  location: 'Greater Noida, Uttar Pradesh',
+  resumeUrl: '/resume.pdf',
   portraitUrl: MyPhoto,
 };
 
@@ -33,20 +36,72 @@ export const skillsData: Skill[] = [
   { name: 'Figma', category: 'Design & DevTools', level: 60, iconName: 'Figma' },
 ];
 
+// ============================================================================
+// PROJECTS DATA
+// ============================================================================
+// To add a new project, duplicate an entry below and update the fields.
+// Image paths should point to local WebP assets in src/images/ or a URL string.
+// Example project shape:
+// {
+//   id: 'unique-id',
+//   title: 'Project Title',
+//   description: 'Short summary of the project',
+//   category: 'Network Engineering' | 'Graphic Design',
+//   tags: ['Tag 1', 'Tag 2'],
+//   image: ImageImportOrPathString,
+//   link: 'https://github.com/VardanRaj/project-repo',
+//   github: 'https://github.com/VardanRaj/project-repo',
+//   details: ['Bullet point 1', 'Bullet point 2'],
+//   featured: true
+// }
+// ============================================================================
+
 export const projectsData: Project[] = [
   {
     id: 'packet-analyser',
     title: 'Packet Analyser',
-    description: 'An expert-grade telemetry and packet inspection interface engineered to intercept and map virtual network frames. It parses details from HTTP, TCP, and IP protocol packets in real-time.',
+    description: 'An expert-grade telemetry and packet inspection interface engineered to intercept and map virtual network frames. Parses HTTP, TCP, and IP protocol packets in real-time.',
     category: 'Network Engineering',
     tags: ['Wireshark SDK', 'Packet Capture', 'TCP/IP Stack', 'DNS Inspect'],
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800',
+    image: AgtGridImg,
     link: 'https://github.com/VardanRaj/packet-analyser',
     github: 'https://github.com/VardanRaj/packet-analyser',
     details: [
       'Captures and decodes active header information including protocol parameters, TTL flags, ports, and checksum indices.',
       'Constructs dynamic throughput metrics and telemetry reports mapping package traffic frequencies.',
       'Integrates multi-threaded asynchronous buffers to prevent frame truncation and queue losses during peak load spikes.'
+    ],
+    featured: true
+  },
+  {
+    id: 'cisco-network-topology-simulator',
+    title: 'Cisco Network Topology Simulator',
+    description: 'A network routing simulator and firewall policy visualizer designed for enterprise subnet architecture and SD-WAN routing validation.',
+    category: 'Network Engineering',
+    tags: ['Cisco IOS', 'BGP / OSPF', 'SD-WAN', 'Subnetting'],
+    image: CreativeTourismImg,
+    link: 'https://github.com/VardanRaj',
+    github: 'https://github.com/VardanRaj',
+    details: [
+      'Simulates multi-area OSPF and BGP peering sessions with interactive route map visualization.',
+      'Validates access control lists (ACLs) and Palo Alto firewall zone configurations.',
+      'Automates IP schema allocation for IPv4 and IPv6 subnets with zero-loss boundary calculations.'
+    ],
+    featured: true
+  },
+  {
+    id: 'vector-brand-identity-system',
+    title: 'Modular Brand & Poster Design System',
+    description: 'A graphic design system establishing Swiss grid layouts, bespoke typography, and campaign asset guidelines for corporate and university festivals.',
+    category: 'Graphic Design',
+    tags: ['Adobe Illustrator', 'Swiss Grid', 'Brand Identity', 'Typography'],
+    image: BrandArtworkImg,
+    link: 'https://github.com/VardanRaj',
+    github: 'https://github.com/VardanRaj',
+    details: [
+      'Engineered modular 12-column Swiss grid structures for high-impact promotional posters.',
+      'Curated harmonized color palettes with accessibility contrast compliance across print and digital media.',
+      'Designed vector icon sets and typography pairing hierarchies for event campaigns.'
     ],
     featured: true
   }
@@ -58,14 +113,14 @@ const certificateModules = (import.meta as any).glob('../images/certificates/*',
 // Helper to extract clean filename
 function getCleanFileName(filepath: string): string {
   const baseName = filepath.split('/').pop() || filepath;
-  // Remove extension
+
   const cleanName = baseName.replace(/\.[^/.]+$/, "");
   return cleanName.trim();
 }
 
 // Map files to rich metadata matching Vardan Raj's real graphic design works
 const mappings: Record<string, Partial<GalleryItem>> = {
-  'Save nature': {
+  'save-nature': {
     title: 'Planet or Pollution?',
     subtitle: 'SAVE Earth Campaign Poster',
     description: 'An eco-conservation graphic design poster crafted for InAmigos Foundation. Features a structured layout of an Earth globe enclosed in glass, layered recycling cardboard arrows, and fresh green leaves, all set on a dark green textured backdrop.',
@@ -78,7 +133,7 @@ const mappings: Record<string, Partial<GalleryItem>> = {
       'Curated contrasting bespoke classic serif and modern retro display typography lines.'
     ]
   },
-  'unnamed (1)': {
+  'group-82': {
     title: 'Champions of India',
     subtitle: 'T20 Cricket Brand Campaign',
     description: 'A dynamic sports poster celebrating the victory of the Indian cricket team under the Apollo brand. Features a massive portrait backdrop, active sports player action shots, and textured, metallic gold display typography.',
@@ -91,7 +146,7 @@ const mappings: Record<string, Partial<GalleryItem>> = {
       'Symmetric positioning of jerseys, equipment, and badges to create a balanced cinematic flow.'
     ]
   },
-  'AGT GRID': {
+  'agt-grid': {
     title: 'ABES Got Talent Layout Grid',
     subtitle: 'Campus Event Visual Framework',
     description: 'A premium structural layout and spacing grid designed for the ABES Got Talent mainstage festival assets, establishing a standard aspect ratio and visual guidelines for promotional placements.',
@@ -104,10 +159,10 @@ const mappings: Record<string, Partial<GalleryItem>> = {
       'Designed double-stroke neon yellow color accents with clean grid lines.'
     ]
   },
-  'Mundan': {
+  'mundan': {
     title: 'Mundan Ceremony Invitation',
     subtitle: 'Traditional Floral Milestone Card',
-    description: 'A premium floral invitation card celebrating a child\'s milestone hair-cleansing ceremony. Detailing traditional Indian golden lanterns, decorative arch frames, and an elegant cream-pastel backdrop containing a sleepy child photo.',
+    description: 'A premium floral invitation card celebrating a child\'s milestone hair-cleansing ceremony. Detailing traditional Indian golden lanterns, decorative arch frames, and an elegant cream-pastel backdrop containing a child photo.',
     category: 'Print Layouts',
     tools: ['Adobe Illustrator', 'InDesign', 'Procreate'],
     specs: '5" x 7" Printable Card / CMYK',
@@ -130,7 +185,7 @@ const mappings: Record<string, Partial<GalleryItem>> = {
       'Constructed pixel-perfect geometric lines for timeless digital design fidelity.'
     ]
   },
-  'Shaheedi Hafta': {
+  'shaheedi-hafta': {
     title: 'Shaheedi Hafta Tribute',
     subtitle: 'Commemorative Tribute Motion Graphic',
     description: 'An elegant digital tribute video slide and motion graphic card honoring Shaheedi Hafta (20-27 December). Bathed in warm gold-sepia light, highlighting a detailed vector outline of historical structures.',
@@ -143,7 +198,7 @@ const mappings: Record<string, Partial<GalleryItem>> = {
       'Beautiful warm gold-sepia visual animations with deep corporate styling.'
     ]
   },
-  'मकर संक्रांति': {
+  'makar-sankranti': {
     title: 'Makar Sankranti Greeting',
     subtitle: 'Festive Indian Crop Festival Graphic',
     description: 'A colorful, vibrant graphic card celebrating the harvest festival Makar Sankranti. Adorned with beautiful vector kites, traditional sweets, sugarcane illustrations, and energetic traditional greetings.',
@@ -156,7 +211,7 @@ const mappings: Record<string, Partial<GalleryItem>> = {
       'Styled bilingual display typography blending traditional Devanagari script with elegant English accents.'
     ]
   },
-  'Creative & Tourism': {
+  'creative-tourism': {
     title: 'Creative & Tourism Campaign',
     subtitle: 'Brand & Event Promotional Poster',
     description: 'A vibrant graphic poster designed for creative & tourism recruitment and promotions, combining rich typography with structured promotional layout grids.',
@@ -169,7 +224,7 @@ const mappings: Record<string, Partial<GalleryItem>> = {
       'Selected high-impact typography for clear visual hierarchy.'
     ]
   },
-  'Creative & Tourism Recruitment grid': {
+  'creative-tourism-recruitment-grid': {
     title: 'Creative & Tourism Layout Grid',
     subtitle: 'Modular Poster Grid & Guidelines',
     description: 'A technical layout grid and composition guide for Creative & Tourism campaign assets, establishing alignment anchors and typographic proportions.',
@@ -181,6 +236,19 @@ const mappings: Record<string, Partial<GalleryItem>> = {
       'Ensures consistent branding across diverse marketing media sizes.',
       'Structured clear spatial hierarchy for headline and body elements.'
     ]
+  },
+  'brand-artwork': {
+    title: 'Modular Brand Graphic Composition',
+    subtitle: 'Custom Brand Visual Asset',
+    description: 'A graphic composition exploring vector geometry, visual hierarchy, and brand typography rules for promotional brand assets.',
+    category: 'Logo & Branding',
+    tools: ['Adobe Illustrator', 'Figma'],
+    specs: 'Vector Composition / High-Res Output',
+    details: [
+      'Structured grid-aligned typographic layout.',
+      'Optimized vector shapes for crisp rendering on high-DPI displays.',
+      'Applied balanced color harmony and focal point weighting.'
+    ]
   }
 };
 
@@ -189,7 +257,6 @@ function formatDefaultTitle(filename: string): string {
     return 'Creative Design Composition';
   }
   let formatted = filename.replace(/[_-]/g, ' ');
-  // Title case
   return formatted.replace(/\b\w/g, c => c.toUpperCase());
 }
 
@@ -200,8 +267,11 @@ export const galleryData: GalleryItem[] = Object.entries(imageModules)
       filename.includes('photo') || 
       filename.includes('portrait') || 
       filename.includes('avatar') ||
-      filename.includes('certificate') ||
-      filename.includes('certufucacte') ||
+      filename.includes('cert') ||
+      filename.includes('deloitte') ||
+      filename.includes('goldman') ||
+      filename.includes('tata') ||
+      filename.includes('cisco') ||
       filename.includes('launched') ||
       filename.includes('networking-basics') ||
       filename.includes('screenshot') ||
@@ -262,8 +332,8 @@ export const certificateData: CertificateItem[] = [
     issuer: 'Cisco Networking Academy',
     year: '2026',
     description: 'Core concepts of network communication including active packet decodes, IP routing topologies, system subnets, and security diagnostics.',
-    image: findCertFile('networking-basics.png') || 'custom:cisco',
-    pdfUrl: findCertFile('NetworkingBasicsUpdate20260322-31-x9tw4k.pdf'),
+    image: findCertFile('networking-basics') || 'custom:cisco',
+    pdfUrl: '/certificates/cisco-networking-basics.pdf',
     skills: ['IP Routing', 'Subnetting', 'Protocols', 'Network Security', 'Wireshark']
   },
   {
@@ -272,7 +342,7 @@ export const certificateData: CertificateItem[] = [
     issuer: 'InAmigos Foundation',
     year: '2026',
     description: 'Recognized for graphic design, campaign asset compositions, micro-illustrations, and responsive digital visual designs for corporate events.',
-    image: findCertFile('graphic internship certificate.jpg') || 'custom:inamigos',
+    image: findCertFile('graphic-internship-certificate') || 'custom:inamigos',
     skills: ['Graphic Design', 'Figma', 'Adobe Illustrator', 'Branding', 'Typography']
   },
   {
@@ -281,7 +351,7 @@ export const certificateData: CertificateItem[] = [
     issuer: 'ABES Engineering College / Tech Accelerator',
     year: '2026',
     description: 'Certified in rapid prototyping, full-stack React systems assembly, styling guidelines enforcement, and responsive layout designs.',
-    image: findCertFile('launched certificate.jpg') || 'custom:launched',
+    image: findCertFile('launched-certificate') || 'custom:launched',
     skills: ['Full-Stack Web', 'Vite', 'React 18', 'System Design', 'Responsive UI']
   },
   {
@@ -290,8 +360,8 @@ export const certificateData: CertificateItem[] = [
     issuer: 'Deloitte',
     year: '2026',
     description: 'Deloitte technology consulting credential verifying enterprise risk identification, active IAM design, firewall ACL topology zoning, and cloud defense analysis.',
-    image: findImageFile('150933') || 'custom:deloitte',
-    pdfUrl: findCertFile('Deloitte certufucacte Cyber.pdf'),
+    image: findImageFile('deloitte-cert-thumb') || 'custom:deloitte',
+    pdfUrl: '/certificates/deloitte-cyber.pdf',
     skills: ['Cyber Security', 'Consulting', 'Vulnerability Assessment', 'ACL Design', 'IAM Policies']
   },
   {
@@ -300,8 +370,8 @@ export const certificateData: CertificateItem[] = [
     issuer: 'Goldman Sachs',
     year: '2026',
     description: 'Goldman Sachs software engineering simulation credential validating corporate password policies, auditing threat metrics, and implementing secure cryptography protocols.',
-    image: findImageFile('150910') || 'custom:goldman',
-    pdfUrl: findCertFile('Goldamnachs risk.pdf'),
+    image: findImageFile('goldman-sachs-cert-thumb') || 'custom:goldman',
+    pdfUrl: '/certificates/goldman-sachs-risk.pdf',
     skills: ['System Audits', 'Vulnerability Remediation', 'Cryptography', 'Password Policies', 'Backends']
   },
   {
@@ -310,8 +380,8 @@ export const certificateData: CertificateItem[] = [
     issuer: 'Tata Group',
     year: '2026',
     description: 'Tata Group analyst simulation verifying network posture vulnerability screening, incident threat control protocols, and enterprise infrastructure log audits.',
-    image: findImageFile('Screenshot_20-6-2026_1584') || 'custom:tata',
-    pdfUrl: findCertFile('Tata Cyber.pdf'),
+    image: findImageFile('tata-cert-thumb') || 'custom:tata',
+    pdfUrl: '/certificates/tata-cyber.pdf',
     skills: ['Threat Analysis', 'Incident Response', 'Network Posture', 'Cyber Defense', 'Security Logs']
   }
 ];
@@ -320,24 +390,25 @@ export const experienceData: TimelineEvent[] = [
   {
     id: 'exp-1',
     role: 'Student: Computer Science and Engineering',
-    company: 'Abes Engineering Collage',
+    company: 'ABES Engineering College',
     period: '2024 - 2028',
     description: 'Blending Code and Creativity for Modern Web Experiences.',
     points: [
       'The Learner: A self-driven student who translates curiosity into practical, self-taught skills.',
       'The Doer: Bridging academic theory with hands-on projects to solve real-world problems.',
       'The Collaborator: An adaptable team player who brings energy, structure, and quick thinking to every challenge.'
-     
     ]
   },
   {
     id: 'exp-2',
-    role: 'Graphic Designmer Intern',
-    company: 'In Amigos Foundaton',
+    role: 'Graphic Designer Intern',
+    company: 'InAmigos Foundation',
     period: 'April-May 2026',
-    description: 'Crafted impactful digital content and driving fundraising campaigns at InAmigos Foundation to support pan-India social welfare initiatives',
+    description: 'Crafted impactful digital content and driving fundraising campaigns at InAmigos Foundation to support pan-India social welfare initiatives.',
     points: [
-     ''
+      'Designed responsive social media campaign assets, promotional posters, and digital banners for national social welfare initiatives.',
+      'Collaborated with cross-functional teams to produce high-impact visual content driving community engagement and fundraising campaigns.',
+      'Maintained visual brand consistency across print and digital media assets using Adobe Creative Suite and Canva.'
     ]
   }
 ];

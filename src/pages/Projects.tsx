@@ -309,16 +309,14 @@ export const Projects: React.FC = () => {
                 ))}
 
               {/* Card 2: Zero-Trust Secure Subnets (Coming Soon) */}
-              <div className="group relative figma-glass-card rounded-3xl overflow-hidden border border-border-card flex flex-col justify-between h-full bg-bg-card/90 shadow-lg hover:shadow-xl transition-all duration-500">
+              <div className="group relative figma-glass-card rounded-xl overflow-hidden border border-border-card flex flex-col justify-between h-full bg-bg-card/80 shadow-sm hover:shadow-md transition-all duration-300">
                 <div>
-                  {/* Claymorphic visual header with soft pastel gradient */}
-                  <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-accent-purple/15 to-accent-cyan/15 border-b border-border-card flex flex-col justify-center items-center p-6 select-none">
-                    {/* Floating 3D clay badge */}
-                    <div className="w-16 h-16 rounded-2xl bg-bg-secondary/80 border border-border-card shadow-inner flex items-center justify-center text-accent-purple mb-2 relative">
-                      <div className="absolute inset-0 bg-gradient-to-tr from-accent-purple via-accent-cyan to-accent-pink rounded-2xl opacity-10 blur-xs" />
-                      <Server className="w-6 h-6" />
+                  {/* Visual header with subtle accent overlay */}
+                  <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-accent-purple/10 to-accent-cyan/10 border-b border-border-card flex flex-col justify-center items-center p-6 select-none">
+                    <div className="w-12 h-12 rounded-xl bg-bg-secondary border border-border-card flex items-center justify-center text-accent-purple mb-2">
+                      <Server className="w-5 h-5" />
                     </div>
-                    <span className="px-2.5 py-1 rounded-md text-[9px] font-mono tracking-wider bg-bg-secondary border border-border-card text-accent-purple uppercase font-bold clay-badge">
+                    <span className="px-2.5 py-0.5 rounded-md text-[9px] font-mono tracking-wider bg-bg-secondary border border-border-card text-accent-purple uppercase font-bold">
                       coming soon
                     </span>
                   </div>
@@ -334,7 +332,7 @@ export const Projects: React.FC = () => {
                     
                     <div className="flex flex-wrap gap-1.5">
                       {['Palo Alto', 'DMZ Security', 'ACL Routing', 'Telemetry'].map((t) => (
-                        <span key={t} className="px-2.5 py-0.5 text-[10px] font-mono bg-bg-secondary border border-border-card text-text-muted rounded-md font-medium clay-badge">
+                        <span key={t} className="px-2.5 py-0.5 text-[10px] font-mono bg-bg-secondary border border-border-card text-text-muted rounded-md font-medium">
                           {t}
                         </span>
                       ))}
@@ -354,16 +352,14 @@ export const Projects: React.FC = () => {
               </div>
 
               {/* Card 3: OSPF Routing Topology Mesh (Coming Soon) */}
-              <div className="group relative figma-glass-card rounded-3xl overflow-hidden border border-border-card flex flex-col justify-between h-full bg-bg-card/90 shadow-lg hover:shadow-xl transition-all duration-500">
+              <div className="group relative figma-glass-card rounded-xl overflow-hidden border border-border-card flex flex-col justify-between h-full bg-bg-card/80 shadow-sm hover:shadow-md transition-all duration-300">
                 <div>
-                  {/* Claymorphic visual header with soft pastel gradient */}
-                  <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-accent-pink/15 to-accent-orange/15 border-b border-border-card flex flex-col justify-center items-center p-6 select-none">
-                    {/* Floating 3D clay badge */}
-                    <div className="w-16 h-16 rounded-2xl bg-bg-secondary/80 border border-border-card shadow-inner flex items-center justify-center text-accent-orange mb-2 relative">
-                      <div className="absolute inset-0 bg-gradient-to-tr from-accent-pink via-accent-orange to-accent-cyan rounded-2xl opacity-10 blur-xs" />
-                      <Folder className="w-6 h-6" />
+                  {/* Visual header with subtle accent overlay */}
+                  <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-accent-pink/10 to-accent-orange/10 border-b border-border-card flex flex-col justify-center items-center p-6 select-none">
+                    <div className="w-12 h-12 rounded-xl bg-bg-secondary border border-border-card flex items-center justify-center text-accent-orange mb-2">
+                      <Folder className="w-5 h-5" />
                     </div>
-                    <span className="px-2.5 py-1 rounded-md text-[9px] font-mono tracking-wider bg-bg-secondary border border-border-card text-accent-orange uppercase font-bold clay-badge">
+                    <span className="px-2.5 py-0.5 rounded-md text-[9px] font-mono tracking-wider bg-bg-secondary border border-border-card text-accent-orange uppercase font-bold">
                       coming soon
                     </span>
                   </div>
@@ -379,7 +375,7 @@ export const Projects: React.FC = () => {
                     
                     <div className="flex flex-wrap gap-1.5">
                       {['Cisco IOS', 'OSPFv3', 'Virtual Links', 'MD5 Auth'].map((t) => (
-                        <span key={t} className="px-2.5 py-0.5 text-[10px] font-mono bg-bg-secondary border border-border-card text-text-muted rounded-md font-medium clay-badge">
+                        <span key={t} className="px-2.5 py-0.5 text-[10px] font-mono bg-bg-secondary border border-border-card text-text-muted rounded-md font-medium">
                           {t}
                         </span>
                       ))}

@@ -177,7 +177,7 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
                 exit={{ opacity: 0, y: 16 }}
                 transition={{ duration: 0.3, delay: index * 0.04 }}
                 onClick={() => setLightboxIndex(index)}
-                className="group relative figma-glass-card rounded-3xl overflow-hidden border border-border-card bg-bg-card/80 hover:bg-bg-card/95 shadow-md hover:shadow-2xl hover:border-accent-primary/40 transition-all duration-300 flex flex-col justify-between cursor-pointer"
+                className="group relative figma-glass-card rounded-xl overflow-hidden border border-border-card bg-bg-card/80 hover:bg-bg-card/95 shadow-sm hover:shadow-md hover:border-accent-purple/30 transition-all duration-300 flex flex-col justify-between cursor-pointer"
                 id={`card-${item.id}`}
               >
                 {/* THUMBNAIL IMAGE FRAME - PRESERVES ASPECT RATIO WITHOUT CROP */}
@@ -286,9 +286,9 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
                         e.stopPropagation();
                         setLightboxIndex(index);
                       }}
-                      className="px-2.5 py-1 rounded-lg bg-bg-secondary border border-border-card hover:border-border-card/100 text-text-main transition-all font-bold flex items-center gap-1"
+                      className="px-2.5 py-1 rounded-lg text-text-main font-bold flex items-center gap-1 clay-btn"
                     >
-                      <Maximize2 className="w-3 h-3" />
+                      <Maximize2 className="w-3 h-3 text-accent-cyan" />
                       <span>Inspect</span>
                     </button>
                   </div>
@@ -323,7 +323,7 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
               <button
                 id="lightbox-close-btn"
                 onClick={() => setLightboxIndex(null)}
-                className="absolute top-4 right-4 z-20 text-text-muted hover:text-text-main p-2 bg-bg-secondary border border-border-card rounded-full shadow-lg transition-all duration-300 cursor-pointer focus:outline-none"
+                className="absolute top-4 right-4 z-20 text-text-muted hover:text-text-main p-2 rounded-full cursor-pointer focus:outline-none clay-btn"
                 aria-label="Close Lightbox"
               >
                 <X className="w-4 h-4" />
@@ -334,7 +334,7 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
                 <>
                   <button
                     onClick={handlePrevLightbox}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full bg-bg-card/90 border border-border-card text-text-main hover:bg-bg-secondary transition-all shadow-lg cursor-pointer"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full text-text-main cursor-pointer clay-btn"
                     aria-label="Previous image"
                   >
                     <ChevronLeft className="w-5 h-5" />
@@ -342,7 +342,7 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
 
                   <button
                     onClick={handleNextLightbox}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full bg-bg-card/90 border border-border-card text-text-main hover:bg-bg-secondary transition-all shadow-lg cursor-pointer"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full text-text-main cursor-pointer clay-btn"
                     aria-label="Next image"
                   >
                     <ChevronRight className="w-5 h-5" />

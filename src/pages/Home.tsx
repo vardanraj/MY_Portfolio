@@ -20,54 +20,54 @@ export const Home: React.FC = () => {
           
           {/* STAT 1: Enterprise subnets */}
           <motion.div
-            whileHover={{ y: -5 }}
-            className="figma-glass-card p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between h-48 shadow-sm"
+            whileHover={{ y: -4 }}
+            className="figma-glass-card p-6 sm:p-8 rounded-xl relative overflow-hidden flex flex-col justify-between h-48 shadow-xs"
           >
             <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-              <Network className="w-32 h-32 text-accent-purple" />
+              <Network className="w-28 h-28 text-accent-purple" />
             </div>
             <div className="flex items-center gap-2 text-accent-purple text-xs font-mono tracking-wider uppercase">
               <Server className="w-4 h-4" />
               <span>Connectivity Scope</span>
             </div>
             <div>
-              <div className="text-4xl font-black font-display text-text-main mb-1 tracking-tight">99.99% <span className="text-sm text-accent-purple font-normal">Uptime</span></div>
+              <div className="text-3xl sm:text-4xl font-black font-display text-text-main mb-1 tracking-tight">99.99% <span className="text-sm text-accent-purple font-normal">Uptime</span></div>
               <p className="text-xs text-text-muted">Deploying highly resilient failsafe network architectures.</p>
             </div>
           </motion.div>
 
           {/* STAT 2: Brand assets */}
           <motion.div
-            whileHover={{ y: -5 }}
-            className="figma-glass-card p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between h-48 shadow-sm"
+            whileHover={{ y: -4 }}
+            className="figma-glass-card p-6 sm:p-8 rounded-xl relative overflow-hidden flex flex-col justify-between h-48 shadow-xs"
           >
             <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-              <Palette className="w-32 h-32 text-accent-cyan" />
+              <Palette className="w-28 h-28 text-accent-cyan" />
             </div>
             <div className="flex items-center gap-2 text-accent-cyan text-xs font-mono tracking-wider uppercase">
               <Layout className="w-4 h-4" />
               <span>Creative Quality</span>
             </div>
             <div>
-              <div className="text-4xl font-black font-display text-text-main mb-1 tracking-tight">100% <span className="text-sm text-accent-cyan font-normal">Fidelity</span></div>
-              <p className="text-xs text-text-muted">Bespoke Vector graphics, typography clamps, & layouts.</p>
+              <div className="text-3xl sm:text-4xl font-black font-display text-text-main mb-1 tracking-tight">100% <span className="text-sm text-accent-cyan font-normal">Fidelity</span></div>
+              <p className="text-xs text-text-muted">Bespoke Vector graphics, typography clamps, &amp; layouts.</p>
             </div>
           </motion.div>
 
           {/* STAT 3: Network Security */}
           <motion.div
-            whileHover={{ y: -5 }}
-            className="figma-glass-card p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between h-48 sm:col-span-2 lg:col-span-1 shadow-sm"
+            whileHover={{ y: -4 }}
+            className="figma-glass-card p-6 sm:p-8 rounded-xl relative overflow-hidden flex flex-col justify-between h-48 sm:col-span-2 lg:col-span-1 shadow-xs"
           >
             <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-              <Shield className="w-32 h-32 text-accent-pink" />
+              <Shield className="w-28 h-28 text-accent-pink" />
             </div>
             <div className="flex items-center gap-2 text-accent-pink text-xs font-mono tracking-wider uppercase">
               <Cpu className="w-4 h-4" />
               <span>Security Perimeter</span>
             </div>
             <div>
-              <div className="text-4xl font-black font-display text-text-main mb-1 tracking-tight">Zero <span className="text-sm text-accent-pink font-normal">Breach</span></div>
+              <div className="text-3xl sm:text-4xl font-black font-display text-text-main mb-1 tracking-tight">Zero <span className="text-sm text-accent-pink font-normal">Breach</span></div>
               <p className="text-xs text-text-muted">Strict zone segments, DMZ configs, and policy audits.</p>
             </div>
           </motion.div>

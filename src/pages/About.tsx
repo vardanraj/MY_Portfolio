@@ -27,22 +27,22 @@ export const About: React.FC = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="figma-glass-card p-6 sm:p-8 rounded-3xl relative overflow-hidden group shadow-lg"
+            className="figma-glass-card p-6 sm:p-8 rounded-xl relative overflow-hidden group shadow-xs"
           >
             {/* Ambient Background Gradient behind photo */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-accent-purple/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-accent-purple/5 rounded-full blur-3xl pointer-events-none" />
 
             {/* Avatar Frame with metallic gradient borders */}
-            <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-6 border border-white/10 group-hover:border-accent-cyan/40 transition-colors duration-500">
+            <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-6 border border-border-card group-hover:border-accent-cyan/30 transition-colors duration-300">
               <img
                 src={personalInfo.portraitUrl}
                 alt={personalInfo.name}
-                className="w-full h-full object-cover filter saturate-[0.85] group-hover:saturate-100 group-hover:scale-102 transition-all duration-700"
+                className="w-full h-full object-cover filter saturate-[0.9] group-hover:saturate-100 group-hover:scale-102 transition-all duration-500"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
               
-              <div className="absolute bottom-4 left-4 right-4 flex items-center gap-1.5 px-3 py-1 bg-bg-card border border-border-card rounded-full w-fit">
+              <div className="absolute bottom-3 left-3 right-3 flex items-center gap-1.5 px-3 py-1 bg-bg-card/90 backdrop-blur-md border border-border-card rounded-full w-fit">
                 <MapPin className="w-3 h-3 text-accent-cyan" />
                 <span className="text-[10px] text-text-main font-mono tracking-wide">{personalInfo.location}</span>
               </div>
@@ -76,9 +76,9 @@ export const About: React.FC = () => {
             <div className="space-y-3">
               <a
                 href={personalInfo.resumeUrl}
-                className="flex items-center justify-center gap-2 w-full py-3 bg-bg-secondary hover:bg-bg-card text-xs text-text-main font-mono rounded-xl border border-border-card transition-all"
+                className="flex items-center justify-center gap-2 w-full py-3 text-xs text-text-main font-mono rounded-xl clay-btn"
               >
-                <FileDown className="w-4 h-4" />
+                <FileDown className="w-4 h-4 text-accent-cyan" />
                 <span>Download CV</span>
               </a>
 
@@ -87,7 +87,7 @@ export const About: React.FC = () => {
                   href={personalInfo.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-10 h-10 flex items-center justify-center bg-bg-secondary border border-border-card hover:border-accent-purple/30 text-text-muted hover:text-text-main rounded-lg transition-colors"
+                  className="w-10 h-10 flex items-center justify-center text-text-muted hover:text-text-main rounded-xl clay-btn"
                 >
                   <Github className="w-4 h-4" />
                 </a>
@@ -95,13 +95,13 @@ export const About: React.FC = () => {
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-10 h-10 flex items-center justify-center bg-bg-secondary border border-border-card hover:border-accent-cyan/30 text-text-muted hover:text-text-main rounded-lg transition-colors"
+                  className="w-10 h-10 flex items-center justify-center text-text-muted hover:text-text-main rounded-xl clay-btn"
                 >
                   <Linkedin className="w-4 h-4" />
                 </a>
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="w-10 h-10 flex items-center justify-center bg-bg-secondary border border-border-card hover:border-accent-pink/30 text-text-muted hover:text-text-main rounded-lg transition-colors"
+                  className="w-10 h-10 flex items-center justify-center text-text-muted hover:text-text-main rounded-xl clay-btn"
                 >
                   <Mail className="w-4 h-4" />
                 </a>

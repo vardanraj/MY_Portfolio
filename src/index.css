@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 :root {
-  /* Default Dark Preference Variables - Sophisticated Cool-Matte Deep Purple Ebony */
+  /* Restore Original Dark Mode Color Palette */
   --bg-primary: #09080e;
   --bg-secondary: #100f17;
   --text-main: #e6e5f3;
@@ -17,7 +17,7 @@
   --glow-primary: rgba(108, 92, 231, 0.05);
   --glow-secondary: rgba(156, 141, 246, 0.03);
 
-  /* Sophisticated Slate Purple, Deep Matte Indigo, Muted Lavender, and Titanium Violet */
+  /* Original Accents: Slate Purple, Deep Indigo, Lavender, Titanium Violet */
   --accent-purple: #6c5ce7;
   --accent-pink: #3f2f8a;
   --accent-orange: #9c8df6;
@@ -28,53 +28,53 @@
   --accent-orange-rgb: 156, 141, 246;
   --accent-cyan-rgb: 178, 168, 252;
 
-  /* Claymorphism Defaults (Dark Mode) */
-  --clay-shadow-out: 0 12px 24px -10px rgba(0, 0, 0, 0.5), 0 24px 48px -18px rgba(0, 0, 0, 0.6);
-  --clay-shadow-in: inset 3px 3px 6px rgba(255, 255, 255, 0.06), inset -3px -3px 6px rgba(0, 0, 0, 0.35);
-  --clay-border: 1px solid rgba(255, 255, 255, 0.06);
-  --clay-radius: 1.75rem;
+  /* Refined Glass & Shadow System (Dark Mode) */
+  --glass-shadow-out: 0 8px 24px -4px rgba(0, 0, 0, 0.4), 0 2px 6px -1px rgba(0, 0, 0, 0.3);
+  --glass-shadow-in: inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  --glass-border: 1px solid rgba(124, 108, 246, 0.12);
+  --glass-radius: 1rem;
 }
 
 :root[data-theme='light'], .light {
-  --bg-primary: #fdfaf2; /* Soft rich cream base */
-  --bg-secondary: #faf1e4; /* Warm linen-taupe base */
-  --text-main: #3a2e2b; /* Deep roast espresso brown */
-  --text-muted: #7d6b67; /* Soft cocoa-taupe */
+  /* Restore Original Light Mode Color Palette */
+  --bg-primary: #fdfaf2;
+  --bg-secondary: #faf1e4;
+  --text-main: #3a2e2b;
+  --text-muted: #7d6b67;
   --border-card: rgba(100, 80, 75, 0.1);
   --bg-card: rgba(254, 252, 247, 0.9);
 
   --glow-primary: rgba(189, 92, 56, 0.05);
   --glow-secondary: rgba(140, 37, 36, 0.03);
 
-  /* Soothing elegant terracotta, crimson, cinnamon and amber accents for Light Mode */
-  --accent-purple: #ba4a2a; /* Soft terracotta orange-red */
-  --accent-pink: #a02c2b;   /* Soothing crimson red */
-  --accent-orange: #bd5c38; /* Warm terracotta */
-  --accent-cyan: #7c5135;   /* Cinnamon amber */
+  /* Original Light Mode Terracotta, Crimson, Cinnamon, Amber Accents */
+  --accent-purple: #ba4a2a;
+  --accent-pink: #a02c2b;
+  --accent-orange: #bd5c38;
+  --accent-cyan: #7c5135;
 
   --accent-purple-rgb: 186, 74, 42;
   --accent-pink-rgb: 160, 44, 43;
   --accent-orange-rgb: 189, 92, 56;
   --accent-cyan-rgb: 124, 81, 53;
 
-  /* Claymorphism Light Mode */
-  --clay-shadow-out: 0 10px 24px -10px rgba(100, 80, 75, 0.08), 0 20px 48px -18px rgba(100, 80, 75, 0.12);
-  --clay-shadow-in: inset 3px 3px 6px rgba(255, 255, 255, 0.95), inset -3px -3px 6px rgba(100, 80, 75, 0.06);
-  --clay-border: 1px solid rgba(100, 80, 75, 0.08);
+  /* Refined Glass & Shadow System (Light Mode) */
+  --glass-shadow-out: 0 8px 24px -4px rgba(100, 80, 75, 0.08), 0 2px 6px -1px rgba(100, 80, 75, 0.05);
+  --glass-shadow-in: inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+  --glass-border: 1px solid rgba(100, 80, 75, 0.1);
 }
 
 :root[data-theme='dark'], .dark {
-  --bg-primary: #09080e; /* Deep, luxury cool slate-purple ebony */
-  --bg-secondary: #100f17; /* Muted cool violet secondary */
-  --text-main: #e6e5f3; /* Soft cool-matte lavender white */
-  --text-muted: #83809c; /* Timeless cool slate purple gray */
-  --border-card: rgba(124, 108, 246, 0.12); /* Delicate metallic violet card outline */
-  --bg-card: rgba(16, 15, 23, 0.8); /* Rich premium cool violet card background */
+  --bg-primary: #09080e;
+  --bg-secondary: #100f17;
+  --text-main: #e6e5f3;
+  --text-muted: #83809c;
+  --border-card: rgba(124, 108, 246, 0.12);
+  --bg-card: rgba(16, 15, 23, 0.8);
 
-  --glow-primary: rgba(108, 92, 231, 0.05); /* Subtle ambient purple/violet mist */
-  --glow-secondary: rgba(156, 141, 246, 0.03); /* Polished steel-purple accent mist */
+  --glow-primary: rgba(108, 92, 231, 0.05);
+  --glow-secondary: rgba(156, 141, 246, 0.03);
 
-  /* Sophisticated Slate Purple, Deep Matte Indigo, Muted Lavender, and Titanium Violet */
   --accent-purple: #6c5ce7;
   --accent-pink: #3f2f8a;
   --accent-orange: #9c8df6;
@@ -85,15 +85,13 @@
   --accent-orange-rgb: 156, 141, 246;
   --accent-cyan-rgb: 178, 168, 252;
 
-  /* Claymorphism Dark Mode */
-  --clay-shadow-out: 0 12px 24px -10px rgba(0, 0, 0, 0.5), 0 24px 48px -18px rgba(0, 0, 0, 0.6);
-  --clay-shadow-in: inset 3px 3px 6px rgba(255, 255, 255, 0.06), inset -3px -3px 6px rgba(0, 0, 0, 0.35);
-  --clay-border: 1px solid rgba(255, 255, 255, 0.06);
+  --glass-shadow-out: 0 8px 24px -4px rgba(0, 0, 0, 0.4), 0 2px 6px -1px rgba(0, 0, 0, 0.3);
+  --glass-shadow-in: inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  --glass-border: 1px solid rgba(124, 108, 246, 0.12);
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    /* Auto Light Mode Adaptation Variables */
     --bg-primary: #fdfaf2;
     --bg-secondary: #faf1e4;
     --text-main: #3a2e2b;
@@ -114,10 +112,9 @@
     --accent-orange-rgb: 189, 92, 56;
     --accent-cyan-rgb: 124, 81, 53;
 
-    /* Claymorphism Light Mode */
-    --clay-shadow-out: 0 10px 24px -10px rgba(100, 80, 75, 0.08), 0 20px 48px -18px rgba(100, 80, 75, 0.12);
-    --clay-shadow-in: inset 3px 3px 6px rgba(255, 255, 255, 0.95), inset -3px -3px 6px rgba(100, 80, 75, 0.06);
-    --clay-border: 1px solid rgba(100, 80, 75, 0.08);
+    --glass-shadow-out: 0 8px 24px -4px rgba(100, 80, 75, 0.08), 0 2px 6px -1px rgba(100, 80, 75, 0.05);
+    --glass-shadow-in: inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+    --glass-border: 1px solid rgba(100, 80, 75, 0.1);
   }
 }
 
@@ -133,10 +130,10 @@
   --color-border-card: var(--border-card);
   --color-bg-card: var(--bg-card);
 
-  --color-accent-purple: var(--accent-purple, #6155f5);
-  --color-accent-pink: var(--accent-pink, #cb30e0);
-  --color-accent-orange: var(--accent-orange, #ff8d28);
-  --color-accent-cyan: var(--accent-cyan, #00c8b3);
+  --color-accent-purple: var(--accent-purple, #6c5ce7);
+  --color-accent-pink: var(--accent-pink, #3f2f8a);
+  --color-accent-orange: var(--accent-orange, #9c8df6);
+  --color-accent-cyan: var(--accent-cyan, #b2a8fc);
 }
 
 /* Custom Base Utilities */
@@ -146,43 +143,42 @@
     color: var(--text-main);
     font-family: var(--font-sans);
     overflow-x: hidden;
-    transition: background-color 0.4s ease, color 0.4s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  /* GPU-Accelerated Dynamic Glow tracked on mouse pointers */
+  /* GPU-Accelerated Subtle Ambient Glow */
   body::before {
     content: "";
     position: fixed;
     inset: 0;
     z-index: -1;
     background: 
-      radial-gradient(circle at var(--cursor-x) var(--cursor-y), var(--glow-primary) 0%, var(--glow-secondary) 32%, transparent 65%),
-      radial-gradient(circle at calc(100% - var(--cursor-x)) calc(100% - var(--cursor-y)), rgba(0, 200, 179, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at var(--cursor-x) var(--cursor-y), var(--glow-primary) 0%, var(--glow-secondary) 30%, transparent 60%),
       var(--bg-primary);
     pointer-events: none;
-    transition: background-color 0.4s ease;
+    transition: background-color 0.3s ease;
   }
 }
 
-/* Fluid typography clamp formulas to preserve perfect text-to-image ratios in laptops, tablets, and mobiles */
+/* Fluid typography clamp formulas */
 .text-fluid-h1 {
-  font-size: clamp(2.2rem, 5.5vw + 1rem, 4.5rem);
-  line-height: 1.1;
+  font-size: clamp(2.25rem, 5vw + 1rem, 4.25rem);
+  line-height: 1.12;
   font-family: var(--font-display);
 }
 
 .text-fluid-h2 {
-  font-size: clamp(1.8rem, 3.5vw + 0.8rem, 3.2rem);
+  font-size: clamp(1.75rem, 3vw + 0.75rem, 3rem);
   line-height: 1.2;
   font-family: var(--font-display);
 }
 
 .text-fluid-body {
-  font-size: clamp(0.95rem, 1vw + 0.5rem, 1.0625rem);
-  line-height: 1.6;
+  font-size: clamp(0.9375rem, 0.8vw + 0.5rem, 1.0625rem);
+  line-height: 1.625;
 }
 
-/* Flowing gradient texts matching Figma stoppages and angles */
+/* Flowing gradient texts matching theme stops */
 @keyframes gradientFlow {
   0% {
     background-position: 0% 50%;
@@ -213,11 +209,7 @@
   animation: gradientFlow 6s linear infinite;
 }
 
-/* Figma Vibrant Background Gradients & Metallic Glows */
-.figma-radial-glow {
-  background: radial-gradient(circle at 50% 50%, rgba(var(--accent-purple-rgb), 0.08) 0%, rgba(var(--accent-orange-rgb), 0.04) 40%, transparent 70%);
-}
-
+/* Figma & Glassmorphism Utilities */
 .figma-grad-text {
   background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-purple) 50%, var(--accent-cyan) 100%);
   -webkit-background-clip: text;
@@ -227,52 +219,149 @@
   animation: gradientFlow 8s ease infinite;
 }
 
-.figma-grad-border {
-  position: relative;
-  border-radius: 1rem;
-  background: var(--bg-secondary) padding-box,
-              linear-gradient(135deg, rgba(var(--accent-orange-rgb), 0.2), rgba(var(--accent-purple-rgb), 0.2), rgba(var(--accent-cyan-rgb), 0.2)) border-box;
-  border: 1px solid transparent;
-}
-
 .figma-glass-card {
   position: relative;
   overflow: hidden;
   background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: var(--clay-border);
-  border-radius: var(--clay-radius);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: var(--glass-border);
+  border-radius: var(--glass-radius);
   color: var(--text-main);
-  box-shadow: var(--clay-shadow-out), var(--clay-shadow-in);
-  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.clay-btn {
-  border: var(--clay-border);
-  border-radius: 1.25rem;
-  font-weight: 600;
-  box-shadow: var(--clay-shadow-out), var(--clay-shadow-in);
+  box-shadow: var(--glass-shadow-out), var(--glass-shadow-in);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.clay-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.15), var(--clay-shadow-in);
+.figma-glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.35), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
 }
 
-.clay-btn:active {
-  transform: translateY(1px) scale(0.98);
-  box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.1), var(--clay-shadow-in);
+.light .figma-glass-card:hover {
+  border-color: rgba(15, 23, 42, 0.15);
+  box-shadow: 0 12px 32px -4px rgba(15, 23, 42, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
 }
 
-.clay-badge {
-  border: var(--clay-border);
+/* Hybrid Glass + Claymorphism Button System (90% Glass, 10% Clay) */
+.clay-btn, .hybrid-btn {
+  position: relative;
+  border: var(--glass-border);
+  border-radius: 0.875rem;
+  font-weight: 600;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 
+    0 4px 14px -2px rgba(0, 0, 0, 0.32),
+    0 2px 6px -1px rgba(0, 0, 0, 0.18),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.25);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.clay-btn:hover, .hybrid-btn:hover {
+  transform: translateY(-2px) scale(1.015);
+  filter: brightness(1.05);
+  border-color: rgba(var(--accent-purple-rgb), 0.35);
+  box-shadow: 
+    0 8px 24px -4px rgba(0, 0, 0, 0.42),
+    0 4px 10px -2px rgba(0, 0, 0, 0.22),
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.light .clay-btn, .light .hybrid-btn {
+  box-shadow: 
+    0 4px 14px -2px rgba(100, 80, 75, 0.08),
+    0 2px 6px -1px rgba(100, 80, 75, 0.04),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1.5px 2px 0 rgba(100, 80, 75, 0.08);
+}
+
+.light .clay-btn:hover, .light .hybrid-btn:hover {
+  border-color: rgba(100, 80, 75, 0.22);
+  box-shadow: 
+    0 8px 22px -4px rgba(100, 80, 75, 0.14),
+    0 4px 10px -2px rgba(100, 80, 75, 0.08),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 2px 0 rgba(100, 80, 75, 0.06);
+}
+
+.clay-btn:active, .hybrid-btn:active {
+  transform: translateY(0px) scale(0.985);
+  filter: brightness(0.97);
+  box-shadow: 
+    0 2px 4px -1px rgba(0, 0, 0, 0.35),
+    inset 0 1.5px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.light .clay-btn:active, .light .hybrid-btn:active {
+  box-shadow: 
+    0 2px 4px -1px rgba(100, 80, 75, 0.1),
+    inset 0 1.5px 3px 0 rgba(100, 80, 75, 0.12);
+}
+
+/* Primary CTA Button (Hybrid Glass + Clay Gradient) */
+.clay-btn-primary, .hybrid-btn-primary {
+  position: relative;
+  background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-orange) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 0.875rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 
+    0 6px 18px -3px rgba(var(--accent-purple-rgb), 0.38),
+    0 2px 6px -1px rgba(0, 0, 0, 0.25),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.45),
+    inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.25);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.clay-btn-primary:hover, .hybrid-btn-primary:hover {
+  transform: translateY(-2px) scale(1.015);
+  filter: brightness(1.08);
+  box-shadow: 
+    0 10px 28px -4px rgba(var(--accent-purple-rgb), 0.48),
+    0 4px 12px -2px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.clay-btn-primary:active, .hybrid-btn-primary:active {
+  transform: translateY(0px) scale(0.985);
+  filter: brightness(0.95);
+  box-shadow: 
+    0 2px 6px -1px rgba(var(--accent-purple-rgb), 0.3),
+    inset 0 1.5px 3px 0 rgba(0, 0, 0, 0.35);
+}
+
+/* Tactile Glass Badges & Filter Chips */
+.clay-badge, .clay-chip {
+  border: var(--glass-border);
   border-radius: 0.75rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03), inset 1px 1px 2px rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 
+    0 2px 6px rgba(0, 0, 0, 0.08),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.clay-chip:hover {
+  transform: translateY(-1.5px) scale(1.01);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.14),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .figma-glass-card::before {
@@ -288,7 +377,7 @@
   background-attachment: fixed;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.4s ease;
   z-index: 5;
 }
 
@@ -296,22 +385,19 @@
   opacity: 1;
 }
 
-.figma-active-glow {
-  box-shadow: 0 0 25px -4px rgba(var(--accent-orange-rgb), 0.3);
-}
-
-/* Scrollbar Design */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(var(--accent-purple-rgb), 0.15);
-  border-radius: 4px;
+  background: rgba(var(--accent-purple-rgb), 0.2);
+  border-radius: 3px;
   transition: background-color 0.3s;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(var(--accent-purple-rgb), 0.3);
+  background: rgba(var(--accent-purple-rgb), 0.4);
 }
+

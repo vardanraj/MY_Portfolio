@@ -46,8 +46,8 @@ export const Certificates: React.FC = () => {
 
       {/* OVERVIEW STATS BOX */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10" id="certificates-stats-row">
-        <div className="figma-glass-card p-4 sm:p-5 rounded-2xl border border-border-card bg-bg-card/30 flex items-center gap-4">
-          <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-500">
+        <div className="figma-glass-card p-4 sm:p-5 rounded-xl border border-border-card bg-bg-card/40 flex items-center gap-4">
+          <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-500">
             <GraduationCap className="w-5 h-5" />
           </div>
           <div>
@@ -56,8 +56,8 @@ export const Certificates: React.FC = () => {
           </div>
         </div>
 
-        <div className="figma-glass-card p-4 sm:p-5 rounded-2xl border border-border-card bg-bg-card/30 flex items-center gap-4">
-          <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-500">
+        <div className="figma-glass-card p-4 sm:p-5 rounded-xl border border-border-card bg-bg-card/40 flex items-center gap-4">
+          <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-500">
             <ShieldCheck className="w-5 h-5" />
           </div>
           <div>
@@ -66,8 +66,8 @@ export const Certificates: React.FC = () => {
           </div>
         </div>
 
-        <div className="figma-glass-card p-4 sm:p-5 rounded-2xl border border-border-card bg-bg-card/30 flex items-center gap-4">
-          <div className="p-3 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-500">
+        <div className="figma-glass-card p-4 sm:p-5 rounded-xl border border-border-card bg-bg-card/40 flex items-center gap-4">
+          <div className="p-3 rounded-lg bg-indigo-500/10 border border-indigo-500/20 text-indigo-500">
             <Calendar className="w-5 h-5" />
           </div>
           <div>

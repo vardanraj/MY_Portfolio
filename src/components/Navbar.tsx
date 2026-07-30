@@ -64,7 +64,7 @@ export const Navbar: React.FC = () => {
         id="navbar-header"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'py-3 bg-bg-primary/83 backdrop-blur-md border-b border-border-card'
+            ? 'py-3 bg-bg-card/80 backdrop-blur-md border-b border-border-card/60 shadow-sm'
             : 'py-5 bg-transparent border-b border-transparent'
         }`}
       >
@@ -78,7 +78,7 @@ export const Navbar: React.FC = () => {
           >
             <div className="relative w-10 h-10 flex items-center justify-center">
               {/* Glowing Background Ring */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-accent-purple via-accent-cyan to-accent-pink rounded-xl opacity-60 group-hover:opacity-100 transition-opacity duration-300 blur-sm group-hover:blur-md" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-accent-purple via-accent-cyan to-accent-pink rounded-xl opacity-40 group-hover:opacity-80 transition-opacity duration-300 blur-xs group-hover:blur-sm" />
               {/* Inner card with crisp outline holding figma image */}
               <div className="absolute inset-[1px] bg-bg-primary rounded-xl flex items-center justify-center border border-white/10 shadow-inner p-1">
                 <img 
@@ -101,7 +101,7 @@ export const Navbar: React.FC = () => {
             </div>
             
             <div className="flex flex-col">
-              <span className="font-display font-bold text-sm tracking-widest text-text-main leading-none group-hover:bg-gradient-to-r group-hover:from-accent-purple group-hover:to-accent-cyan group-hover:bg-clip-text group-hover:text-transparent transition-all">
+              <span className="font-display font-bold text-sm tracking-widest text-text-main leading-none group-hover:text-accent-cyan transition-colors">
                 VARDAN RAJ
               </span>
               <span className="font-mono text-[9px] text-text-muted tracking-wider mt-0.5 uppercase">
@@ -111,14 +111,14 @@ export const Navbar: React.FC = () => {
           </Link>
 
           {/* DESKTOP DESIGNS */}
-          <nav id="desktop-nav" className="hidden md:flex items-center gap-1.5 bg-bg-card/90 p-1.5 rounded-full border border-border-card figma-glass-card">
+          <nav id="desktop-nav" className="hidden md:flex items-center gap-1 bg-bg-card/80 backdrop-blur-md px-1.5 py-1.5 rounded-full border border-border-card shadow-sm">
             {NAV_ITEMS.map((item) => {
               const isActive = location.pathname === item.path;
               return (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`relative px-4 py-1.5 text-xs font-display font-medium tracking-wide transition-colors duration-300 rounded-full focus:outline-none ${
+                  className={`relative px-4 py-1.5 text-xs font-display font-medium tracking-wide transition-colors duration-200 rounded-full focus:outline-none ${
                     isActive ? 'text-text-main font-semibold' : 'text-text-muted hover:text-text-main'
                   }`}
                 >
@@ -126,8 +126,8 @@ export const Navbar: React.FC = () => {
                   {isActive && (
                     <motion.div
                       layoutId="activeTabIndicator"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                      className="absolute inset-0 bg-bg-secondary/80 border border-border-card rounded-full shadow-inner"
+                      transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+                      className="absolute inset-0 bg-bg-secondary border border-border-card rounded-full shadow-xs"
                       style={{ originY: '0px' }}
                     />
                   )}
