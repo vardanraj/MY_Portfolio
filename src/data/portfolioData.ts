@@ -1,15 +1,15 @@
 import { Project, Skill, TimelineEvent, GalleryItem, CertificateItem } from '../types';
-import MyPhoto from '../images/my-photo.webp';
-import AgtGridImg from '../images/agt-grid.webp';
-import CreativeTourismImg from '../images/creative-tourism.webp';
-import BrandArtworkImg from '../images/brand-artwork.webp';
+import MyPhoto from '../images/MY_photo (2).png';
+import GridImg from '../images/grid.png';
+import CreativeTourismImg from '../images/creative-tourism.png';
+import SaveNatureImg from '../images/save-nature.png';
 
-import CertNetworkingBasics from '../images/certificates/networking-basics.webp';
-import CertGraphicInternship from '../images/certificates/graphic-internship-certificate.webp';
-import CertLaunchedProgram from '../images/certificates/launched-certificate.webp';
-import CertDeloitte from '../images/deloitte-cert-thumb.webp';
-import CertGoldmanSachs from '../images/goldman-sachs-cert-thumb.webp';
-import CertTata from '../images/tata-cert-thumb.webp';
+import CertNetworkingBasics from '../images/certificates/networking-basics-thumb.png';
+import CertGraphicInternship from '../images/graphic-internship-certificate.png';
+import CertLaunchedProgram from '../images/launched-certificate.png';
+import CertDeloitte from '../images/deloitte-cert-thumb.png';
+import CertGoldmanSachs from '../images/goldman-sachs-cert-thumb.png';
+import CertTata from '../images/tata-cert-thumb.png';
 
 export const personalInfo = {
   name: 'Vardan Raj',
@@ -70,7 +70,7 @@ export const projectsData: Project[] = [
     description: 'An expert-grade telemetry and packet inspection interface engineered to intercept and map virtual network frames. Parses HTTP, TCP, and IP protocol packets in real-time.',
     category: 'Network Engineering',
     tags: ['Wireshark SDK', 'Packet Capture', 'TCP/IP Stack', 'DNS Inspect'],
-    image: AgtGridImg,
+    image: GridImg,
     link: 'https://github.com/VardanRaj/packet-analyser',
     github: 'https://github.com/VardanRaj/packet-analyser',
     details: [
@@ -102,7 +102,7 @@ export const projectsData: Project[] = [
     description: 'A graphic design system establishing Swiss grid layouts, bespoke typography, and campaign asset guidelines for corporate and university festivals.',
     category: 'Graphic Design',
     tags: ['Adobe Illustrator', 'Swiss Grid', 'Brand Identity', 'Typography'],
-    image: BrandArtworkImg,
+    image: SaveNatureImg,
     link: 'https://github.com/VardanRaj',
     github: 'https://github.com/VardanRaj',
     details: [
@@ -256,6 +256,32 @@ const mappings: Record<string, Partial<GalleryItem>> = {
       'Optimized vector shapes for crisp rendering on high-DPI displays.',
       'Applied balanced color harmony and focal point weighting.'
     ]
+  },
+  'ff result saarang': {
+    title: 'Saarang Free Fire Championship',
+    subtitle: 'Esports Tournament Leaderboard Poster',
+    description: 'A high-octane esports tournament winner announcement poster designed for Saarang Free Fire Championship. Features bold typography, high-contrast leaderboard slots, and glowing cyber accents.',
+    category: 'Poster Art',
+    tools: ['Adobe Illustrator', 'Photoshop'],
+    specs: 'Esports Banner / 4K',
+    details: [
+      'Engineered dynamic leaderboards with high-contrast rank slots.',
+      'Applied glowing neon cyber accents and custom typography hierarchy.',
+      'Optimized for social media sharing and mobile viewing.'
+    ]
+  },
+  'ff-result-saarang': {
+    title: 'Saarang Free Fire Championship',
+    subtitle: 'Esports Tournament Leaderboard Poster',
+    description: 'A high-octane esports tournament winner announcement poster designed for Saarang Free Fire Championship. Features bold typography, high-contrast leaderboard slots, and glowing cyber accents.',
+    category: 'Poster Art',
+    tools: ['Adobe Illustrator', 'Photoshop'],
+    specs: 'Esports Banner / 4K',
+    details: [
+      'Engineered dynamic leaderboards with high-contrast rank slots.',
+      'Applied glowing neon cyber accents and custom typography hierarchy.',
+      'Optimized for social media sharing and mobile viewing.'
+    ]
   }
 };
 
@@ -282,6 +308,8 @@ export const galleryData: GalleryItem[] = Object.entries(imageModules)
       filename.includes('launched') ||
       filename.includes('networking-basics') ||
       filename.includes('screenshot') ||
+      filename.includes('pdf') ||
+      pathKey.endsWith('.pdf') ||
       filename.includes('150910') ||
       filename.includes('150933') ||
       filename.includes('1584');
@@ -289,7 +317,7 @@ export const galleryData: GalleryItem[] = Object.entries(imageModules)
   })
   .map(([pathKey, imageUrl]) => {
     const filename = getCleanFileName(pathKey);
-    const matched = mappings[filename] || {};
+    const matched = mappings[filename.toLowerCase()] || mappings[filename] || {};
 
     return {
       id: filename.toLowerCase().replace(/[^a-z0-9_-]/g, '-'),

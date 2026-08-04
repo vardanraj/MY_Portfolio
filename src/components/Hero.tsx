@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowRight, Network, Server, Shield, Activity, Radio, Cpu, Layers } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
-import GridImg from '../images/grid.webp';
+import GridImg from '../images/grid.png';
 
 export const Hero: React.FC = () => {
   return (

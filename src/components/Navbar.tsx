@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Github, Linkedin, Mail, Sun, Moon } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
-import MyPhoto from '../images/my-photo.webp';
+import MyPhoto from '../images/MY_photo (2).png';
 
 const NAV_ITEMS = [
   { path: '/', label: 'Home' },

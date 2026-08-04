@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
-  Maximize2, X, Sparkles, ChevronLeft, ChevronRight, Award, Check, FileText, Download, Eye 
+  Maximize2, X, Sparkles, ChevronLeft, ChevronRight, Award, Check, FileText, Download, Eye, Layers, Grid, Sliders
 } from 'lucide-react';
 import { DesignAssetRenderer } from './UploadedDesigns';
 
@@ -10,71 +10,216 @@ interface InteractiveGalleryProps {
   type: 'gallery' | 'certificates';
 }
 
-// 1. High-fidelity Dynamic Academic & Corporate Certificate Preview Card
-const CertificateDocRenderer: React.FC<{
-  id: string;
-  title: string;
-  issuer: string;
-  year: string;
-  skills: string[];
-}> = ({ id, title, issuer, year, skills }) => {
+// 3D Coverflow Stack Component
+const CoverflowStack: React.FC<{
+  items: any[];
+  onSelect: (item: any, index: number) => void;
+  type: 'gallery' | 'certificates';
+}> = ({ items, onSelect, type }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  if (!items || items.length === 0) return null;
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + items.length) % items.length);
+  };
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % items.length);
+  };
+
+  const activeItem = items[activeIndex];
+
   return (
-    <div className="relative w-full h-full flex flex-col justify-between p-4 sm:p-5 select-none text-left overflow-hidden rounded-xl border border-amber-900/15 bg-[#faf6f2] dark:bg-[#121214] dark:border-amber-500/20 font-sans shadow-inner">
-      {/* Decorative parchment line container */}
-      <div className="absolute inset-2 border border-dashed border-amber-900/10 dark:border-amber-400/10 pointer-events-none rounded-lg" />
-      
-      {/* Subtle background credential watermark */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] dark:opacity-[0.05] pointer-events-none">
-        <svg className="w-32 h-32 fill-current text-amber-950 dark:text-amber-400 rotate-12" viewBox="0 0 100 100">
-          <polygon points="50,15 85,35 85,75 50,95 15,75 15,35" stroke="currentColor" strokeWidth="2" fill="none" />
-        </svg>
-      </div>
-
-      {/* Issuing Stream Header */}
-      <div className="flex items-center justify-between z-10 w-full">
-        <span className="font-mono text-[7.5px] sm:text-[8px] text-amber-900/80 dark:text-amber-400 font-extrabold tracking-widest uppercase">
-          {issuer} CREDENTIAL
-        </span>
-        <span className="text-[11px] text-amber-600/80 dark:text-amber-400 animate-pulse">✦</span>
-      </div>
-
-      {/* Graduate/Simulation Core Section */}
-      <div className="text-center my-auto z-10 flex flex-col justify-center gap-0.5">
-        <span className="font-serif italic text-[8.5px] text-amber-950/50 dark:text-slate-400 leading-none">
-          This certifies that student of engineering
-        </span>
-        <h4 className="font-display font-black text-[13px] uppercase tracking-wide text-amber-950 dark:text-white">
-          Vardan Raj
-        </h4>
-        <span className="font-serif italic text-[8px] sm:text-[8.5px] text-amber-950/50 dark:text-slate-450 leading-none my-0.5">
-          successfully concluded the verified curriculum for
-        </span>
-        <h3 className="font-sans font-bold text-[10.5px] sm:text-[11px] leading-tight text-amber-900 dark:text-amber-300 max-w-[95%] mx-auto">
-          {title}
-        </h3>
-      </div>
-
-      {/* Verification Parameters Seal */}
-      <div className="flex items-end justify-between z-10 border-t border-amber-950/5 dark:border-slate-800 pt-2 text-[7px]" id={`seal-box-${id}`}>
-        <div className="flex items-center gap-1.5">
-          <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#ba4a2a] to-[#8d6e63] dark:from-amber-500 dark:to-amber-600 flex items-center justify-center text-white font-bold shadow-md">
-            <span className="text-[7.5px]">✓</span>
+    <div className="w-full my-6 p-4 sm:p-8 rounded-3xl bg-bg-card/60 border border-border-card/80 backdrop-blur-md shadow-lg overflow-hidden relative" id="coverflow-viewer">
+      {/* Header section badge */}
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+        <div>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-primary/10 border border-accent-primary/20 text-xs font-mono font-bold text-accent-primary uppercase tracking-widest mb-1" style={{ color: 'var(--accent-primary)' }}>
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>🎨 Coverflow 3D Rotation</span>
           </div>
-          <div className="font-mono text-amber-950/50 dark:text-slate-400 leading-tight text-[6px]" id={`seal-cred-${id}`}>
-            <div className="font-bold text-amber-800 dark:text-amber-400 uppercase">VERIFIED RECORD</div>
-            <div className="uppercase">FORAGE NETWORK {year}</div>
-          </div>
+          <h3 className="text-xl sm:text-2xl font-black font-display text-text-main">
+            Interactive Showcase Stack
+          </h3>
+          <p className="text-xs text-text-muted mt-0.5">
+            Slide and tilt through uploaded {type === 'gallery' ? 'graphic design assets' : 'verified credentials'}
+          </p>
         </div>
 
-        {/* Dynamic skills tagged taglines */}
-        <div className="flex gap-1 justify-end max-w-[50%]">
-          {skills?.slice(0, 2).map((sk) => (
-            <span key={sk} className="px-1.5 py-0.5 rounded bg-amber-950/5 text-amber-900 dark:bg-amber-500/10 dark:text-amber-300 border border-amber-900/10 dark:border-amber-400/20 text-[6.5px]">
-              {sk}
-            </span>
-          ))}
+        {/* Navigation Controls */}
+        <div className="flex items-center gap-3">
+          <span className="text-xs font-mono text-text-muted">
+            <strong className="text-text-main">{activeIndex + 1}</strong> / {items.length}
+          </span>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handlePrev}
+              className="p-2.5 rounded-xl bg-bg-secondary border border-border-card text-text-main hover:border-accent-primary transition-all clay-btn cursor-pointer"
+              aria-label="Previous Coverflow item"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              onClick={handleNext}
+              className="p-2.5 rounded-xl bg-bg-secondary border border-border-card text-text-main hover:border-accent-primary transition-all clay-btn cursor-pointer"
+              aria-label="Next Coverflow item"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* 3D Coverflow Stage Container */}
+      <div className="relative w-full h-[320px] sm:h-[400px] md:h-[450px] flex items-center justify-center perspective-[1000px] overflow-visible py-4">
+        <div className="relative w-full max-w-3xl h-full flex items-center justify-center">
+          {items.map((item, index) => {
+            const offset = index - activeIndex;
+            const absOffset = Math.abs(offset);
+
+            // Hide cards beyond distance of 3
+            if (absOffset > 3) return null;
+
+            // Compute 3D Coverflow Transformations
+            const rotateY = offset === 0 ? 0 : offset > 0 ? -38 : 38;
+            const translateX = offset === 0 ? 0 : offset > 0 ? offset * 140 + 80 : offset * 140 - 80;
+            const scale = offset === 0 ? 1 : Math.max(0.65, 0.82 - (absOffset - 1) * 0.12);
+            const zIndex = 30 - absOffset * 5;
+            const opacity = offset === 0 ? 1 : Math.max(0.3, 0.85 - (absOffset - 1) * 0.25);
+
+            const hasCustomImage = item.image && item.image.startsWith('custom:');
+            const customDesignId = hasCustomImage ? item.image.replace('custom:', '') : null;
+
+            return (
+              <motion.div
+                key={item.id || index}
+                onClick={() => {
+                  if (offset === 0) {
+                    onSelect(item, index);
+                  } else {
+                    setActiveIndex(index);
+                  }
+                }}
+                initial={false}
+                animate={{
+                  x: translateX,
+                  rotateY: rotateY,
+                  scale: scale,
+                  opacity: opacity,
+                  z: -absOffset * 100,
+                }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 260,
+                  damping: 26,
+                }}
+                style={{
+                  zIndex,
+                  position: 'absolute',
+                  transformStyle: 'preserve-3d',
+                }}
+                className={`w-[260px] sm:w-[360px] md:w-[420px] aspect-[4/3] rounded-2xl overflow-hidden border border-border-card/90 bg-[#faf6f2] dark:bg-slate-950 shadow-2xl cursor-pointer group transition-shadow duration-300 ${
+                  offset === 0 ? 'ring-2 ring-accent-primary/50 shadow-accent-primary/10' : ''
+                }`}
+              >
+                {/* Image Container with aspect ratio preservation */}
+                <div className="w-full h-full p-3 sm:p-4 flex items-center justify-center relative overflow-hidden bg-[#faf6f2] dark:bg-slate-950">
+                  {hasCustomImage && customDesignId ? (
+                    <DesignAssetRenderer id={customDesignId} />
+                  ) : item.image && !item.image.endsWith('.mp4') ? (
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="max-w-full max-h-full object-contain rounded-xl shadow-sm transition-transform duration-500 group-hover:scale-105"
+                      referrerPolicy="no-referrer"
+                    />
+                  ) : item.image && item.image.endsWith('.mp4') ? (
+                    <video
+                      src={item.image}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="max-w-full max-h-full object-contain rounded-xl"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center p-4 bg-amber-50 dark:bg-slate-900 rounded-xl">
+                      <Award className="w-12 h-12 text-amber-500" />
+                    </div>
+                  )}
+
+                  {/* Top Badge */}
+                  <div className="absolute top-3 right-3 z-10">
+                    <span className="px-2.5 py-1 rounded-full text-[9px] font-mono tracking-wider uppercase font-bold bg-bg-secondary/90 text-text-main border border-border-card shadow-sm backdrop-blur-md">
+                      {type === 'gallery' ? item.category : item.issuer}
+                    </span>
+                  </div>
+
+                  {/* Active Card Hover Glow */}
+                  {offset === 0 && (
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-xs">
+                      <div className="px-4 py-2 rounded-2xl bg-bg-card/95 border border-border-card text-text-main font-mono text-xs font-bold tracking-wider flex items-center gap-2 shadow-xl">
+                        <Maximize2 className="w-4 h-4 text-accent-primary" style={{ color: 'var(--accent-primary)' }} />
+                        <span>Inspect Fullscreen</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Active Coverflow Detail Panel */}
+      {activeItem && (
+        <motion.div
+          key={activeItem.id || activeIndex}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="mt-6 p-5 sm:p-6 bg-bg-secondary/40 border border-border-card rounded-2xl backdrop-blur-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
+        >
+          <div className="flex-grow max-w-3xl">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="font-mono text-[10px] text-accent-primary font-bold uppercase tracking-wider" style={{ color: 'var(--accent-primary)' }}>
+                {type === 'gallery' ? activeItem.subtitle : `${activeItem.issuer} • ${activeItem.year}`}
+              </span>
+            </div>
+            <h4 className="text-lg sm:text-xl font-bold font-display text-text-main">
+              {activeItem.title}
+            </h4>
+            {activeItem.description && (
+              <p className="text-xs sm:text-sm text-text-muted mt-1 leading-relaxed font-sans line-clamp-2">
+                {activeItem.description}
+              </p>
+            )}
+          </div>
+
+          <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
+            {activeItem.pdfUrl && (
+              <a
+                href={activeItem.pdfUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2.5 rounded-xl bg-accent-primary/10 border border-accent-primary/30 text-accent-primary hover:bg-accent-primary/20 transition-all font-mono text-xs font-bold flex items-center gap-2"
+                style={{ color: 'var(--accent-primary)' }}
+              >
+                <FileText className="w-4 h-4" />
+                <span>View PDF</span>
+              </a>
+            )}
+            <button
+              onClick={() => onSelect(activeItem, activeIndex)}
+              className="px-5 py-2.5 rounded-xl clay-btn-primary text-xs font-mono font-bold flex items-center gap-2"
+            >
+              <Maximize2 className="w-4 h-4" />
+              <span>Inspect Details</span>
+            </button>
+          </div>
+        </motion.div>
+      )}
     </div>
   );
 };
@@ -129,7 +274,7 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
     <div className="w-full font-sans" id={`interactive-${type}-root`}>
       
       {/* 1. SUBCATEGORY FILTER BAR */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8" id={`controls-header-${type}`}>
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6" id={`controls-header-${type}`}>
         <div className="flex flex-wrap items-center gap-2 bg-bg-card/30 p-1.5 rounded-2xl border border-border-card/60 backdrop-blur-md">
           {subCategories.map((sub) => (
             <button
@@ -157,10 +302,29 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
         </div>
       </div>
 
-      {/* 2. RESPONSIVE GALLERY GRID */}
+      {/* 2. 🎨 COVERFLOW ROTATION STACK SHOWCASE */}
+      {filteredItems.length > 0 && (
+        <CoverflowStack
+          items={filteredItems}
+          type={type}
+          onSelect={(item, index) => setLightboxIndex(index)}
+        />
+      )}
+
+      {/* 3. RESPONSIVE GALLERY GRID */}
+      <div className="mt-12 mb-6 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Grid className="w-4 h-4 text-accent-primary" style={{ color: 'var(--accent-primary)' }} />
+          <h3 className="text-base font-bold font-display text-text-main uppercase tracking-wider text-xs">
+            {type === 'gallery' ? 'Design Grid Index' : 'Certificates Grid Index'}
+          </h3>
+        </div>
+        <span className="text-xs font-mono text-text-muted">Responsive Layout</span>
+      </div>
+
       {filteredItems.length === 0 ? (
         <div className="w-full text-center py-12 bg-bg-card/10 rounded-2xl border border-dashed border-border-card" id={`no-matches-${type}`}>
-          <p className="text-xs text-text-muted font-sans">No items match the selected sub-filter.</p>
+          <p className="text-xs text-text-muted font-sans">No items match the selected filter.</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id={`grid-panel-${type}`}>
@@ -177,11 +341,11 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
                 exit={{ opacity: 0, y: 16 }}
                 transition={{ duration: 0.3, delay: index * 0.04 }}
                 onClick={() => setLightboxIndex(index)}
-                className="group relative figma-glass-card rounded-xl overflow-hidden border border-border-card bg-bg-card/80 hover:bg-bg-card/95 shadow-sm hover:shadow-md hover:border-accent-purple/30 transition-all duration-300 flex flex-col justify-between cursor-pointer"
+                className="group relative figma-glass-card rounded-2xl overflow-hidden border border-border-card/90 bg-bg-card/80 hover:bg-bg-card/95 shadow-sm hover:shadow-md hover:border-accent-primary/40 transition-all duration-300 flex flex-col justify-between cursor-pointer"
                 id={`card-${item.id}`}
               >
-                {/* THUMBNAIL IMAGE FRAME - PRESERVES ASPECT RATIO WITHOUT CROP */}
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#faf6f2] dark:bg-slate-950 border-b border-border-card flex items-center justify-center p-2">
+                {/* THUMBNAIL IMAGE FRAME - PRESERVES ASPECT RATIO & CENTERS IMAGE */}
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#faf6f2] dark:bg-slate-950 border-b border-border-card flex items-center justify-center p-3 sm:p-4">
                   
                   {/* Category / Issuer Badge */}
                   <div className="absolute top-3 right-3 z-10">
@@ -190,50 +354,44 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
                     </span>
                   </div>
 
-                  {/* Render Thumbnail Image / Component */}
+                  {/* Render Thumbnail Image */}
                   {hasCustomImage && customDesignId ? (
                     <div className="w-full h-full group-hover:scale-105 transition-transform duration-500 rounded-xl overflow-hidden shadow-sm">
                       <DesignAssetRenderer id={customDesignId} />
                     </div>
-                  ) : item.image === '' || !item.image ? (
-                    <div className="w-full h-full group-hover:scale-105 transition-transform duration-500 rounded-xl overflow-hidden shadow-sm">
-                      <CertificateDocRenderer
-                        id={item.id}
-                        title={item.title}
-                        issuer={item.issuer}
-                        year={item.year}
-                        skills={item.skills}
-                      />
-                    </div>
-                  ) : item.image.endsWith('.mp4') || item.image.includes('.mp4') ? (
+                  ) : item.image && !item.image.endsWith('.mp4') ? (
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="max-w-full max-h-full object-contain rounded-xl shadow-xs group-hover:scale-105 transition-transform duration-500"
+                      referrerPolicy="no-referrer"
+                      loading="lazy"
+                    />
+                  ) : item.image && item.image.endsWith('.mp4') ? (
                     <video
                       src={item.image}
                       muted
                       loop
                       autoPlay
                       playsInline
-                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 rounded-xl"
+                      className="max-w-full max-h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500"
                     />
                   ) : (
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 rounded-xl"
-                      referrerPolicy="no-referrer"
-                      loading="lazy"
-                    />
+                    <div className="w-full h-full flex items-center justify-center bg-amber-50 dark:bg-slate-900 rounded-xl">
+                      <Award className="w-10 h-10 text-amber-500" />
+                    </div>
                   )}
 
                   {/* HOVER OVERLAY WITH SUBTLE GLOW & INSPECT TRIGGER */}
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 backdrop-blur-xs">
                     <div className="px-4 py-2 rounded-2xl bg-bg-card/90 border border-border-card text-text-main font-mono text-xs font-bold tracking-wider flex items-center gap-2 shadow-lg group-hover:scale-105 transition-transform">
-                      <Eye className="w-4 h-4 text-accent-cyan" style={{ color: 'var(--accent-primary)' }} />
+                      <Eye className="w-4 h-4 text-accent-primary" style={{ color: 'var(--accent-primary)' }} />
                       <span>Inspect Details</span>
                     </div>
                   </div>
                 </div>
 
-                {/* THUMBNAIL CONTENT BODY */}
+                {/* CARD CONTENT BODY */}
                 <div className="p-5 flex flex-col flex-grow justify-between gap-3">
                   <div>
                     <h3 className="text-base sm:text-lg font-bold font-display text-text-main group-hover:text-accent-primary transition-colors line-clamp-1">
@@ -243,7 +401,7 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
                       {type === 'gallery' ? item.subtitle : `${item.issuer} • ${item.year}`}
                     </span>
                     {item.description && (
-                      <p className="text-xs text-text-muted/80 line-clamp-2 mt-2 leading-relaxed font-sans">
+                      <p className="text-xs text-text-muted/80 line-clamp-3 mt-2 leading-relaxed font-sans">
                         {item.description}
                       </p>
                     )}
@@ -264,21 +422,21 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
 
                 {/* CARD FOOTER */}
                 <div className="px-5 py-3 bg-bg-secondary/40 border-t border-border-card/60 flex items-center justify-between text-[10px] font-mono">
-                  <span className="text-text-muted/70 uppercase">
-                    {type === 'gallery' ? (item.specs || 'Vector / Print') : 'Verified Credential'}
+                  <span className="text-text-muted/70 uppercase truncate max-w-[40%]">
+                    {type === 'gallery' ? (item.specs || 'Vector Graphic') : 'Verified Credential'}
                   </span>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 shrink-0">
                     {item.pdfUrl && (
                       <a
                         href={item.pdfUrl}
                         target="_blank"
                         rel="noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="px-2.5 py-1 rounded-lg bg-accent-primary/10 text-accent-primary border border-accent-primary/20 hover:bg-accent-primary/20 transition-all font-bold flex items-center gap-1"
+                        className="px-3 py-1.5 rounded-xl bg-accent-primary/10 text-accent-primary border border-accent-primary/30 hover:bg-accent-primary/20 transition-all font-bold flex items-center gap-1.5 shadow-xs"
                         style={{ color: 'var(--accent-primary)' }}
                       >
-                        <FileText className="w-3 h-3" />
-                        <span>PDF</span>
+                        <FileText className="w-3.5 h-3.5" />
+                        <span>View PDF</span>
                       </a>
                     )}
                     <button
@@ -286,9 +444,9 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
                         e.stopPropagation();
                         setLightboxIndex(index);
                       }}
-                      className="px-2.5 py-1 rounded-lg text-text-main font-bold flex items-center gap-1 clay-btn"
+                      className="px-3 py-1.5 rounded-xl text-text-main font-bold flex items-center gap-1 clay-btn"
                     >
-                      <Maximize2 className="w-3 h-3 text-accent-cyan" />
+                      <Maximize2 className="w-3.5 h-3.5" />
                       <span>Inspect</span>
                     </button>
                   </div>
@@ -299,7 +457,7 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
         </div>
       )}
 
-      {/* 3. LIGHTBOX MODAL PREVIEW */}
+      {/* 4. LIGHTBOX MODAL PREVIEW */}
       <AnimatePresence>
         {currentLightboxItem && (
           <motion.div
@@ -358,19 +516,14 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
                       <DesignAssetRenderer id={currentLightboxItem.image.replace('custom:', '')} isLightbox />
                     </div>
                   </div>
-                ) : currentLightboxItem.image === '' || !currentLightboxItem.image ? (
-                  <div className="w-full h-full max-h-[420px] flex items-center justify-center p-2 rounded-2xl">
-                    <div className="w-full max-w-md aspect-[4/3] rounded-xl overflow-hidden shadow-md">
-                      <CertificateDocRenderer
-                        id={currentLightboxItem.id}
-                        title={currentLightboxItem.title}
-                        issuer={currentLightboxItem.issuer}
-                        year={currentLightboxItem.year}
-                        skills={currentLightboxItem.skills}
-                      />
-                    </div>
-                  </div>
-                ) : currentLightboxItem.image.endsWith('.mp4') || currentLightboxItem.image.includes('.mp4') ? (
+                ) : currentLightboxItem.image && !currentLightboxItem.image.endsWith('.mp4') ? (
+                  <img
+                    src={currentLightboxItem.image}
+                    alt={currentLightboxItem.title}
+                    className="w-full max-h-[420px] object-contain rounded-xl shadow-sm"
+                    referrerPolicy="no-referrer"
+                  />
+                ) : currentLightboxItem.image && currentLightboxItem.image.endsWith('.mp4') ? (
                   <video
                     src={currentLightboxItem.image}
                     controls
@@ -380,12 +533,9 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
                     className="w-full max-h-[420px] object-contain rounded-xl shadow-sm"
                   />
                 ) : (
-                  <img
-                    src={currentLightboxItem.image}
-                    alt={currentLightboxItem.title}
-                    className="w-full max-h-[420px] object-contain rounded-xl shadow-sm"
-                    referrerPolicy="no-referrer"
-                  />
+                  <div className="w-full h-full flex items-center justify-center bg-amber-50 dark:bg-slate-900 rounded-2xl">
+                    <Award className="w-16 h-16 text-amber-500" />
+                  </div>
                 )}
               </div>
 
@@ -461,11 +611,11 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
                       href={currentLightboxItem.pdfUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="w-full py-2.5 hover:brightness-110 text-white font-mono text-[10.5px] font-bold tracking-wider uppercase rounded-xl flex items-center justify-center gap-1.5 transition-all hover:scale-[1.01] active:scale-95 shadow-md text-center"
-                      style={{ background: 'linear-gradient(135deg, #ba4a2a 0%, #8d6e63 100%)' }}
+                      className="w-full py-3 hover:brightness-110 text-white font-mono text-xs font-bold tracking-wider uppercase rounded-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-95 shadow-md text-center"
+                      style={{ background: 'linear-gradient(135deg, #ba4a2a 0%, #bd5c38 100%)' }}
                     >
-                      <Download className="w-4 h-4 shrink-0" />
-                      <span>Open Verified PDF Document</span>
+                      <FileText className="w-4 h-4 shrink-0" />
+                      <span>View Verified PDF Document</span>
                     </a>
                   </div>
                 )}
