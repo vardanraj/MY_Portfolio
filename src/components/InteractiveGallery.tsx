@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
-  Maximize2, X, Sparkles, ChevronLeft, ChevronRight, Award, Check, FileText, Download, Eye, Layers, Grid, Sliders
+  Maximize2, X, Sparkles, ChevronLeft, ChevronRight, Award, Check, FileText, Eye, Grid
 } from 'lucide-react';
 import { DesignAssetRenderer } from './UploadedDesigns';
 
@@ -9,220 +9,6 @@ interface InteractiveGalleryProps {
   items: any[];
   type: 'gallery' | 'certificates';
 }
-
-// 3D Coverflow Stack Component
-const CoverflowStack: React.FC<{
-  items: any[];
-  onSelect: (item: any, index: number) => void;
-  type: 'gallery' | 'certificates';
-}> = ({ items, onSelect, type }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  if (!items || items.length === 0) return null;
-
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + items.length) % items.length);
-  };
-
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % items.length);
-  };
-
-  const activeItem = items[activeIndex];
-
-  return (
-    <div className="w-full my-6 p-4 sm:p-8 rounded-3xl bg-bg-card/60 border border-border-card/80 backdrop-blur-md shadow-lg overflow-hidden relative" id="coverflow-viewer">
-      {/* Header section badge */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
-        <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-primary/10 border border-accent-primary/20 text-xs font-mono font-bold text-accent-primary uppercase tracking-widest mb-1" style={{ color: 'var(--accent-primary)' }}>
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>🎨 Coverflow 3D Rotation</span>
-          </div>
-          <h3 className="text-xl sm:text-2xl font-black font-display text-text-main">
-            Interactive Showcase Stack
-          </h3>
-          <p className="text-xs text-text-muted mt-0.5">
-            Slide and tilt through uploaded {type === 'gallery' ? 'graphic design assets' : 'verified credentials'}
-          </p>
-        </div>
-
-        {/* Navigation Controls */}
-        <div className="flex items-center gap-3">
-          <span className="text-xs font-mono text-text-muted">
-            <strong className="text-text-main">{activeIndex + 1}</strong> / {items.length}
-          </span>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={handlePrev}
-              className="p-2.5 rounded-xl bg-bg-secondary border border-border-card text-text-main hover:border-accent-primary transition-all clay-btn cursor-pointer"
-              aria-label="Previous Coverflow item"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <button
-              onClick={handleNext}
-              className="p-2.5 rounded-xl bg-bg-secondary border border-border-card text-text-main hover:border-accent-primary transition-all clay-btn cursor-pointer"
-              aria-label="Next Coverflow item"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* 3D Coverflow Stage Container */}
-      <div className="relative w-full h-[320px] sm:h-[400px] md:h-[450px] flex items-center justify-center perspective-[1000px] overflow-visible py-4">
-        <div className="relative w-full max-w-3xl h-full flex items-center justify-center">
-          {items.map((item, index) => {
-            const offset = index - activeIndex;
-            const absOffset = Math.abs(offset);
-
-            // Hide cards beyond distance of 3
-            if (absOffset > 3) return null;
-
-            // Compute 3D Coverflow Transformations
-            const rotateY = offset === 0 ? 0 : offset > 0 ? -38 : 38;
-            const translateX = offset === 0 ? 0 : offset > 0 ? offset * 140 + 80 : offset * 140 - 80;
-            const scale = offset === 0 ? 1 : Math.max(0.65, 0.82 - (absOffset - 1) * 0.12);
-            const zIndex = 30 - absOffset * 5;
-            const opacity = offset === 0 ? 1 : Math.max(0.3, 0.85 - (absOffset - 1) * 0.25);
-
-            const hasCustomImage = item.image && item.image.startsWith('custom:');
-            const customDesignId = hasCustomImage ? item.image.replace('custom:', '') : null;
-
-            return (
-              <motion.div
-                key={item.id || index}
-                onClick={() => {
-                  if (offset === 0) {
-                    onSelect(item, index);
-                  } else {
-                    setActiveIndex(index);
-                  }
-                }}
-                initial={false}
-                animate={{
-                  x: translateX,
-                  rotateY: rotateY,
-                  scale: scale,
-                  opacity: opacity,
-                  z: -absOffset * 100,
-                }}
-                transition={{
-                  type: 'spring',
-                  stiffness: 260,
-                  damping: 26,
-                }}
-                style={{
-                  zIndex,
-                  position: 'absolute',
-                  transformStyle: 'preserve-3d',
-                }}
-                className={`w-[260px] sm:w-[360px] md:w-[420px] aspect-[4/3] rounded-2xl overflow-hidden border border-border-card/90 bg-[#faf6f2] dark:bg-slate-950 shadow-2xl cursor-pointer group transition-shadow duration-300 ${
-                  offset === 0 ? 'ring-2 ring-accent-primary/50 shadow-accent-primary/10' : ''
-                }`}
-              >
-                {/* Image Container with aspect ratio preservation */}
-                <div className="w-full h-full p-3 sm:p-4 flex items-center justify-center relative overflow-hidden bg-[#faf6f2] dark:bg-slate-950">
-                  {hasCustomImage && customDesignId ? (
-                    <DesignAssetRenderer id={customDesignId} />
-                  ) : item.image && !item.image.endsWith('.mp4') ? (
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="max-w-full max-h-full object-contain rounded-xl shadow-sm transition-transform duration-500 group-hover:scale-105"
-                      referrerPolicy="no-referrer"
-                    />
-                  ) : item.image && item.image.endsWith('.mp4') ? (
-                    <video
-                      src={item.image}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="max-w-full max-h-full object-contain rounded-xl"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center p-4 bg-amber-50 dark:bg-slate-900 rounded-xl">
-                      <Award className="w-12 h-12 text-amber-500" />
-                    </div>
-                  )}
-
-                  {/* Top Badge */}
-                  <div className="absolute top-3 right-3 z-10">
-                    <span className="px-2.5 py-1 rounded-full text-[9px] font-mono tracking-wider uppercase font-bold bg-bg-secondary/90 text-text-main border border-border-card shadow-sm backdrop-blur-md">
-                      {type === 'gallery' ? item.category : item.issuer}
-                    </span>
-                  </div>
-
-                  {/* Active Card Hover Glow */}
-                  {offset === 0 && (
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-xs">
-                      <div className="px-4 py-2 rounded-2xl bg-bg-card/95 border border-border-card text-text-main font-mono text-xs font-bold tracking-wider flex items-center gap-2 shadow-xl">
-                        <Maximize2 className="w-4 h-4 text-accent-primary" style={{ color: 'var(--accent-primary)' }} />
-                        <span>Inspect Fullscreen</span>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Active Coverflow Detail Panel */}
-      {activeItem && (
-        <motion.div
-          key={activeItem.id || activeIndex}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="mt-6 p-5 sm:p-6 bg-bg-secondary/40 border border-border-card rounded-2xl backdrop-blur-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
-        >
-          <div className="flex-grow max-w-3xl">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="font-mono text-[10px] text-accent-primary font-bold uppercase tracking-wider" style={{ color: 'var(--accent-primary)' }}>
-                {type === 'gallery' ? activeItem.subtitle : `${activeItem.issuer} • ${activeItem.year}`}
-              </span>
-            </div>
-            <h4 className="text-lg sm:text-xl font-bold font-display text-text-main">
-              {activeItem.title}
-            </h4>
-            {activeItem.description && (
-              <p className="text-xs sm:text-sm text-text-muted mt-1 leading-relaxed font-sans line-clamp-2">
-                {activeItem.description}
-              </p>
-            )}
-          </div>
-
-          <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
-            {activeItem.pdfUrl && (
-              <a
-                href={activeItem.pdfUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="px-4 py-2.5 rounded-xl bg-accent-primary/10 border border-accent-primary/30 text-accent-primary hover:bg-accent-primary/20 transition-all font-mono text-xs font-bold flex items-center gap-2"
-                style={{ color: 'var(--accent-primary)' }}
-              >
-                <FileText className="w-4 h-4" />
-                <span>View PDF</span>
-              </a>
-            )}
-            <button
-              onClick={() => onSelect(activeItem, activeIndex)}
-              className="px-5 py-2.5 rounded-xl clay-btn-primary text-xs font-mono font-bold flex items-center gap-2"
-            >
-              <Maximize2 className="w-4 h-4" />
-              <span>Inspect Details</span>
-            </button>
-          </div>
-        </motion.div>
-      )}
-    </div>
-  );
-};
 
 export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, type }) => {
   const [activeSubFilter, setActiveSubFilter] = useState<string>('All');
@@ -274,8 +60,8 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
     <div className="w-full font-sans" id={`interactive-${type}-root`}>
       
       {/* 1. SUBCATEGORY FILTER BAR */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6" id={`controls-header-${type}`}>
-        <div className="flex flex-wrap items-center gap-2 bg-bg-card/30 p-1.5 rounded-2xl border border-border-card/60 backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8" id={`controls-header-${type}`}>
+        <div className="flex flex-wrap items-center gap-2 bg-bg-card/40 p-2 rounded-2xl border border-border-card/80 backdrop-blur-md shadow-xs">
           {subCategories.map((sub) => (
             <button
               key={sub}
@@ -297,33 +83,15 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
           ))}
         </div>
 
-        <div className="text-xs font-mono text-text-muted">
-          Showing <span className="font-bold text-text-main">{filteredItems.length}</span> {type === 'gallery' ? 'works' : 'credentials'}
+        <div className="text-xs font-mono text-text-muted flex items-center gap-2">
+          <Grid className="w-3.5 h-3.5 text-accent-primary" style={{ color: 'var(--accent-primary)' }} />
+          <span>Showing <strong className="text-text-main font-bold">{filteredItems.length}</strong> {type === 'gallery' ? 'works' : 'credentials'}</span>
         </div>
       </div>
 
-      {/* 2. 🎨 COVERFLOW ROTATION STACK SHOWCASE */}
-      {filteredItems.length > 0 && (
-        <CoverflowStack
-          items={filteredItems}
-          type={type}
-          onSelect={(item, index) => setLightboxIndex(index)}
-        />
-      )}
-
-      {/* 3. RESPONSIVE GALLERY GRID */}
-      <div className="mt-12 mb-6 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Grid className="w-4 h-4 text-accent-primary" style={{ color: 'var(--accent-primary)' }} />
-          <h3 className="text-base font-bold font-display text-text-main uppercase tracking-wider text-xs">
-            {type === 'gallery' ? 'Design Grid Index' : 'Certificates Grid Index'}
-          </h3>
-        </div>
-        <span className="text-xs font-mono text-text-muted">Responsive Layout</span>
-      </div>
-
+      {/* 2. RESPONSIVE GALLERY GRID */}
       {filteredItems.length === 0 ? (
-        <div className="w-full text-center py-12 bg-bg-card/10 rounded-2xl border border-dashed border-border-card" id={`no-matches-${type}`}>
+        <div className="w-full text-center py-16 bg-bg-card/10 rounded-2xl border border-dashed border-border-card" id={`no-matches-${type}`}>
           <p className="text-xs text-text-muted font-sans">No items match the selected filter.</p>
         </div>
       ) : (
@@ -341,10 +109,10 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
                 exit={{ opacity: 0, y: 16 }}
                 transition={{ duration: 0.3, delay: index * 0.04 }}
                 onClick={() => setLightboxIndex(index)}
-                className="group relative figma-glass-card rounded-2xl overflow-hidden border border-border-card/90 bg-bg-card/80 hover:bg-bg-card/95 shadow-sm hover:shadow-md hover:border-accent-primary/40 transition-all duration-300 flex flex-col justify-between cursor-pointer"
+                className="group relative figma-glass-card rounded-2xl overflow-hidden border border-border-card/90 bg-bg-card/80 hover:bg-bg-card/95 shadow-sm hover:shadow-xl hover:shadow-accent-primary/10 hover:border-accent-primary/50 transition-all duration-300 flex flex-col justify-between cursor-pointer"
                 id={`card-${item.id}`}
               >
-                {/* THUMBNAIL IMAGE FRAME - PRESERVES ASPECT RATIO & CENTERS IMAGE */}
+                {/* THUMBNAIL IMAGE FRAME - PRESERVES ASPECT RATIO */}
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#faf6f2] dark:bg-slate-950 border-b border-border-card flex items-center justify-center p-3 sm:p-4">
                   
                   {/* Category / Issuer Badge */}
@@ -383,8 +151,8 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
                   )}
 
                   {/* HOVER OVERLAY WITH SUBTLE GLOW & INSPECT TRIGGER */}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 backdrop-blur-xs">
-                    <div className="px-4 py-2 rounded-2xl bg-bg-card/90 border border-border-card text-text-main font-mono text-xs font-bold tracking-wider flex items-center gap-2 shadow-lg group-hover:scale-105 transition-transform">
+                  <div className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 backdrop-blur-xs">
+                    <div className="px-4 py-2 rounded-2xl bg-bg-card/95 border border-border-card text-text-main font-mono text-xs font-bold tracking-wider flex items-center gap-2 shadow-lg group-hover:scale-105 transition-transform">
                       <Eye className="w-4 h-4 text-accent-primary" style={{ color: 'var(--accent-primary)' }} />
                       <span>Inspect Details</span>
                     </div>
@@ -457,7 +225,7 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
         </div>
       )}
 
-      {/* 4. LIGHTBOX MODAL PREVIEW */}
+      {/* 3. LIGHTBOX MODAL PREVIEW */}
       <AnimatePresence>
         {currentLightboxItem && (
           <motion.div
@@ -481,7 +249,7 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
               <button
                 id="lightbox-close-btn"
                 onClick={() => setLightboxIndex(null)}
-                className="absolute top-4 right-4 z-20 text-text-muted hover:text-text-main p-2 rounded-full cursor-pointer focus:outline-none clay-btn"
+                className="absolute top-4 right-4 z-20 text-text-muted hover:text-text-main p-2 rounded-full cursor-pointer focus:outline-none clay-btn bg-bg-card/80 border border-border-card"
                 aria-label="Close Lightbox"
               >
                 <X className="w-4 h-4" />
@@ -492,7 +260,7 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
                 <>
                   <button
                     onClick={handlePrevLightbox}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full text-text-main cursor-pointer clay-btn"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full text-text-main cursor-pointer clay-btn bg-bg-card/80 border border-border-card"
                     aria-label="Previous image"
                   >
                     <ChevronLeft className="w-5 h-5" />
@@ -500,7 +268,7 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
 
                   <button
                     onClick={handleNextLightbox}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full text-text-main cursor-pointer clay-btn"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full text-text-main cursor-pointer clay-btn bg-bg-card/80 border border-border-card"
                     aria-label="Next image"
                   >
                     <ChevronRight className="w-5 h-5" />
@@ -508,7 +276,7 @@ export const InteractiveGallery: React.FC<InteractiveGalleryProps> = ({ items, t
                 </>
               )}
 
-              {/* MEDIA PREVIEW VIEWPORT - NO CROPPING / PRESERVES ASPECT RATIO */}
+              {/* MEDIA PREVIEW VIEWPORT - PRESERVES ASPECT RATIO */}
               <div className="w-full md:w-[50%] bg-[#faf6f2] dark:bg-slate-950 flex items-center justify-center border-b md:border-b-0 md:border-r border-border-card max-h-[45vh] md:max-h-none overflow-hidden relative min-h-[280px] md:min-h-[420px] p-4">
                 {currentLightboxItem.image && currentLightboxItem.image.startsWith('custom:') ? (
                   <div className="w-full h-full max-h-[420px] flex items-center justify-center p-2 rounded-2xl">

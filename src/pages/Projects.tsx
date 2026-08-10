@@ -64,12 +64,14 @@ const PacketAnalyserCard: React.FC<{ project: Project; onInspect: () => void }> 
       <div>
         {/* Cover image Frame with interactive digital layer */}
         <div className="relative aspect-[16/10] overflow-hidden bg-bg-primary border-b border-border-card">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700 brightness-[0.88] opacity-75"
-            referrerPolicy="no-referrer"
-          />
+          {project.image && (
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700 brightness-[0.88] opacity-75"
+              referrerPolicy="no-referrer"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-bg-secondary via-transparent to-transparent opacity-95" />
           
           {/* Subtle Live stream overlays directly on the layout cover! */}
@@ -297,7 +299,7 @@ export const Projects: React.FC = () => {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
               id="projects-gallery-grid"
             >
-              {/* Card 1: Packet Analyser (Real Project) */}
+              {/* Card 1: Net Observer (Real Project) */}
               {projectsData
                 .filter((p) => p.id === 'packet-analyser')
                 .map((project) => (
@@ -442,14 +444,16 @@ export const Projects: React.FC = () => {
                 </div>
 
                 {/* Banner Image */}
-                <div className="w-full aspect-video rounded-2xl overflow-hidden border border-border-card bg-bg-primary">
-                  <img
-                    src={selectedProject.image}
-                    alt={selectedProject.title}
-                    className="w-full h-full object-cover brightness-[0.9] opacity-80"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
+                {selectedProject.image && (
+                  <div className="w-full aspect-video rounded-2xl overflow-hidden border border-border-card bg-bg-primary">
+                    <img
+                      src={selectedProject.image}
+                      alt={selectedProject.title}
+                      className="w-full h-full object-cover brightness-[0.9] opacity-80"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                )}
 
                 {/* Summary descriptive panel */}
                 <div>

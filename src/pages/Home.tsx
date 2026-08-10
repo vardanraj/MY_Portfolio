@@ -154,13 +154,15 @@ export const Home: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="group relative figma-glass-card rounded-2xl overflow-hidden border border-border-card flex flex-col justify-between bg-bg-card/40"
           >
-            {/* Visual simulation header for Packet Analyser */}
+            {/* Visual simulation header for Net Observer */}
             <div className="relative aspect-[16/10] overflow-hidden bg-zinc-950 border-b border-border-card">
-              <img
-                src={projectsData[0].image}
-                alt="Packet Analyser Cover"
-                className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-700 opacity-70"
-              />
+              {projectsData[0].image && (
+                <img
+                  src={projectsData[0].image}
+                  alt="Net Observer Cover"
+                  className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-700 opacity-70"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-bg-secondary via-transparent to-transparent opacity-95" />
               
               <div className="absolute inset-x-3 bottom-3 bg-black/75 rounded-lg p-2.5 flex items-center justify-between font-mono text-[9px] border border-white/5">
@@ -180,7 +182,7 @@ export const Home: React.FC = () => {
             <div className="p-6 sm:p-8 flex flex-col flex-grow">
               <span className="font-mono text-[10px] text-accent-cyan uppercase tracking-wider mb-1 block">// Real packet diagnostic engine</span>
               <h3 className="text-xl font-bold font-display text-text-main mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-accent-cyan group-hover:to-accent-purple transition-all duration-300">
-                Packet Analyser
+                Net Observer
               </h3>
               <p className="text-sm text-text-muted mb-6 flex-grow leading-relaxed font-sans">
                 An expert-grade telemetry and packet inspection interface engineered to intercept, decode, and map virtual network frames from HTTP, TCP, and IP protocols on local subnets.

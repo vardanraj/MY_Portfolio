@@ -66,13 +66,13 @@ export const skillsData: Skill[] = [
 export const projectsData: Project[] = [
   {
     id: 'packet-analyser',
-    title: 'Packet Analyser',
+    title: 'Net Observer',
     description: 'An expert-grade telemetry and packet inspection interface engineered to intercept and map virtual network frames. Parses HTTP, TCP, and IP protocol packets in real-time.',
     category: 'Network Engineering',
     tags: ['Wireshark SDK', 'Packet Capture', 'TCP/IP Stack', 'DNS Inspect'],
-    image: GridImg,
-    link: 'https://github.com/VardanRaj/packet-analyser',
-    github: 'https://github.com/VardanRaj/packet-analyser',
+    image: '',
+    link: 'https://net-observer.onrender.com',
+    github: 'https://github.com/vardanraj/PacketTracer',
     details: [
       'Captures and decodes active header information including protocol parameters, TTL flags, ports, and checksum indices.',
       'Constructs dynamic throughput metrics and telemetry reports mapping package traffic frequencies.',
@@ -180,9 +180,9 @@ const mappings: Record<string, Partial<GalleryItem>> = {
     ]
   },
   'grid': {
-    title: 'Swiss Grid Typography Poster',
+    title: 'Guide Grid ',
     subtitle: 'System-Symmetric Poster Grid',
-    description: 'A design layout engineering study applying strict International Typographic Style guidelines to grid metrics, technical annotations, and balanced negative-space alignment structures.',
+    description: 'A design layout  guidelines to the players',
     category: 'Technical Graphics',
     tools: ['Figma Layouts', 'Adobe Illustrator', 'Vector Math'],
     specs: 'Scale-Free SVG Source / Responsive Icons',
